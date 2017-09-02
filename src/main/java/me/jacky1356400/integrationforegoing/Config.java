@@ -44,7 +44,7 @@ public class Config {
         thermalFoundationIntegration = cfg.getBoolean("thermalFoundationIntegration", CATEGORY_INTEGRATIONS, true, "If true, enables Thermal Foundation integration");
         strawEnderRange = cfg.getInt("strawEnderRange", CATEGORY_TF, 16384, 64, 65536,
                 "This number determines the teleportation range for drinking Resonant Ender.\n"
-                        + "Range calculation method:"
+                        + "Range calculation method:\n"
                         + "Player's X / Z position - (this number clamped between 8 and 65536) + (this number clamped between 8 and 65536) * 2"
         );
     }
