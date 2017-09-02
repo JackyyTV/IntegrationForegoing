@@ -1,0 +1,80 @@
+buildscript {
+    repositories {
+        jcenter()
+        maven { url = "http://files.minecraftforge.net/maven" }
+    }
+    dependencies {
+        classpath 'net.minecraftforge.gradle:ForgeGradle:2.3-SNAPSHOT'
+    }
+}
+apply plugin: 'net.minecraftforge.gradle.forge'
+//Only edit below this line, the above code adds and enables the necessary things for Forge to be setup.
+
+version = "${mc_version}-${mod_version}"
+group = "me.jacky1356400.integrationforegoing"
+archivesBaseName = "IntegrationForegoing"
+
+sourceCompatibility = targetCompatibility = "1.8"
+compileJava {
+    sourceCompatibility = targetCompatibility = "1.8"
+}
+
+minecraft {
+    version = "${forge_version}"
+    runDir = "run"
+    mappings = "${mappings_version}"
+}
+
+repositories {
+    maven {
+        url "http://dvs1.progwml6.com/files/maven"
+    }
+    maven {
+        url "http://maven.epoxide.xyz"
+    }
+    maven {
+        url "http://maven.amadornes.com/"
+    }
+	/*
+	maven {
+		url  "http://tehnut.info/maven"
+	}
+	*/
+	maven {
+        url "http://maven.tterrag.com"
+    }
+	maven {
+		url  "http://dyonovan.com/maven2"
+	}
+	maven {
+        name = "CoFH Maven"
+        url = "http://maven.covers1624.net"
+    }
+	maven {
+		url  "http://maven.blamejared.com/"
+	}
+	maven {
+		url  "http://maven.ndrei.net"
+	}
+}
+
+dependencies {
+	compile files('libs/')
+	deobfCompile "mezz.jei:jei_1.12:4.7.+:api"
+	//deobfCompile "mcp.mobius.waila:Hwyla:1.8.20-B35_1.12:api"
+	//runtime "mcp.mobius.waila:Hwyla:1.8.20-B35_1.12"
+	deobfCompile "mcjty.theoneprobe:TheOneProbe-1.12:1.12-1.4.+"
+	deobfCompile "com.buuz135.industrial.IndustrialForegoing:industrialforegoing:1.12-1.2-45"
+}
+
+processResources {
+    inputs.property "version", project.version
+    inputs.property "mcversion", project.minecraft.version
+    from(sourceSets.main.resources.srcDirs) {
+        include 'mcmod.info'
+        expand 'version':project.version, 'mcversion':project.minecraft.version
+    }
+    from(sourceSets.main.resources.srcDirs) {
+        exclude 'mcmod.info'
+    }
+}
