@@ -1,6 +1,6 @@
 package me.jacky1356400.integrationforegoing.proxy;
 
-import com.buuz135.industrial.utils.StrawUtils;
+import com.buuz135.industrial.api.fluid.StrawHelper;
 import me.jacky1356400.integrationforegoing.Config;
 import me.jacky1356400.integrationforegoing.IntegrationForegoing;
 import me.jacky1356400.integrationforegoing.straw.immersiveengineering.*;
@@ -32,28 +32,28 @@ public class CommonProxy {
 	    if (Config.thermalFoundationIntegration) {
 	        if (Loader.isModLoaded("thermalfoundation")) {
                 IntegrationForegoing.logger.info("Registering drink handlers for Thermal Foundation...");
-                StrawUtils.register("aerotheum", new DrinkHandlerAerotheum());
-                StrawUtils.register("coal", new DrinkHandlerCoal());
-                StrawUtils.register("crude_oil", new DrinkHandlerCrudeOil());
-                StrawUtils.register("cryotheum", new DrinkHandlerCryotheum());
-                StrawUtils.register("ender", new DrinkHandlerEnder());
-                StrawUtils.register("glowstone", new DrinkHandlerGlowstone());
-                StrawUtils.register("mana", new DrinkHandlerMana());
-                StrawUtils.register("petrotheum", new DrinkHandlerPetrotheum());
-                StrawUtils.register("pyrotheum", new DrinkHandlerPyrotheum());
-                StrawUtils.register("redstone", new DrinkHandlerRedstone());
-                StrawUtils.register("steam", new DrinkHandlerSteam());
+                StrawHelper.register("aerotheum", new DrinkHandlerAerotheum());
+                StrawHelper.register("coal", new DrinkHandlerCoal());
+                StrawHelper.register("crude_oil", new DrinkHandlerCrudeOil());
+                StrawHelper.register("cryotheum", new DrinkHandlerCryotheum());
+                StrawHelper.register("ender", new DrinkHandlerEnder());
+                StrawHelper.register("glowstone", new DrinkHandlerGlowstone());
+                StrawHelper.register("mana", new DrinkHandlerMana());
+                StrawHelper.register("petrotheum", new DrinkHandlerPetrotheum());
+                StrawHelper.register("pyrotheum", new DrinkHandlerPyrotheum());
+                StrawHelper.register("redstone", new DrinkHandlerRedstone());
+                StrawHelper.register("steam", new DrinkHandlerSteam());
                 IntegrationForegoing.logger.info("Registered drink handlers for Thermal Foundation");
             }
         }
         if (Config.immersiveEngineeringIntegration) {
 	        if (Loader.isModLoaded("immersiveengineering")) {
                 IntegrationForegoing.logger.info("Registering drink handlers for Immersive Engineering...");
-	            StrawUtils.register("biodiesel", new DrinkHandlerBiodiesel());
-                StrawUtils.register("concrete", new DrinkHandlerConcrete());
-                StrawUtils.register("creosote", new DrinkHandlerCreosoteOil());
-                StrawUtils.register("ethanol", new DrinkHandlerEthanol());
-                StrawUtils.register("plantoil", new DrinkHandlerPlantOil());
+	            StrawHelper.register("biodiesel", new DrinkHandlerBiodiesel());
+                StrawHelper.register("concrete", new DrinkHandlerConcrete());
+                StrawHelper.register("creosote", new DrinkHandlerCreosoteOil());
+                StrawHelper.register("ethanol", new DrinkHandlerEthanol());
+                StrawHelper.register("plantoil", new DrinkHandlerPlantOil());
                 IntegrationForegoing.logger.info("Registered drink handlers for Immersive Engineering");
             }
         }
