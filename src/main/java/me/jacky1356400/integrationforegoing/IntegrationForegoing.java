@@ -19,7 +19,7 @@ public class IntegrationForegoing {
     public static final String GUIFACTORY = "me.jacky1356400.integrationforegoing.ConfigGuiFactory";
     public static final String PROXY = "me.jacky1356400.integrationforegoing.proxy";
 
-	public static Logger logger = LogManager.getLogger("IntegrationForegoing");
+	public static Logger logger = LogManager.getLogger(MODNAME);
 
 	@SidedProxy(serverSide = IntegrationForegoing.PROXY + ".CommonProxy", clientSide = IntegrationForegoing.PROXY + ".ClientProxy")
 	public static CommonProxy proxy;

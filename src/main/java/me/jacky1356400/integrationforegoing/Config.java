@@ -14,6 +14,7 @@ public class Config {
     private static final String CATEGORY_TF = "thermal foundation";
 
     public static boolean thermalFoundationIntegration;
+    public static boolean immersiveEngineeringIntegration;
     public static int strawEnderRange;
 
     public static void readConfig() {
@@ -42,10 +43,11 @@ public class Config {
 
     private static void initConfig(Configuration cfg) {
         thermalFoundationIntegration = cfg.getBoolean("thermalFoundationIntegration", CATEGORY_INTEGRATIONS, true, "If true, enables Thermal Foundation integration");
+        immersiveEngineeringIntegration = cfg.getBoolean("immersiveEngineeringIntegration", CATEGORY_INTEGRATIONS, true, "If true, enables Immersive Engineering Integration");
         strawEnderRange = cfg.getInt("strawEnderRange", CATEGORY_TF, 16384, 64, 65536,
                 "This number determines the teleportation range for drinking Resonant Ender.\n"
                         + "Range calculation method:\n"
-                        + "Player's X / Z position - (this number clamped between 8 and 65536) + (this number clamped between 8 and 65536) * 2"
+                        + "Player's X / Z position - (this number clamped between 8 and 65536) + (this number clamped between 8 and 65536) * 2\n"
         );
     }
 

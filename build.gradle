@@ -27,42 +27,43 @@ minecraft {
 
 repositories {
     maven {
-        url "http://dvs1.progwml6.com/files/maven"
+		name = "JEI Maven"
+        url = "http://dvs1.progwml6.com/files/maven"
     }
     maven {
-        url "http://maven.epoxide.xyz"
+		name = "Tesla Maven"
+        url = "http://maven.epoxide.xyz"
     }
-    maven {
-        url "http://maven.amadornes.com/"
-    }
-	/*
 	maven {
-		url  "http://tehnut.info/maven"
+		name = "HWYLA Maven"
+		url = "http://tehnut.info/maven"
 	}
-	*/
 	maven {
-        url "http://maven.tterrag.com"
+		name = "TOP Maven"
+        url = "http://maven.tterrag.com"
     }
 	maven {
-		url  "http://dyonovan.com/maven2"
+		name = "Industrial Foregoing Maven"
+		url = "http://dyonovan.com/maven2"
 	}
 	maven {
         name = "CoFH Maven"
         url = "http://maven.covers1624.net"
     }
 	maven {
-		url  "http://maven.blamejared.com/"
+		name = "CraftTweaker Maven"
+		url = "http://maven.blamejared.com/"
 	}
 	maven {
-		url  "http://maven.ndrei.net"
+		name = "TeslaCoreLib Maven"
+		url = "http://maven.ndrei.net"
 	}
 }
 
 dependencies {
 	compile files('libs/')
 	deobfCompile "mezz.jei:jei_1.12:4.7.+:api"
-	//deobfCompile "mcp.mobius.waila:Hwyla:1.8.20-B35_1.12:api"
-	//runtime "mcp.mobius.waila:Hwyla:1.8.20-B35_1.12"
+	deobfCompile "mcp.mobius.waila:Hwyla:1.8.+"
 	deobfCompile "mcjty.theoneprobe:TheOneProbe-1.12:1.12-1.4.+"
 	deobfCompile "com.buuz135.industrial.IndustrialForegoing:industrialforegoing:1.12-1.2-45"
 }
