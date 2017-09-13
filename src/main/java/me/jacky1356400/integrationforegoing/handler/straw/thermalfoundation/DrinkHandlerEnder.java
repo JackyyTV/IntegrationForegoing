@@ -1,4 +1,4 @@
-package me.jacky1356400.integrationforegoing.straw.thermalfoundation;
+package me.jacky1356400.integrationforegoing.handler.straw.thermalfoundation;
 
 import com.buuz135.industrial.api.fluid.IFluidDrinkHandler;
 import me.jacky1356400.integrationforegoing.Config;

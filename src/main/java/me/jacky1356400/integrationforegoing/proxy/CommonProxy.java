@@ -1,10 +1,15 @@
 package me.jacky1356400.integrationforegoing.proxy;
 
+import com.buuz135.industrial.api.IndustrialForegoingHelper;
 import com.buuz135.industrial.api.fluid.StrawHelper;
 import me.jacky1356400.integrationforegoing.Config;
 import me.jacky1356400.integrationforegoing.IntegrationForegoing;
-import me.jacky1356400.integrationforegoing.straw.immersiveengineering.*;
-import me.jacky1356400.integrationforegoing.straw.thermalfoundation.*;
+import me.jacky1356400.integrationforegoing.handler.bioreactor.BioReactorHandlerIE;
+import me.jacky1356400.integrationforegoing.handler.bioreactor.BioReactorHandlerMysticalAgradditions;
+import me.jacky1356400.integrationforegoing.handler.bioreactor.BioReactorHandlerMysticalAgriculture;
+import me.jacky1356400.integrationforegoing.handler.plant.immersiveengineering.CropHempPlantRecollectable;
+import me.jacky1356400.integrationforegoing.handler.straw.immersiveengineering.*;
+import me.jacky1356400.integrationforegoing.handler.straw.thermalfoundation.*;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.config.Configuration;
 import net.minecraftforge.fml.common.Loader;
@@ -26,6 +31,31 @@ public class CommonProxy {
 	}
 
 	public void init(FMLInitializationEvent event) {
+        if (Config.immersiveEngineeringIntegration) {
+            if (Loader.isModLoaded("immersiveengineering")) {
+                IntegrationForegoing.logger.info("Registering Bioreactor entries for Immersive Engineering...");
+                BioReactorHandlerIE.init();
+                IntegrationForegoing.logger.info("Registered Bioreactor entries for Immersive Engineering");
+
+                IntegrationForegoing.logger.info("Registering Plant Recollector entries for Immersive Engineering...");
+                IndustrialForegoingHelper.addPlantRecollectable(new CropHempPlantRecollectable());
+                IntegrationForegoing.logger.info("Registered Plant Recollector entries for Immersive Engineering");
+            }
+        }
+        if (Config.mysticalAgricultureIntegration) {
+            if (Loader.isModLoaded("mysticalagriculture")) {
+                IntegrationForegoing.logger.info("Registering Bioreactor entries for Mystical Agriculture...");
+                BioReactorHandlerMysticalAgriculture.init();
+                IntegrationForegoing.logger.info("Registered Bioreactor entries for Mystical Agriculture");
+            }
+        }
+        if (Config.mysticalAgradditionsIntegration) {
+            if (Loader.isModLoaded("mysticalagradditions")) {
+                IntegrationForegoing.logger.info("Registering Bioreactor entries for Mystical Agradditions...");
+                BioReactorHandlerMysticalAgradditions.init();
+                IntegrationForegoing.logger.info("Registered Bioreactor entries for Mystical Agradditions");
+            }
+        }
 	}
 
 	public void postInit(FMLPostInitializationEvent event) {
@@ -49,7 +79,7 @@ public class CommonProxy {
         if (Config.immersiveEngineeringIntegration) {
 	        if (Loader.isModLoaded("immersiveengineering")) {
                 IntegrationForegoing.logger.info("Registering drink handlers for Immersive Engineering...");
-	            StrawHelper.register("biodiesel", new DrinkHandlerBiodiesel());
+                StrawHelper.register("biodiesel", new DrinkHandlerBiodiesel());
                 StrawHelper.register("concrete", new DrinkHandlerConcrete());
                 StrawHelper.register("creosote", new DrinkHandlerCreosoteOil());
                 StrawHelper.register("ethanol", new DrinkHandlerEthanol());

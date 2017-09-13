@@ -1,4 +1,4 @@
-package me.jacky1356400.integrationforegoing.straw.immersiveengineering;
+package me.jacky1356400.integrationforegoing.handler.straw.immersiveengineering;
 
 import com.buuz135.industrial.api.fluid.IFluidDrinkHandler;
 import me.jacky1356400.integrationforegoing.util.ModUtils;

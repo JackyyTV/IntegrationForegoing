@@ -1,4 +1,4 @@
-package me.jacky1356400.integrationforegoing.straw.thermalfoundation;
+package me.jacky1356400.integrationforegoing.handler.straw.thermalfoundation;
 
 import com.buuz135.industrial.api.fluid.IFluidDrinkHandler;
 import net.minecraft.entity.player.EntityPlayer;
@@ -9,16 +9,16 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraftforge.fluids.FluidStack;
 
-public class DrinkHandlerMana implements IFluidDrinkHandler {
+public class DrinkHandlerPetrotheum implements IFluidDrinkHandler {
     @Override
     public void onDrink(World world, BlockPos pos, FluidStack stack, EntityPlayer player, boolean fromFluidContainer) {
-        player.attackEntityFrom(new ManaDamage(), 10);
-        player.setFire(10);
-        player.addPotionEffect(new PotionEffect(MobEffects.NAUSEA, 60 * 20, 0));
+        player.attackEntityFrom(new PetrotheumDamage(), 10);
+        player.addPotionEffect(new PotionEffect(MobEffects.HASTE, 300 * 20, 3));
+        player.addPotionEffect(new PotionEffect(MobEffects.RESISTANCE, 300 * 20, 2));
     }
-    private class ManaDamage extends DamageSource {
-        public ManaDamage() {
-            super("mana");
+    private class PetrotheumDamage extends DamageSource {
+        public PetrotheumDamage() {
+            super("petrotheum");
             this.setDamageBypassesArmor();
             this.setDifficultyScaled();
         }

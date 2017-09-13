@@ -15,6 +15,8 @@ public class Config {
 
     public static boolean thermalFoundationIntegration;
     public static boolean immersiveEngineeringIntegration;
+    public static boolean mysticalAgricultureIntegration;
+    public static boolean mysticalAgradditionsIntegration;
     public static int strawEnderRange;
 
     public static void readConfig() {
@@ -44,6 +46,8 @@ public class Config {
     private static void initConfig(Configuration cfg) {
         thermalFoundationIntegration = cfg.getBoolean("thermalFoundationIntegration", CATEGORY_INTEGRATIONS, true, "If true, enables Thermal Foundation integration");
         immersiveEngineeringIntegration = cfg.getBoolean("immersiveEngineeringIntegration", CATEGORY_INTEGRATIONS, true, "If true, enables Immersive Engineering Integration");
+        mysticalAgricultureIntegration = cfg.getBoolean("mysticalAgricultureIntegration", CATEGORY_INTEGRATIONS, true, "If true, enables Mystical Agriculture Integration");
+        mysticalAgradditionsIntegration = cfg.getBoolean("mysticalAgradditionsIntegration", CATEGORY_INTEGRATIONS, true, "If true, enables Mystical Agradditions Integration");
         strawEnderRange = cfg.getInt("strawEnderRange", CATEGORY_TF, 16384, 64, 65536,
                 "This number determines the teleportation range for drinking Resonant Ender.\n"
                         + "Range calculation method:\n"
