@@ -8,6 +8,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.potion.Potion;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
+import net.minecraftforge.fml.common.registry.ForgeRegistries;
 
 public class ModUtils {
 
@@ -35,8 +36,16 @@ public class ModUtils {
         return SoundEvent.REGISTRY.getObject(new ResourceLocation(modid, name));
     }
 
-    public static void addCustomBioReactorEntry(String modid, String name, int amount, int meta) {
-        IndustrialForegoingHelper.addBioReactorEntry(new BioReactorEntry(getItemStackByObject(modid, name, amount, meta)));
+    public static void addCustomBioReactorEntryItem(String modid, String name, int amount, int meta) {
+        if (ForgeRegistries.ITEMS.getValue(new ResourceLocation(modid, name)) != null) {
+            IndustrialForegoingHelper.addBioReactorEntry(new BioReactorEntry(getItemStackByObject(modid, name, amount, meta)));
+        }
+    }
+
+    public static void addCustomBioReactorEntryBlock(String modid, String name, int amount, int meta) {
+        if (ForgeRegistries.BLOCKS.getValue(new ResourceLocation(modid, name)) != null) {
+            IndustrialForegoingHelper.addBioReactorEntry(new BioReactorEntry(getBlockItemStackByObject(modid, name, amount, meta)));
+        }
     }
 
 }
