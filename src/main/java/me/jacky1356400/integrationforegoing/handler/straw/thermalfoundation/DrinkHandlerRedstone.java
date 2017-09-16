@@ -1,6 +1,6 @@
 package me.jacky1356400.integrationforegoing.handler.straw.thermalfoundation;
 
-import com.buuz135.industrial.api.fluid.IFluidDrinkHandler;
+import com.buuz135.industrial.utils.strawhandlers.StrawHandlerBase;
 import me.jacky1356400.integrationforegoing.entity.EntityFakeLightningBolt;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
@@ -14,7 +14,11 @@ import net.minecraftforge.fluids.FluidStack;
 
 import java.util.ArrayList;
 
-public class DrinkHandlerRedstone implements IFluidDrinkHandler {
+public class DrinkHandlerRedstone extends StrawHandlerBase {
+    public DrinkHandlerRedstone() {
+        super("redstone");
+        setRegistryName("redstone");
+    }
     @Override
     public void onDrink(World world, BlockPos pos, FluidStack stack, EntityPlayer player, boolean fromFluidContainer) {
         ArrayList<PotionEffect> effects = new ArrayList<>(player.getActivePotionEffects());

@@ -1,6 +1,6 @@
 package me.jacky1356400.integrationforegoing.handler.straw.thermalfoundation;
 
-import com.buuz135.industrial.api.fluid.IFluidDrinkHandler;
+import com.buuz135.industrial.utils.strawhandlers.StrawHandlerBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.MobEffects;
 import net.minecraft.potion.PotionEffect;
@@ -9,7 +9,11 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraftforge.fluids.FluidStack;
 
-public class DrinkHandlerCryotheum implements IFluidDrinkHandler {
+public class DrinkHandlerCryotheum extends StrawHandlerBase {
+    public DrinkHandlerCryotheum() {
+        super("cryotheum");
+        setRegistryName("cryotheum");
+    }
     @Override
     public void onDrink(World world, BlockPos pos, FluidStack stack, EntityPlayer player, boolean fromFluidContainer) {
         player.attackEntityFrom(new CryotheumDamage(), 15);

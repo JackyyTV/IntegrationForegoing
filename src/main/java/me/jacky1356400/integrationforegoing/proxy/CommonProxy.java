@@ -1,15 +1,22 @@
 package me.jacky1356400.integrationforegoing.proxy;
 
 import com.buuz135.industrial.api.IndustrialForegoingHelper;
-import com.buuz135.industrial.api.fluid.StrawHelper;
 import me.jacky1356400.integrationforegoing.Config;
 import me.jacky1356400.integrationforegoing.IntegrationForegoing;
+import me.jacky1356400.integrationforegoing.compat.TConstructCompat;
 import me.jacky1356400.integrationforegoing.handler.bioreactor.BioReactorHandlerIE;
 import me.jacky1356400.integrationforegoing.handler.bioreactor.BioReactorHandlerMysticalAgradditions;
 import me.jacky1356400.integrationforegoing.handler.bioreactor.BioReactorHandlerMysticalAgriculture;
+import me.jacky1356400.integrationforegoing.handler.laserdrill.LaserDrillHandlerAE2;
+import me.jacky1356400.integrationforegoing.handler.laserdrill.LaserDrillHandlerEvilCraft;
+import me.jacky1356400.integrationforegoing.handler.laserdrill.LaserDrillHandlerMysticalAgriculture;
+import me.jacky1356400.integrationforegoing.handler.laserdrill.LaserDrillHandlerRFTools;
 import me.jacky1356400.integrationforegoing.handler.plant.immersiveengineering.CropHempPlantRecollectable;
-import me.jacky1356400.integrationforegoing.handler.straw.immersiveengineering.*;
-import me.jacky1356400.integrationforegoing.handler.straw.thermalfoundation.*;
+import me.jacky1356400.integrationforegoing.handler.plant.mysticalagradditions.MysticalAgradditionsCropsPlantRecollectable;
+import me.jacky1356400.integrationforegoing.handler.plant.mysticalagriculture.MysticalAgricultureCropsPlantRecollectable;
+import me.jacky1356400.integrationforegoing.handler.plant.oreberries.*;
+import me.jacky1356400.integrationforegoing.handler.straw.immersiveengineering.StrawRegistryIE;
+import me.jacky1356400.integrationforegoing.handler.straw.thermalfoundation.StrawRegistryTF;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.config.Configuration;
 import net.minecraftforge.fml.common.Loader;
@@ -27,7 +34,27 @@ public class CommonProxy {
 		File configDir = event.getModConfigurationDirectory();
 		config = new Configuration(new File(configDir.getPath(), "integrationforegoing.cfg"));
 		Config.readConfig();
-		MinecraftForge.EVENT_BUS.register(this);
+        if (Config.thermalFoundationIntegration) {
+            if (Loader.isModLoaded("thermalfoundation")) {
+                IntegrationForegoing.logger.info("Registering drink handlers for Thermal Foundation...");
+                MinecraftForge.EVENT_BUS.register(new StrawRegistryTF());
+                IntegrationForegoing.logger.info("Registered drink handlers for Thermal Foundation");
+            }
+        }
+        if (Config.immersiveEngineeringIntegration) {
+            if (Loader.isModLoaded("immersiveengineering")) {
+                IntegrationForegoing.logger.info("Registering drink handlers for Immersive Engineering...");
+                MinecraftForge.EVENT_BUS.register(new StrawRegistryIE());
+                IntegrationForegoing.logger.info("Registered drink handlers for Immersive Engineering");
+            }
+        }
+        if (Config.tconstructIntegration) {
+            if (Loader.isModLoaded("tconstruct")) {
+                IntegrationForegoing.logger.info("Pre-initialising integration for Tinkers' Construct...");
+                TConstructCompat.preInit();
+                IntegrationForegoing.logger.info("Pre-initialised integration for Tinkers' Construct");
+            }
+        }
 	}
 
 	public void init(FMLInitializationEvent event) {
@@ -47,6 +74,14 @@ public class CommonProxy {
                 IntegrationForegoing.logger.info("Registering Bioreactor entries for Mystical Agriculture...");
                 BioReactorHandlerMysticalAgriculture.init();
                 IntegrationForegoing.logger.info("Registered Bioreactor entries for Mystical Agriculture");
+
+                IntegrationForegoing.logger.info("Registering Laser Drill entries for Mystical Agriculture...");
+                LaserDrillHandlerMysticalAgriculture.init();
+                IntegrationForegoing.logger.info("Registered Laser Drill entries for Mystical Agriculture");
+
+                IntegrationForegoing.logger.info("Registering Plant Recollector entries for Mystical Agriculture...");
+                IndustrialForegoingHelper.addPlantRecollectable(new MysticalAgricultureCropsPlantRecollectable());
+                IntegrationForegoing.logger.info("Registered Plant Recollector entries for Mystical Agriculture");
             }
         }
         if (Config.mysticalAgradditionsIntegration) {
@@ -54,39 +89,55 @@ public class CommonProxy {
                 IntegrationForegoing.logger.info("Registering Bioreactor entries for Mystical Agradditions...");
                 BioReactorHandlerMysticalAgradditions.init();
                 IntegrationForegoing.logger.info("Registered Bioreactor entries for Mystical Agradditions");
+
+                IntegrationForegoing.logger.info("Registering Plant Recollector entries for Mystical Agradditions...");
+                IndustrialForegoingHelper.addPlantRecollectable(new MysticalAgradditionsCropsPlantRecollectable());
+                IntegrationForegoing.logger.info("Registered Plant Recollector entries for Mystical Agradditions");
+            }
+        }
+        if (Config.tconstructIntegration) {
+            if (Loader.isModLoaded("tconstruct")) {
+                IntegrationForegoing.logger.info("Initialising integration for Tinkers' Construct...");
+                TConstructCompat.init();
+                IntegrationForegoing.logger.info("Initialised integration for Tinkers' Construct");
+            }
+        }
+        if (Config.oreberriesIntegration) {
+            if (Loader.isModLoaded("oreberries")) {
+                IntegrationForegoing.logger.info("Registering Plant Recollector entries for Oreberries...");
+                IndustrialForegoingHelper.addPlantRecollectable(new AluminumOreberryBushPlantRecollectable());
+                IndustrialForegoingHelper.addPlantRecollectable(new CopperOreberryBushPlantRecollectable());
+                IndustrialForegoingHelper.addPlantRecollectable(new EssenceOreberryBushPlantRecollectable());
+                IndustrialForegoingHelper.addPlantRecollectable(new GoldOreberryBushPlantRecollectable());
+                IndustrialForegoingHelper.addPlantRecollectable(new IronOreberryBushPlantRecollectable());
+                IndustrialForegoingHelper.addPlantRecollectable(new TinOreberryBushPlantRecollectable());
+                IntegrationForegoing.logger.info("Registered Plant Recollector entries for Oreberries");
+            }
+        }
+        if (Config.ae2Integration) {
+            if (Loader.isModLoaded("appliedenergistics2")) {
+                IntegrationForegoing.logger.info("Registering Laser Drill entries for Applied Energistics 2...");
+                LaserDrillHandlerAE2.init();
+                IntegrationForegoing.logger.info("Registered Laser Drill entries for Applied Energistics 2");
+            }
+        }
+        if (Config.rftoolsIntegration) {
+            if (Loader.isModLoaded("rftools")) {
+                IntegrationForegoing.logger.info("Registering Laser Drill entries for RFTools...");
+                LaserDrillHandlerRFTools.init();
+                IntegrationForegoing.logger.info("Registered Laser Drill entries for RFTools");
+            }
+        }
+        if (Config.evilcraftIntegration) {
+            if (Loader.isModLoaded("evilcraft")) {
+                IntegrationForegoing.logger.info("Registering Laser Drill entries for EvilCraft...");
+                LaserDrillHandlerEvilCraft.init();
+                IntegrationForegoing.logger.info("Registered Laser Drill entries for EvilCraft");
             }
         }
 	}
 
 	public void postInit(FMLPostInitializationEvent event) {
-	    if (Config.thermalFoundationIntegration) {
-	        if (Loader.isModLoaded("thermalfoundation")) {
-                IntegrationForegoing.logger.info("Registering drink handlers for Thermal Foundation...");
-                StrawHelper.register("aerotheum", new DrinkHandlerAerotheum());
-                StrawHelper.register("coal", new DrinkHandlerCoal());
-                StrawHelper.register("crude_oil", new DrinkHandlerCrudeOil());
-                StrawHelper.register("cryotheum", new DrinkHandlerCryotheum());
-                StrawHelper.register("ender", new DrinkHandlerEnder());
-                StrawHelper.register("glowstone", new DrinkHandlerGlowstone());
-                StrawHelper.register("mana", new DrinkHandlerMana());
-                StrawHelper.register("petrotheum", new DrinkHandlerPetrotheum());
-                StrawHelper.register("pyrotheum", new DrinkHandlerPyrotheum());
-                StrawHelper.register("redstone", new DrinkHandlerRedstone());
-                StrawHelper.register("steam", new DrinkHandlerSteam());
-                IntegrationForegoing.logger.info("Registered drink handlers for Thermal Foundation");
-            }
-        }
-        if (Config.immersiveEngineeringIntegration) {
-	        if (Loader.isModLoaded("immersiveengineering")) {
-                IntegrationForegoing.logger.info("Registering drink handlers for Immersive Engineering...");
-                StrawHelper.register("biodiesel", new DrinkHandlerBiodiesel());
-                StrawHelper.register("concrete", new DrinkHandlerConcrete());
-                StrawHelper.register("creosote", new DrinkHandlerCreosoteOil());
-                StrawHelper.register("ethanol", new DrinkHandlerEthanol());
-                StrawHelper.register("plantoil", new DrinkHandlerPlantOil());
-                IntegrationForegoing.logger.info("Registered drink handlers for Immersive Engineering");
-            }
-        }
 	}
 
 }

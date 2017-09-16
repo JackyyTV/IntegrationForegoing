@@ -1,6 +1,6 @@
 package me.jacky1356400.integrationforegoing.handler.straw.thermalfoundation;
 
-import com.buuz135.industrial.api.fluid.IFluidDrinkHandler;
+import com.buuz135.industrial.utils.strawhandlers.StrawHandlerBase;
 import me.jacky1356400.integrationforegoing.Config;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
@@ -14,7 +14,11 @@ import net.minecraft.world.World;
 import net.minecraftforge.event.entity.living.EnderTeleportEvent;
 import net.minecraftforge.fluids.FluidStack;
 
-public class DrinkHandlerEnder implements IFluidDrinkHandler {
+public class DrinkHandlerEnder extends StrawHandlerBase {
+    public DrinkHandlerEnder() {
+        super("ender");
+        setRegistryName("ender");
+    }
     @Override
     public void onDrink(World world, BlockPos pos, FluidStack stack, EntityPlayer player, boolean fromFluidContainer) {
         if (!world.isRemote) {

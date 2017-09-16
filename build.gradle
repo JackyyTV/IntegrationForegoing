@@ -27,7 +27,7 @@ minecraft {
 
 repositories {
     maven {
-		name = "JEI Maven"
+		name = "JEI, TCon and Mantle Maven"
         url = "http://dvs1.progwml6.com/files/maven"
     }
     maven {
@@ -66,6 +66,8 @@ dependencies {
 	deobfCompile "mcp.mobius.waila:Hwyla:1.8.+"
 	deobfCompile "mcjty.theoneprobe:TheOneProbe-1.12:1.12-1.4.+"
 	deobfCompile "com.buuz135.industrial.IndustrialForegoing:industrialforegoing:1.12-1.+"
+	deobfCompile "slimeknights.mantle:Mantle:1.12-1.+"
+	deobfCompile "slimeknights:TConstruct:1.12-2.+"
 }
 
 processResources {

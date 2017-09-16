@@ -1,6 +1,6 @@
 package me.jacky1356400.integrationforegoing.handler.straw.thermalfoundation;
 
-import com.buuz135.industrial.api.fluid.IFluidDrinkHandler;
+import com.buuz135.industrial.utils.strawhandlers.StrawHandlerBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.DamageSource;
@@ -8,7 +8,11 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraftforge.fluids.FluidStack;
 
-public class DrinkHandlerPyrotheum implements IFluidDrinkHandler {
+public class DrinkHandlerPyrotheum extends StrawHandlerBase {
+    public DrinkHandlerPyrotheum() {
+        super("pyrotheum");
+        setRegistryName("pyrotheum");
+    }
     @Override
     public void onDrink(World world, BlockPos pos, FluidStack stack, EntityPlayer player, boolean fromFluidContainer) {
         player.attackEntityFrom(new PyrotheumDamage(), 15);

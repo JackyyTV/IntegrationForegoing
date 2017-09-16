@@ -2,7 +2,9 @@ package me.jacky1356400.integrationforegoing.util;
 
 import com.buuz135.industrial.api.IndustrialForegoingHelper;
 import com.buuz135.industrial.api.recipe.BioReactorEntry;
+import com.buuz135.industrial.api.recipe.LaserDrillEntry;
 import net.minecraft.block.Block;
+import net.minecraft.block.properties.PropertyInteger;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.potion.Potion;
@@ -11,6 +13,8 @@ import net.minecraft.util.SoundEvent;
 import net.minecraftforge.fml.common.registry.ForgeRegistries;
 
 public class ModUtils {
+
+    public static final PropertyInteger OREBERRY_AGE = PropertyInteger.create("age", 0, 3);
 
     public static Item getItemByObject(String modid, String name) {
         return Item.REGISTRY.getObject(new ResourceLocation(modid, name));
@@ -45,6 +49,18 @@ public class ModUtils {
     public static void addCustomBioReactorEntryBlock(String modid, String name, int amount, int meta) {
         if (ForgeRegistries.BLOCKS.getValue(new ResourceLocation(modid, name)) != null) {
             IndustrialForegoingHelper.addBioReactorEntry(new BioReactorEntry(getBlockItemStackByObject(modid, name, amount, meta)));
+        }
+    }
+
+    public static void addCustomLaserDrillEntryItem(int laserMeta, String modid, String name, int amount, int meta, int weight) {
+        if (ForgeRegistries.ITEMS.getValue(new ResourceLocation(modid, name)) != null) {
+            IndustrialForegoingHelper.addLaserDrillEntry(new LaserDrillEntry(laserMeta, getItemStackByObject(modid, name, amount, meta), weight));
+        }
+    }
+
+    public static void addCustomLaserDrillEntryBlock(int laserMeta, String modid, String name, int amount, int meta, int weight) {
+        if (ForgeRegistries.BLOCKS.getValue(new ResourceLocation(modid, name)) != null) {
+            IndustrialForegoingHelper.addLaserDrillEntry(new LaserDrillEntry(laserMeta, getBlockItemStackByObject(modid, name, amount, meta), weight));
         }
     }
 
