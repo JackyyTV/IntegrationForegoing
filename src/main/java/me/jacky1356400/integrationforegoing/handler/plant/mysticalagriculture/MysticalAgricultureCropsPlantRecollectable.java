@@ -1,6 +1,7 @@
 package me.jacky1356400.integrationforegoing.handler.plant.mysticalagriculture;
 
 import com.buuz135.industrial.api.plant.IPlantRecollectable;
+import me.jacky1356400.integrationforegoing.Config;
 import me.jacky1356400.integrationforegoing.IntegrationForegoing;
 import me.jacky1356400.integrationforegoing.util.ModUtils;
 import net.minecraft.block.Block;
@@ -47,7 +48,8 @@ public class MysticalAgricultureCropsPlantRecollectable implements IPlantRecolle
         } catch (Exception e) {
             e.printStackTrace();
         }
-        seedHandlerHashMap.forEach((block, mysticalAgricultureSeedHandler) -> IntegrationForegoing.logger.info("Registered Mystical Agriculture Type: [B]" + block.getRegistryName().getResourcePath() + " [S]" + mysticalAgricultureSeedHandler.getSeed().getItem().getRegistryName().getResourcePath() + " [D]" + mysticalAgricultureSeedHandler.getDrop().getItem().getRegistryName().getResourcePath()));
+        if (Config.mysticalAgricultureVerboseLogging)
+            seedHandlerHashMap.forEach((block, mysticalAgricultureSeedHandler) -> IntegrationForegoing.logger.info("Registered Mystical Agriculture Type: [B]" + block.getRegistryName().getResourcePath() + " [S]" + mysticalAgricultureSeedHandler.getSeed().getItem().getRegistryName().getResourcePath() + " [D]" + mysticalAgricultureSeedHandler.getDrop().getItem().getRegistryName().getResourcePath()));
     }
 
     @Override
@@ -98,4 +100,5 @@ public class MysticalAgricultureCropsPlantRecollectable implements IPlantRecolle
         }
 
     }
+
 }

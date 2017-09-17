@@ -1,6 +1,7 @@
 package me.jacky1356400.integrationforegoing;
 
 import me.jacky1356400.integrationforegoing.proxy.CommonProxy;
+import me.jacky1356400.integrationforegoing.util.Reference;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiScreen;
 import net.minecraftforge.fml.client.IModGuiFactory;
@@ -31,7 +32,7 @@ public class ConfigGuiFactory implements IModGuiFactory {
 
     public static class ConfigGui extends GuiConfig {
         public ConfigGui(GuiScreen parentScreen) {
-            super(parentScreen, Config.getConfigElements(), IntegrationForegoing.MODID, false,
+            super(parentScreen, Config.getConfigElements(), Reference.MODID, false,
                     false, GuiConfig.getAbridgedConfigPath(CommonProxy.config.toString()));
         }
 

@@ -2,6 +2,7 @@ package me.jacky1356400.integrationforegoing.handler.plant.oreberries;
 
 import com.buuz135.industrial.api.plant.IPlantRecollectable;
 import me.jacky1356400.integrationforegoing.util.ModUtils;
+import me.jacky1356400.integrationforegoing.util.Reference;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.NonNullList;
@@ -22,7 +23,7 @@ public class CopperOreberryBushPlantRecollectable implements IPlantRecollectable
     public List<ItemStack> doHarvestOperation(World world, BlockPos pos, IBlockState blockState) {
         NonNullList<ItemStack> stacks = NonNullList.create();
         stacks.add(0, ModUtils.getItemStackByObject("oreberries", "copper_oreberry", world.rand.nextInt(3) + 1, 0));
-        world.setBlockState(pos, blockState.withProperty(ModUtils.OREBERRY_AGE, 2));
+        world.setBlockState(pos, blockState.withProperty(Reference.OREBERRIES_AGE, 2));
         return stacks;
     }
 

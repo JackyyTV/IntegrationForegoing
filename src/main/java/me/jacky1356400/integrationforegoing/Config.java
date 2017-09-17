@@ -13,6 +13,8 @@ public class Config {
     private static final String CATEGORY_INTEGRATIONS = "integrations";
     private static final String CATEGORY_TF = "thermal foundation";
     private static final String CATEGORY_IE = "immersive engineering";
+    private static final String CATEGORY_MA = "mystical agriculture";
+    private static final String CATEGORY_MA2 = "mystical agradditions";
 
     public static boolean thermalFoundationIntegration;
     public static boolean immersiveEngineeringIntegration;
@@ -25,6 +27,8 @@ public class Config {
     public static boolean evilcraftIntegration;
     public static int strawEnderRange;
     public static boolean hempHarvestBothBlocks;
+    public static boolean mysticalAgricultureVerboseLogging;
+    public static boolean mysticalAgradditionsVerboseLogging;
 
     public static void readConfig() {
         Configuration cfg = CommonProxy.config;
@@ -47,6 +51,8 @@ public class Config {
         list.add(new ConfigElement(cfg.getCategory(CATEGORY_INTEGRATIONS)));
         list.add(new ConfigElement(cfg.getCategory(CATEGORY_TF)));
         list.add(new ConfigElement(cfg.getCategory(CATEGORY_IE)));
+        list.add(new ConfigElement(cfg.getCategory(CATEGORY_MA)));
+        list.add(new ConfigElement(cfg.getCategory(CATEGORY_MA2)));
 
         return list;
     }
@@ -67,8 +73,14 @@ public class Config {
                         + "Player's X / Z position - (this number clamped between 8 and 65536) + (this number clamped between 8 and 65536) * 2\n"
         );
         hempHarvestBothBlocks = cfg.getBoolean("hempHarvestBothBlocks", CATEGORY_IE, true,
-                "If true, both top and bottom blocks of Industrial Hemp gets harvested by the Plant Recollector.\n" +
-                        "Set to false if you only want the top block to be harvested.\n");
+                "If true, both top and bottom blocks of Industrial Hemp gets harvested by the Plant Recollector.\n"
+                        + "Set to false if you only want the top block to be harvested.\n");
+        mysticalAgricultureVerboseLogging = cfg.getBoolean("mysticalAgricultureVerboseLogging", CATEGORY_MA, false,
+                "If true, enables verbose logging for Mystical Agriculture integration.\n"
+                        + "This config option is intended for debugging purposes.\n");
+        mysticalAgradditionsVerboseLogging = cfg.getBoolean("mysticalAgradditionsVerboseLogging", CATEGORY_MA2, false,
+                "If true, enables verbose logging for Mystical Agradditions integration.\n"
+                        + "This config option is intended for debugging purposes.\n");
     }
 
 }

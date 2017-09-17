@@ -4,7 +4,6 @@ import com.buuz135.industrial.api.IndustrialForegoingHelper;
 import com.buuz135.industrial.api.recipe.BioReactorEntry;
 import com.buuz135.industrial.api.recipe.LaserDrillEntry;
 import net.minecraft.block.Block;
-import net.minecraft.block.properties.PropertyInteger;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.potion.Potion;
@@ -13,8 +12,6 @@ import net.minecraft.util.SoundEvent;
 import net.minecraftforge.fml.common.registry.ForgeRegistries;
 
 public class ModUtils {
-
-    public static final PropertyInteger OREBERRY_AGE = PropertyInteger.create("age", 0, 3);
 
     public static Item getItemByObject(String modid, String name) {
         return Item.REGISTRY.getObject(new ResourceLocation(modid, name));

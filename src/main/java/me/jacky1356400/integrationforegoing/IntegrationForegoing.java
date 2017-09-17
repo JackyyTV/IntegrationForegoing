@@ -1,6 +1,7 @@
 package me.jacky1356400.integrationforegoing;
 
 import me.jacky1356400.integrationforegoing.proxy.CommonProxy;
+import me.jacky1356400.integrationforegoing.util.Reference;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.SidedProxy;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
@@ -9,19 +10,12 @@ import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-@Mod(modid = IntegrationForegoing.MODID, version = IntegrationForegoing.VERSION, name = IntegrationForegoing.MODNAME, dependencies = IntegrationForegoing.DEPENDS, guiFactory = IntegrationForegoing.GUIFACTORY, useMetadata = true)
+@Mod(modid = Reference.MODID, version = Reference.VERSION, name = Reference.MODNAME, dependencies = Reference.DEPENDS, guiFactory = Reference.GUIFACTORY, useMetadata = true)
 public class IntegrationForegoing {
 
-    public static final String MODID = "integrationforegoing";
-    public static final String MODNAME = "IntegrationForegoing";
-    public static final String VERSION = "1.12-1.1";
-    public static final String DEPENDS = "required-after:industrialforegoing@[1.12-1.3-52,);";
-    public static final String GUIFACTORY = "me.jacky1356400.integrationforegoing.ConfigGuiFactory";
-    public static final String PROXY = "me.jacky1356400.integrationforegoing.proxy";
+    public static Logger logger = LogManager.getLogger(Reference.MODNAME);
 
-	public static Logger logger = LogManager.getLogger(MODNAME);
-
-	@SidedProxy(serverSide = IntegrationForegoing.PROXY + ".CommonProxy", clientSide = IntegrationForegoing.PROXY + ".ClientProxy")
+	@SidedProxy(serverSide = Reference.PROXY + ".CommonProxy", clientSide = Reference.PROXY + ".ClientProxy")
 	public static CommonProxy proxy;
 
 	@Mod.EventHandler

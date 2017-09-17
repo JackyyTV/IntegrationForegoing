@@ -1,6 +1,7 @@
 package me.jacky1356400.integrationforegoing.handler.plant.mysticalagradditions;
 
 import com.buuz135.industrial.api.plant.IPlantRecollectable;
+import me.jacky1356400.integrationforegoing.Config;
 import me.jacky1356400.integrationforegoing.IntegrationForegoing;
 import me.jacky1356400.integrationforegoing.handler.plant.mysticalagriculture.MysticalAgricultureCropsPlantRecollectable;
 import me.jacky1356400.integrationforegoing.util.ModUtils;
@@ -44,8 +45,8 @@ public class MysticalAgradditionsCropsPlantRecollectable implements IPlantRecoll
         } catch (Exception e) {
             e.printStackTrace();
         }
-        seedHandlerHashMap.forEach((block, mysticalAgricultureSeedHandler) -> IntegrationForegoing.logger.info("Registered Mystical Agradditions Type: [B]" + block.getRegistryName().getResourcePath() + " [S]" + mysticalAgricultureSeedHandler.getSeed().getItem().getRegistryName().getResourcePath() + " [D]" + mysticalAgricultureSeedHandler.getDrop().getItem().getRegistryName().getResourcePath()));
-
+        if (Config.mysticalAgradditionsVerboseLogging)
+            seedHandlerHashMap.forEach((block, mysticalAgricultureSeedHandler) -> IntegrationForegoing.logger.info("Registered Mystical Agradditions Type: [B]" + block.getRegistryName().getResourcePath() + " [S]" + mysticalAgricultureSeedHandler.getSeed().getItem().getRegistryName().getResourcePath() + " [D]" + mysticalAgricultureSeedHandler.getDrop().getItem().getRegistryName().getResourcePath()));
     }
 
     @Override

@@ -3,7 +3,7 @@ package me.jacky1356400.integrationforegoing.proxy;
 import com.buuz135.industrial.api.IndustrialForegoingHelper;
 import me.jacky1356400.integrationforegoing.Config;
 import me.jacky1356400.integrationforegoing.IntegrationForegoing;
-import me.jacky1356400.integrationforegoing.compat.TConstructCompat;
+import me.jacky1356400.integrationforegoing.compat.tconstruct.TConstructCompat;
 import me.jacky1356400.integrationforegoing.handler.bioreactor.BioReactorHandlerIE;
 import me.jacky1356400.integrationforegoing.handler.bioreactor.BioReactorHandlerMysticalAgradditions;
 import me.jacky1356400.integrationforegoing.handler.bioreactor.BioReactorHandlerMysticalAgriculture;
