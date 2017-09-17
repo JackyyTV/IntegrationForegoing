@@ -26,6 +26,8 @@ minecraft {
 }
 
 repositories {
+    mavenCentral()
+    jcenter()
     maven {
 		name = "JEI, TCon and Mantle Maven"
         url = "http://dvs1.progwml6.com/files/maven"
@@ -58,6 +60,10 @@ repositories {
 		name = "TeslaCoreLib Maven"
 		url = "http://maven.ndrei.net"
 	}
+	maven {
+		name = "Shadowfacts Maven"
+		url = "http://maven.shadowfacts.net"
+	}
 }
 
 dependencies {
@@ -68,6 +74,7 @@ dependencies {
 	deobfCompile "com.buuz135.industrial.IndustrialForegoing:industrialforegoing:1.12-1.+"
 	deobfCompile "slimeknights.mantle:Mantle:1.12-1.+"
 	deobfCompile "slimeknights:TConstruct:1.12-2.+"
+	deobfCompile "net.shadowfacts:Forgelin:1.5.1"
 }
 
 processResources {
