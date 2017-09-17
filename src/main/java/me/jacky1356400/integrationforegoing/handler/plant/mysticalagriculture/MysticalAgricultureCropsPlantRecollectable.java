@@ -39,7 +39,7 @@ public class MysticalAgricultureCropsPlantRecollectable implements IPlantRecolle
                     for (Object type : seed_types.getEnumConstants()) {
                         if ((Boolean) enabled.invoke(type)) {
                             String name = ((IStringSerializable) type).getName();
-                            addType(name);
+                            addType(seedHandlerHashMap, name, MA_ID);
                         }
                     }
                 }
@@ -71,15 +71,15 @@ public class MysticalAgricultureCropsPlantRecollectable implements IPlantRecolle
         return true;
     }
 
-    private void addType(String typeName) {
-        Item seed = ModUtils.getItemByObject(MA_ID, typeName + "_seeds");
-        Item essence = ModUtils.getItemByObject(MA_ID, typeName + "_essence");
-        Block crop = ModUtils.getBlockByObject(MA_ID, typeName + "_crop");
+    public static void addType(HashMap<Block, MysticalAgricultureSeedHandler> seedHandlerHashMap, String typeName, String modID) {
+        Item seed = ModUtils.getItemByObject(modID, typeName + "_seeds");
+        Item essence = ModUtils.getItemByObject(modID, typeName + "_essence");
+        Block crop = ModUtils.getBlockByObject(modID, typeName + "_crop");
         if (seed != null && essence != null && crop != null)
             seedHandlerHashMap.put(crop, new MysticalAgricultureSeedHandler(new ItemStack(essence), new ItemStack(seed)));
     }
 
-    private class MysticalAgricultureSeedHandler {
+    public static class MysticalAgricultureSeedHandler {
 
         private ItemStack drop;
         private ItemStack seed;
