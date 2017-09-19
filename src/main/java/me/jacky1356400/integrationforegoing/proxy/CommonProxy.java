@@ -105,12 +105,7 @@ public class CommonProxy {
         if (Config.oreberriesIntegration) {
             if (Loader.isModLoaded("oreberries")) {
                 IntegrationForegoing.logger.info("Registering Plant Recollector entries for Oreberries...");
-                IndustrialForegoingHelper.addPlantRecollectable(new AluminumOreberryBushPlantRecollectable());
-                IndustrialForegoingHelper.addPlantRecollectable(new CopperOreberryBushPlantRecollectable());
-                IndustrialForegoingHelper.addPlantRecollectable(new EssenceOreberryBushPlantRecollectable());
-                IndustrialForegoingHelper.addPlantRecollectable(new GoldOreberryBushPlantRecollectable());
-                IndustrialForegoingHelper.addPlantRecollectable(new IronOreberryBushPlantRecollectable());
-                IndustrialForegoingHelper.addPlantRecollectable(new TinOreberryBushPlantRecollectable());
+                IndustrialForegoingHelper.addPlantRecollectable(new OreberryBushPlantRecollectable());
                 IntegrationForegoing.logger.info("Registered Plant Recollector entries for Oreberries");
             }
         }
