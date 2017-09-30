@@ -10,7 +10,7 @@ import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-@Mod(modid = Reference.MODID, version = Reference.VERSION, name = Reference.MODNAME, dependencies = Reference.DEPENDS, guiFactory = Reference.GUIFACTORY, useMetadata = true)
+@Mod(modid = Reference.MODID, version = Reference.VERSION, name = Reference.MODNAME, dependencies = Reference.DEPENDS, guiFactory = Reference.GUIFACTORY, acceptedMinecraftVersions = Reference.MCVERSION, useMetadata = true)
 public class IntegrationForegoing {
 
     public static Logger logger = LogManager.getLogger(Reference.MODNAME);
