@@ -4,18 +4,16 @@ import com.buuz135.industrial.api.IndustrialForegoingHelper;
 import me.jacky1356400.integrationforegoing.Config;
 import me.jacky1356400.integrationforegoing.IntegrationForegoing;
 import me.jacky1356400.integrationforegoing.compat.tconstruct.TConstructCompat;
+import me.jacky1356400.integrationforegoing.handler.bioreactor.BioReactorHandlerActuallyAdditions;
 import me.jacky1356400.integrationforegoing.handler.bioreactor.BioReactorHandlerIE;
 import me.jacky1356400.integrationforegoing.handler.bioreactor.BioReactorHandlerMysticalAgradditions;
 import me.jacky1356400.integrationforegoing.handler.bioreactor.BioReactorHandlerMysticalAgriculture;
-import me.jacky1356400.integrationforegoing.handler.laserdrill.LaserDrillHandlerAE2;
-import me.jacky1356400.integrationforegoing.handler.laserdrill.LaserDrillHandlerEvilCraft;
-import me.jacky1356400.integrationforegoing.handler.laserdrill.LaserDrillHandlerMysticalAgriculture;
-import me.jacky1356400.integrationforegoing.handler.laserdrill.LaserDrillHandlerRFTools;
+import me.jacky1356400.integrationforegoing.handler.laserdrill.*;
 import me.jacky1356400.integrationforegoing.handler.plant.immersiveengineering.CropHempPlantRecollectable;
 import me.jacky1356400.integrationforegoing.handler.plant.mysticalagradditions.MysticalAgradditionsCropsPlantRecollectable;
-import me.jacky1356400.integrationforegoing.handler.plant.mysticalagriculture.MysticalAgricultureCropsPlantRecollectable;
-import me.jacky1356400.integrationforegoing.handler.plant.oreberries.*;
+import me.jacky1356400.integrationforegoing.handler.plant.oreberries.OreberryBushPlantRecollectable;
 import me.jacky1356400.integrationforegoing.handler.straw.immersiveengineering.StrawRegistryIE;
+import me.jacky1356400.integrationforegoing.handler.straw.tconstruct.StrawRegistryTCon;
 import me.jacky1356400.integrationforegoing.handler.straw.thermalfoundation.StrawRegistryTF;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.config.Configuration;
@@ -53,11 +51,22 @@ public class CommonProxy {
                 IntegrationForegoing.logger.info("Pre-initialising integration for Tinkers' Construct...");
                 TConstructCompat.preInit();
                 IntegrationForegoing.logger.info("Pre-initialised integration for Tinkers' Construct");
+
+                IntegrationForegoing.logger.info("Registering drink handlers for Tinkers' Construct...");
+                MinecraftForge.EVENT_BUS.register(new StrawRegistryTCon());
+                IntegrationForegoing.logger.info("Registered drink handlers for Tinkers' Construct");
             }
         }
 	}
 
 	public void init(FMLInitializationEvent event) {
+        if (Config.thermalFoundationIntegration) {
+            if (Loader.isModLoaded("thermalfoundation")) {
+                IntegrationForegoing.logger.info("Registering Laser Drill entries for Thermal Foundation...");
+                LaserDrillHandlerThermalFoundation.init();
+                IntegrationForegoing.logger.info("Registered Laser Drill entries for Thermal Foundation");
+            }
+        }
         if (Config.immersiveEngineeringIntegration) {
             if (Loader.isModLoaded("immersiveengineering")) {
                 IntegrationForegoing.logger.info("Registering Bioreactor entries for Immersive Engineering...");
@@ -78,10 +87,6 @@ public class CommonProxy {
                 IntegrationForegoing.logger.info("Registering Laser Drill entries for Mystical Agriculture...");
                 LaserDrillHandlerMysticalAgriculture.init();
                 IntegrationForegoing.logger.info("Registered Laser Drill entries for Mystical Agriculture");
-
-                IntegrationForegoing.logger.info("Registering Plant Recollector entries for Mystical Agriculture...");
-                IndustrialForegoingHelper.addPlantRecollectable(new MysticalAgricultureCropsPlantRecollectable());
-                IntegrationForegoing.logger.info("Registered Plant Recollector entries for Mystical Agriculture");
             }
         }
         if (Config.mysticalAgradditionsIntegration) {
@@ -100,6 +105,10 @@ public class CommonProxy {
                 IntegrationForegoing.logger.info("Initialising integration for Tinkers' Construct...");
                 TConstructCompat.init();
                 IntegrationForegoing.logger.info("Initialised integration for Tinkers' Construct");
+
+                IntegrationForegoing.logger.info("Registering Laser Drill entries for Tinkers' Construct...");
+                LaserDrillHandlerTConstruct.init();
+                IntegrationForegoing.logger.info("Registered Laser Drill entries for Tinkers' Construct");
             }
         }
         if (Config.oreberriesIntegration) {
@@ -128,6 +137,24 @@ public class CommonProxy {
                 IntegrationForegoing.logger.info("Registering Laser Drill entries for EvilCraft...");
                 LaserDrillHandlerEvilCraft.init();
                 IntegrationForegoing.logger.info("Registered Laser Drill entries for EvilCraft");
+            }
+        }
+        if (Config.actuallyAdditionsIntegration) {
+            if (Loader.isModLoaded("actuallyadditions")) {
+                IntegrationForegoing.logger.info("Registering Bioreactor entries for Actually Additions...");
+                BioReactorHandlerActuallyAdditions.init();
+                IntegrationForegoing.logger.info("Registered Bioreactor entries for Actually Additions");
+
+                IntegrationForegoing.logger.info("Registering Laser Drill entries for Actually Additions...");
+                LaserDrillHandlerActuallyAdditions.init();
+                IntegrationForegoing.logger.info("Registered Laser Drill entries for Actually Additions");
+            }
+        }
+        if (Config.forestryIntegration) {
+            if (Loader.isModLoaded("forestry")) {
+                IntegrationForegoing.logger.info("Registering Laser Drill entries for Forestry...");
+                LaserDrillHandlerForestry.init();
+                IntegrationForegoing.logger.info("Registered Laser Drill entries for Forestry");
             }
         }
 	}

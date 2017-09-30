@@ -15,14 +15,16 @@ public class MysticalAgradditionsCropsPlantRecollectable implements IPlantRecoll
 
     @Override
     public boolean canBeHarvested(World world, BlockPos pos, IBlockState blockState) {
-    	if(world.isRemote || !blockState.getBlock().getRegistryName().getResourceDomain().equals(MA_ID)) return false;
-        return blockState.getBlock() instanceof BlockCrops && ((BlockCrops) blockState.getBlock()).isMaxAge(blockState);
+        return !world.isRemote
+                && blockState.getBlock().getRegistryName().getResourceDomain().equals(MA_ID)
+                && blockState.getBlock() instanceof BlockCrops
+                && ((BlockCrops) blockState.getBlock()).isMaxAge(blockState);
     }
 
     @Override
     @SuppressWarnings("deprecation")
     public List<ItemStack> doHarvestOperation(World world, BlockPos pos, IBlockState state) {
-		List<ItemStack> stacks = state.getBlock().getDrops(world, pos, state, 0);
+	    List<ItemStack> stacks = state.getBlock().getDrops(world, pos, state, 0);
         world.setBlockToAir(pos);
         return stacks;
     }

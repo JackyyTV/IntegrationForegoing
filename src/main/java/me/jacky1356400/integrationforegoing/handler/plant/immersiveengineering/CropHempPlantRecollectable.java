@@ -29,7 +29,7 @@ public class CropHempPlantRecollectable implements IPlantRecollectable {
             world.setBlockToAir(new BlockPos(pos.getX(), pos.getY() + 1, pos.getZ()));
             world.setBlockToAir(pos);
         } else {
-            blockState.getBlock().getDrops(stacks, world, pos, blockState, 0);
+            blockState.getBlock().getDrops(stacks, world, new BlockPos(pos.getX(), pos.getY() + 1, pos.getZ()), blockState, 0);
             world.setBlockToAir(new BlockPos(pos.getX(), pos.getY() + 1, pos.getZ()));
         }
         return stacks;
