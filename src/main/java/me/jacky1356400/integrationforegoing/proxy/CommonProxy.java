@@ -1,6 +1,5 @@
 package me.jacky1356400.integrationforegoing.proxy;
 
-import com.buuz135.industrial.api.IndustrialForegoingHelper;
 import me.jacky1356400.integrationforegoing.Config;
 import me.jacky1356400.integrationforegoing.IntegrationForegoing;
 import me.jacky1356400.integrationforegoing.compat.tconstruct.TConstructCompat;
@@ -9,9 +8,10 @@ import me.jacky1356400.integrationforegoing.handler.bioreactor.BioReactorHandler
 import me.jacky1356400.integrationforegoing.handler.bioreactor.BioReactorHandlerMysticalAgradditions;
 import me.jacky1356400.integrationforegoing.handler.bioreactor.BioReactorHandlerMysticalAgriculture;
 import me.jacky1356400.integrationforegoing.handler.laserdrill.*;
-import me.jacky1356400.integrationforegoing.handler.plant.immersiveengineering.CropHempPlantRecollectable;
-import me.jacky1356400.integrationforegoing.handler.plant.mysticalagradditions.MysticalAgradditionsCropsPlantRecollectable;
-import me.jacky1356400.integrationforegoing.handler.plant.oreberries.OreberryBushPlantRecollectable;
+import me.jacky1356400.integrationforegoing.handler.plant.extrautils2.PlantRecollectableExtraUtilities2;
+import me.jacky1356400.integrationforegoing.handler.plant.immersiveengineering.PlantRecollectableIE;
+import me.jacky1356400.integrationforegoing.handler.plant.mysticalagradditions.PlantRecollectableMysticalAgradditions;
+import me.jacky1356400.integrationforegoing.handler.plant.oreberries.PlantRecollectableOreberries;
 import me.jacky1356400.integrationforegoing.handler.straw.immersiveengineering.StrawRegistryIE;
 import me.jacky1356400.integrationforegoing.handler.straw.tconstruct.StrawRegistryTCon;
 import me.jacky1356400.integrationforegoing.handler.straw.thermalfoundation.StrawRegistryTF;
@@ -44,6 +44,10 @@ public class CommonProxy {
                 IntegrationForegoing.logger.info("Registering drink handlers for Immersive Engineering...");
                 MinecraftForge.EVENT_BUS.register(new StrawRegistryIE());
                 IntegrationForegoing.logger.info("Registered drink handlers for Immersive Engineering");
+
+                IntegrationForegoing.logger.info("Registering Plant Recollector entries for Immersive Engineering...");
+                MinecraftForge.EVENT_BUS.register(new PlantRecollectableIE());
+                IntegrationForegoing.logger.info("Registered Plant Recollector entries for Immersive Engineering");
             }
         }
         if (Config.tconstructIntegration) {
@@ -55,6 +59,13 @@ public class CommonProxy {
                 IntegrationForegoing.logger.info("Registering drink handlers for Tinkers' Construct...");
                 MinecraftForge.EVENT_BUS.register(new StrawRegistryTCon());
                 IntegrationForegoing.logger.info("Registered drink handlers for Tinkers' Construct");
+            }
+        }
+        if (Config.extraUtils2Integration) {
+            if (Loader.isModLoaded("extrautils2")) {
+                IntegrationForegoing.logger.info("Registering Plant Recollector entries for Extra Utilities 2...");
+                MinecraftForge.EVENT_BUS.register(new PlantRecollectableExtraUtilities2());
+                IntegrationForegoing.logger.info("Registered Plant Recollector entries for Extra Utilities 2");
             }
         }
 	}
@@ -72,10 +83,6 @@ public class CommonProxy {
                 IntegrationForegoing.logger.info("Registering Bioreactor entries for Immersive Engineering...");
                 BioReactorHandlerIE.init();
                 IntegrationForegoing.logger.info("Registered Bioreactor entries for Immersive Engineering");
-
-                IntegrationForegoing.logger.info("Registering Plant Recollector entries for Immersive Engineering...");
-                IndustrialForegoingHelper.addPlantRecollectable(new CropHempPlantRecollectable());
-                IntegrationForegoing.logger.info("Registered Plant Recollector entries for Immersive Engineering");
             }
         }
         if (Config.mysticalAgricultureIntegration) {
@@ -96,7 +103,7 @@ public class CommonProxy {
                 IntegrationForegoing.logger.info("Registered Bioreactor entries for Mystical Agradditions");
 
                 IntegrationForegoing.logger.info("Registering Plant Recollector entries for Mystical Agradditions...");
-                IndustrialForegoingHelper.addPlantRecollectable(new MysticalAgradditionsCropsPlantRecollectable());
+                MinecraftForge.EVENT_BUS.register(new PlantRecollectableMysticalAgradditions());
                 IntegrationForegoing.logger.info("Registered Plant Recollector entries for Mystical Agradditions");
             }
         }
@@ -105,16 +112,12 @@ public class CommonProxy {
                 IntegrationForegoing.logger.info("Initialising integration for Tinkers' Construct...");
                 TConstructCompat.init();
                 IntegrationForegoing.logger.info("Initialised integration for Tinkers' Construct");
-
-                IntegrationForegoing.logger.info("Registering Laser Drill entries for Tinkers' Construct...");
-                LaserDrillHandlerTConstruct.init();
-                IntegrationForegoing.logger.info("Registered Laser Drill entries for Tinkers' Construct");
             }
         }
         if (Config.oreberriesIntegration) {
             if (Loader.isModLoaded("oreberries")) {
                 IntegrationForegoing.logger.info("Registering Plant Recollector entries for Oreberries...");
-                IndustrialForegoingHelper.addPlantRecollectable(new OreberryBushPlantRecollectable());
+                MinecraftForge.EVENT_BUS.register(new PlantRecollectableOreberries());
                 IntegrationForegoing.logger.info("Registered Plant Recollector entries for Oreberries");
             }
         }

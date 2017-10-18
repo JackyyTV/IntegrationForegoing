@@ -25,6 +25,7 @@ public class Config {
     public static boolean evilcraftIntegration;
     public static boolean actuallyAdditionsIntegration;
     public static boolean forestryIntegration;
+    public static boolean extraUtils2Integration;
     public static int strawEnderRange;
     public static boolean hempHarvestBothBlocks;
 
@@ -65,6 +66,7 @@ public class Config {
         evilcraftIntegration = cfg.getBoolean("evilcraftIntegration", CATEGORY_INTEGRATIONS, true, "If true, enables EvilCraft Integration");
         actuallyAdditionsIntegration = cfg.getBoolean("actuallyAdditionsIntegration", CATEGORY_INTEGRATIONS, true, "If true, enables Actually Additions Integration");
         forestryIntegration = cfg.getBoolean("forestryIntegration", CATEGORY_INTEGRATIONS, true, "If true, enables Forestry Integration");
+        extraUtils2Integration = cfg.getBoolean("extraUtils2Integration", CATEGORY_INTEGRATIONS, true, "If true, enables Extra Utilities 2 Integration");
         strawEnderRange = cfg.getInt("strawEnderRange", CATEGORY_TF, 16384, 64, 65536,
                 "This number determines the teleportation range for drinking Resonant Ender.\n"
                         + "Range calculation method:\n"
