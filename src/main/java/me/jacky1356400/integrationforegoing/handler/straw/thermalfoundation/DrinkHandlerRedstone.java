@@ -1,8 +1,8 @@
 package me.jacky1356400.integrationforegoing.handler.straw.thermalfoundation;
 
 import com.buuz135.industrial.utils.strawhandlers.StrawHandlerBase;
-import me.jacky1356400.integrationforegoing.entity.EntityFakeLightningBolt;
 import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.effect.EntityLightningBolt;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.SoundEvents;
 import net.minecraft.potion.PotionEffect;
@@ -26,7 +26,7 @@ public class DrinkHandlerRedstone extends StrawHandlerBase {
             amplifyEffect(player, effect);
         }
         player.setFire(2);
-        EntityFakeLightningBolt bolt = new EntityFakeLightningBolt(world, pos.getX(), pos.getY(), pos.getZ());
+        EntityLightningBolt bolt = new EntityLightningBolt(world, pos.getX(), pos.getY(), pos.getZ(), false);
         world.addWeatherEffect(bolt);
         world.spawnParticle(EnumParticleTypes.EXPLOSION_LARGE, pos.getX(), pos.getY() + 1, pos.getZ(), 0.0D, 0.0D, 0.0D);
         world.playSound(null, pos, SoundEvents.ENTITY_GENERIC_EXPLODE, SoundCategory.BLOCKS, 1.0F, 1.0F);
