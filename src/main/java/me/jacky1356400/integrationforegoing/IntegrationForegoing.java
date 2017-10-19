@@ -15,7 +15,7 @@ public class IntegrationForegoing {
 
     public static Logger logger = LogManager.getLogger(Reference.MODNAME);
 
-	@SidedProxy(serverSide = Reference.PROXY + ".CommonProxy", clientSide = Reference.PROXY + ".ClientProxy")
+	@SidedProxy(serverSide = Reference.COMMON_PROXY, clientSide = Reference.CLIENT_PROXY)
 	public static CommonProxy proxy;
 
 	@Mod.EventHandler
