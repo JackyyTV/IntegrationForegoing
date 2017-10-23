@@ -26,6 +26,7 @@ public class Config {
     public static boolean actuallyAdditionsIntegration;
     public static boolean forestryIntegration;
     public static boolean extraUtils2Integration;
+    public static boolean oreShrubsIntegration;
     public static int strawEnderRange;
     public static boolean hempHarvestBothBlocks;
 
@@ -67,6 +68,7 @@ public class Config {
         actuallyAdditionsIntegration = cfg.getBoolean("actuallyAdditionsIntegration", CATEGORY_INTEGRATIONS, true, "If true, enables Actually Additions Integration");
         forestryIntegration = cfg.getBoolean("forestryIntegration", CATEGORY_INTEGRATIONS, true, "If true, enables Forestry Integration");
         extraUtils2Integration = cfg.getBoolean("extraUtils2Integration", CATEGORY_INTEGRATIONS, true, "If true, enables Extra Utilities 2 Integration");
+        oreShrubsIntegration = cfg.getBoolean("oreShrubsIntegration", CATEGORY_INTEGRATIONS, true, "If true, enables Ore Shrubs Integration");
         strawEnderRange = cfg.getInt("strawEnderRange", CATEGORY_TF, 16384, 64, 65536,
                 "This number determines the teleportation range for drinking Resonant Ender.\n"
                         + "Range calculation method:\n"

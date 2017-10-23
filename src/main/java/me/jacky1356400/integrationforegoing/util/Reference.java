@@ -6,7 +6,7 @@ public class Reference {
 
     public static final String MODID = "integrationforegoing";
     public static final String MODNAME = "Integration Foregoing";
-    public static final String VERSION = "1.12-1.3";
+    public static final String VERSION = "1.12-1.3.1";
     public static final String MCVERSION = "[1.12,)";
     public static final String DEPENDS
             = "required-after:industrialforegoing@[1.12.1-1.5.0,);"
@@ -27,6 +27,7 @@ public class Reference {
     public static final String CLIENT_PROXY = "me.jacky1356400.integrationforegoing.proxy.ClientProxy";
 
     public static final PropertyInteger OREBERRIES_AGE = PropertyInteger.create("age", 0, 3);
+    public static final PropertyInteger ORESHRUBS_AGE = PropertyInteger.create("age", 0, 4);
     public static final PropertyInteger ENDERLILLY_AGE = PropertyInteger.create("growth", 0, 7);
 
 }

@@ -12,6 +12,7 @@ import me.jacky1356400.integrationforegoing.handler.plant.extrautils2.PlantRecol
 import me.jacky1356400.integrationforegoing.handler.plant.immersiveengineering.PlantRecollectableIE;
 import me.jacky1356400.integrationforegoing.handler.plant.mysticalagradditions.PlantRecollectableMysticalAgradditions;
 import me.jacky1356400.integrationforegoing.handler.plant.oreberries.PlantRecollectableOreberries;
+import me.jacky1356400.integrationforegoing.handler.plant.oreshrubs.PlantRecollectableOreShrubs;
 import me.jacky1356400.integrationforegoing.handler.straw.immersiveengineering.StrawRegistryIE;
 import me.jacky1356400.integrationforegoing.handler.straw.tconstruct.StrawRegistryTCon;
 import me.jacky1356400.integrationforegoing.handler.straw.thermalfoundation.StrawRegistryTF;
@@ -50,6 +51,13 @@ public class CommonProxy {
                 IntegrationForegoing.logger.info("Registered Plant Recollector entries for Immersive Engineering");
             }
         }
+        if (Config.mysticalAgradditionsIntegration) {
+            if (Loader.isModLoaded("mysticalagradditions")) {
+                IntegrationForegoing.logger.info("Registering Plant Recollector entries for Mystical Agradditions...");
+                MinecraftForge.EVENT_BUS.register(new PlantRecollectableMysticalAgradditions());
+                IntegrationForegoing.logger.info("Registered Plant Recollector entries for Mystical Agradditions");
+            }
+        }
         if (Config.tconstructIntegration) {
             if (Loader.isModLoaded("tconstruct")) {
                 IntegrationForegoing.logger.info("Pre-initialising integration for Tinkers' Construct...");
@@ -61,11 +69,25 @@ public class CommonProxy {
                 IntegrationForegoing.logger.info("Registered drink handlers for Tinkers' Construct");
             }
         }
+        if (Config.oreberriesIntegration) {
+            if (Loader.isModLoaded("oreberries")) {
+                IntegrationForegoing.logger.info("Registering Plant Recollector entries for Oreberries...");
+                MinecraftForge.EVENT_BUS.register(new PlantRecollectableOreberries());
+                IntegrationForegoing.logger.info("Registered Plant Recollector entries for Oreberries");
+            }
+        }
         if (Config.extraUtils2Integration) {
             if (Loader.isModLoaded("extrautils2")) {
                 IntegrationForegoing.logger.info("Registering Plant Recollector entries for Extra Utilities 2...");
                 MinecraftForge.EVENT_BUS.register(new PlantRecollectableExtraUtilities2());
                 IntegrationForegoing.logger.info("Registered Plant Recollector entries for Extra Utilities 2");
+            }
+        }
+        if (Config.oreShrubsIntegration) {
+            if (Loader.isModLoaded("oreshrubs")) {
+                IntegrationForegoing.logger.info("Registering Plant Recollector entries for Ore Shrubs...");
+                MinecraftForge.EVENT_BUS.register(new PlantRecollectableOreShrubs());
+                IntegrationForegoing.logger.info("Registered Plant Recollector entries for Ore Shrubs");
             }
         }
 	}
@@ -101,10 +123,6 @@ public class CommonProxy {
                 IntegrationForegoing.logger.info("Registering Bioreactor entries for Mystical Agradditions...");
                 BioReactorHandlerMysticalAgradditions.init();
                 IntegrationForegoing.logger.info("Registered Bioreactor entries for Mystical Agradditions");
-
-                IntegrationForegoing.logger.info("Registering Plant Recollector entries for Mystical Agradditions...");
-                MinecraftForge.EVENT_BUS.register(new PlantRecollectableMysticalAgradditions());
-                IntegrationForegoing.logger.info("Registered Plant Recollector entries for Mystical Agradditions");
             }
         }
         if (Config.tconstructIntegration) {
@@ -112,13 +130,6 @@ public class CommonProxy {
                 IntegrationForegoing.logger.info("Initialising integration for Tinkers' Construct...");
                 TConstructCompat.init();
                 IntegrationForegoing.logger.info("Initialised integration for Tinkers' Construct");
-            }
-        }
-        if (Config.oreberriesIntegration) {
-            if (Loader.isModLoaded("oreberries")) {
-                IntegrationForegoing.logger.info("Registering Plant Recollector entries for Oreberries...");
-                MinecraftForge.EVENT_BUS.register(new PlantRecollectableOreberries());
-                IntegrationForegoing.logger.info("Registered Plant Recollector entries for Oreberries");
             }
         }
         if (Config.ae2Integration) {
