@@ -25,7 +25,7 @@ public class PlantRecollectableOreberries {
             @Override
             public boolean canBeHarvested(World world, BlockPos pos, IBlockState blockState) {
                 Block block = blockState.getBlock();
-                if(block.getMetaFromState(blockState) != 3) return false;
+                if (block.getMetaFromState(blockState) != 3) return false;
                 ResourceLocation registryName = block.getRegistryName();
                 return registryName.getResourceDomain().equals("oreberries")
                         && registryName.getResourcePath().endsWith("_oreberry_bush");
