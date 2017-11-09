@@ -1,4 +1,4 @@
-package me.jacky1356400.integrationforegoing.compat.tconstruct;
+package me.jacky1356400.integrationforegoing.compat;
 
 import com.buuz135.industrial.entity.EntityPinkSlime;
 import gnu.trove.map.hash.THashMap;

@@ -37,10 +37,7 @@ public class PlantRecollectableOreShrubs {
                 NonNullList<ItemStack> stacks = NonNullList.create();
                 String name = blockState.getBlock().getRegistryName().getResourcePath().substring(9);
                 if (!name.equals("random")) {
-                    //int maxBerries = OreShrubVariant.getMaxHarvestedBerries();
-                    int maxBerries = world.rand.nextInt(3) + 1;
-                    int size = maxBerries <= 1 ? 1 : world.rand.nextInt(maxBerries) + 1;
-                    ItemStack berries = ModUtils.getItemStackByObject("oreshrubs", "oreberries", size, 0);
+                    ItemStack berries = ModUtils.getItemStackByObject("oreshrubs", "oreberries", 1, 0);
                     berries.setTagCompound(new NBTTagCompound());
                     NBTTagCompound tag = new NBTTagCompound();
                     tag.setString("Name", name);
@@ -48,10 +45,7 @@ public class PlantRecollectableOreShrubs {
                     stacks.add(0, berries);
                     world.setBlockState(pos, blockState.withProperty(Reference.ORESHRUBS_AGE, 3));
                 } else {
-                    //int maxBerries = OreShrubVariant.getMaxHarvestedBerries();
-                    int maxBerries = world.rand.nextInt(3) + 1;
-                    int size = maxBerries <= 1 ? 1 : world.rand.nextInt(maxBerries) + 1;
-                    stacks.add(0, ModUtils.getItemStackByObject("oreshrubs", "oreberries_random", size, 0));
+                    stacks.add(0, ModUtils.getItemStackByObject("oreshrubs", "oreberries_random", 1, 0));
                     world.setBlockState(pos, blockState.withProperty(Reference.ORESHRUBS_AGE, 3));
                 }
                 return stacks;

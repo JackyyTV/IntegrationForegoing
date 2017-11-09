@@ -58,7 +58,7 @@ repositories {
 	}
 	maven {
 		name = "TeslaCoreLib Maven"
-		url = "http://maven.ndrei.net"
+		url = "https://maven.modcrafters.net"
 	}
 	maven {
 		name = "Shadowfacts Maven"
@@ -67,9 +67,9 @@ repositories {
 }
 
 dependencies {
-	deobfCompile "mezz.jei:jei_1.12.2:4.7.+:api"
-	runtime "mezz.jei:jei_1.12.2:4.7.+"
-	deobfCompile "mcp.mobius.waila:Hwyla:1.8.+"
+	deobfCompile "mezz.jei:jei_1.12.2:+:api"
+	runtime "mezz.jei:jei_1.12.2:+"
+	deobfCompile "mcp.mobius.waila:Hwyla:+"
 	deobfCompile "mcjty.theoneprobe:TheOneProbe-1.12:1.12-1.4.+"
 	deobfCompile "com.buuz135.industrial.IndustrialForegoing:industrialforegoing:1.12.1-1.+"
 	deobfCompile "slimeknights.mantle:Mantle:1.12-1.+"
