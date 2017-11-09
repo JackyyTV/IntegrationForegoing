@@ -21,7 +21,8 @@ public class Reference {
             + "after:evilcraft;"
             + "after:actuallyadditions;"
             + "after:forestry;"
-            + "after:extrautils2";
+            + "after:extrautils2;"
+            + "after:oreshrubs;";
     public static final String GUIFACTORY = "me.jacky1356400.integrationforegoing.ConfigGuiFactory";
     public static final String COMMON_PROXY = "me.jacky1356400.integrationforegoing.proxy.CommonProxy";
     public static final String CLIENT_PROXY = "me.jacky1356400.integrationforegoing.proxy.ClientProxy";

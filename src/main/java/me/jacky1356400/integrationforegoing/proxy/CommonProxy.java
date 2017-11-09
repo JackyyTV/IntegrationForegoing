@@ -2,7 +2,8 @@ package me.jacky1356400.integrationforegoing.proxy;
 
 import me.jacky1356400.integrationforegoing.Config;
 import me.jacky1356400.integrationforegoing.IntegrationForegoing;
-import me.jacky1356400.integrationforegoing.compat.tconstruct.TConstructCompat;
+import me.jacky1356400.integrationforegoing.compat.IFBookCompat;
+import me.jacky1356400.integrationforegoing.compat.TConstructCompat;
 import me.jacky1356400.integrationforegoing.handler.bioreactor.BioReactorHandlerActuallyAdditions;
 import me.jacky1356400.integrationforegoing.handler.bioreactor.BioReactorHandlerIE;
 import me.jacky1356400.integrationforegoing.handler.bioreactor.BioReactorHandlerMysticalAgradditions;
@@ -93,6 +94,9 @@ public class CommonProxy {
 	}
 
 	public void init(FMLInitializationEvent event) {
+        IntegrationForegoing.logger.info("Registering Guide Book entries...");
+        IFBookCompat.init();
+        IntegrationForegoing.logger.info("Registered Guide Book entries");
         if (Config.thermalFoundationIntegration) {
             if (Loader.isModLoaded("thermalfoundation")) {
                 IntegrationForegoing.logger.info("Registering Laser Drill entries for Thermal Foundation...");
