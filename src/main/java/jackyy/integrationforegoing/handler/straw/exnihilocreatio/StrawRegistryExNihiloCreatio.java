@@ -14,7 +14,10 @@ public class StrawRegistryExNihiloCreatio {
     public void register(RegistryEvent.Register<StrawHandler> event) {
         IForgeRegistry<StrawHandler> registry = event.getRegistry();
         registry.register(new PotionStrawHandler("witchwater")
+                .addPotion(new PotionEffect(MobEffects.BLINDNESS, 60 * 20, 0))
                 .addPotion(new PotionEffect(MobEffects.WITHER, 30 * 20, 0))
+                .addPotion(new PotionEffect(MobEffects.WEAKNESS, 30 * 20, 2))
+                .addPotion(new PotionEffect(MobEffects.SLOWNESS, 60 * 20, 0))
                 .setRegistryName("witchwater"));
     }
 
