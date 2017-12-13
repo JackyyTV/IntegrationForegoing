@@ -1,0 +1,43 @@
+package jackyy.integrationforegoing.handler.straw.thermalfoundation;
+
+import com.buuz135.industrial.utils.strawhandlers.StrawHandlerBase;
+import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.effect.EntityLightningBolt;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.SoundEvents;
+import net.minecraft.potion.PotionEffect;
+import net.minecraft.util.EnumParticleTypes;
+import net.minecraft.util.SoundCategory;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.World;
+import net.minecraftforge.fluids.FluidStack;
+
+import java.util.ArrayList;
+
+public class DrinkHandlerRedstone extends StrawHandlerBase {
+    public DrinkHandlerRedstone() {
+        super("redstone");
+        setRegistryName("redstone");
+    }
+    @Override
+    public void onDrink(World world, BlockPos pos, FluidStack stack, EntityPlayer player, boolean fromFluidContainer) {
+        ArrayList<PotionEffect> effects = new ArrayList<>(player.getActivePotionEffects());
+        for (PotionEffect effect : effects) {
+            amplifyEffect(player, effect);
+        }
+        player.setFire(2);
+        EntityLightningBolt bolt = new EntityLightningBolt(world, pos.getX(), pos.getY(), pos.getZ(), false);
+        world.addWeatherEffect(bolt);
+        world.spawnParticle(EnumParticleTypes.EXPLOSION_LARGE, pos.getX(), pos.getY() + 1, pos.getZ(), 0.0D, 0.0D, 0.0D);
+        world.playSound(null, pos, SoundEvents.ENTITY_GENERIC_EXPLODE, SoundCategory.BLOCKS, 1.0F, 1.0F);
+    }
+    private boolean amplifyEffect(EntityLivingBase player, PotionEffect effect) {
+        if (effect == null || effect.getIsAmbient()) {
+            return false;
+        }
+        int amplifier = Math.min(effect.getAmplifier() + 1, 3);
+        int duration = Math.min(effect.getDuration() * 2, 9600);
+        player.addPotionEffect(new PotionEffect(effect.getPotion(), duration, amplifier));
+        return true;
+    }
+}
