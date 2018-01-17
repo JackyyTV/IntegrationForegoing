@@ -18,5 +18,7 @@ public class ModNames {
     public static final String ORESHRUBS = "oreshrubs";
     public static final String HARVESTCRAFT = "harvestcraft";
     public static final String EXNIHILOCREATIO = "exnihilocreatio";
+    public static final String SIMPLECORN = "simplecorn";
+    public static final String NATURA = "natura";
 
 }

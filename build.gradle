@@ -10,7 +10,7 @@ buildscript {
 apply plugin: 'net.minecraftforge.gradle.forge'
 
 version = "${mc_version}-${mod_version}"
-group = "jackydev.integrationforegoing"
+group = "jackyy.integrationforegoing"
 archivesBaseName = "IntegrationForegoing"
 
 sourceCompatibility = targetCompatibility = "1.8"
@@ -40,7 +40,7 @@ repositories {
     }
 	maven {
 		name = "HWYLA Maven"
-		url = "http://tehnut.info/maven"
+		url = "https://tehnut.info/maven"
 	}
 	maven {
 		name = "TOP Maven"
@@ -69,8 +69,7 @@ repositories {
 }
 
 dependencies {
-	deobfCompile "mezz.jei:jei_1.12.2:+:api"
-	runtime "mezz.jei:jei_1.12.2:+"
+	deobfCompile "mezz.jei:jei_1.12.2:+"
 	deobfCompile "mcp.mobius.waila:Hwyla:+"
 	deobfCompile "mcjty.theoneprobe:TheOneProbe-1.12:+"
 	deobfCompile "com.buuz135.industrial.IndustrialForegoing:industrialforegoing:+"

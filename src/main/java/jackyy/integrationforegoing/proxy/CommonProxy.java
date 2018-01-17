@@ -1,7 +1,7 @@
 package jackyy.integrationforegoing.proxy;
 
 import jackyy.integrationforegoing.config.Config;
-import jackyy.integrationforegoing.util.Integrations;
+import jackyy.integrationforegoing.integration.Integrations;
 import net.minecraftforge.common.config.Configuration;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;

@@ -11,10 +11,12 @@ import java.util.List;
 
 public class Config {
 
+    //Categories
     private static final String CATEGORY_INTEGRATIONS = "integrations";
     private static final String CATEGORY_TF = "thermal foundation";
     private static final String CATEGORY_IE = "immersive engineering";
 
+    //Integrations
     public static boolean thermalFoundationIntegration;
     public static boolean immersiveEngineeringIntegration;
     public static boolean mysticalAgricultureIntegration;
@@ -30,8 +32,13 @@ public class Config {
     public static boolean oreShrubsIntegration;
     public static boolean harvestCraftIntegration;
     public static boolean exNihiloCreatioIntegration;
+    public static boolean simpleCornIntegration;
+    public static boolean naturaIntegration;
+
+    //Misc tweaks
     public static int strawEnderRange;
     public static boolean hempHarvestBothBlocks;
+    public static boolean naturaCropsReplant;
 
     public static void readConfig() {
         Configuration cfg = CommonProxy.config;
@@ -74,14 +81,18 @@ public class Config {
         oreShrubsIntegration = cfg.getBoolean("oreShrubsIntegration", CATEGORY_INTEGRATIONS, true, "If true, enables Ore Shrubs Integration");
         harvestCraftIntegration = cfg.getBoolean("harvestCraftIntegration", CATEGORY_INTEGRATIONS, true, "If true, enables Pam's HarvestCraft Integration");
         exNihiloCreatioIntegration = cfg.getBoolean("exNihiloCreatioIntegration", CATEGORY_INTEGRATIONS, true, "If true, enables Ex Nihilo Creatio Integration");
+        simpleCornIntegration = cfg.getBoolean("simpleCornIntegration", CATEGORY_INTEGRATIONS, true, "If true, enables Simple Corn Integration");
+        naturaIntegration = cfg.getBoolean("naturaIntegration", CATEGORY_INTEGRATIONS, true, "If true, enables Natura Integration");
+
         strawEnderRange = cfg.getInt("strawEnderRange", CATEGORY_TF, 16384, 64, 65536,
                 "This number determines the teleportation range for drinking Resonant Ender.\n"
                         + "Range calculation method:\n"
                         + "Player's X / Z position - (this number clamped between 8 and 65536) + (this number clamped between 8 and 65536) * 2\n"
         );
-        hempHarvestBothBlocks = cfg.getBoolean("hempHarvestBothBlocks", CATEGORY_IE, true,
+        hempHarvestBothBlocks = cfg.getBoolean("hempHarvestBothBlocks", CATEGORY_IE, false,
                 "If true, both top and bottom blocks of Industrial Hemp gets harvested by the Plant Recollector.\n"
                         + "Set to false if you only want the top block to be harvested.\n");
+        naturaCropsReplant = cfg.getBoolean("naturaCropsReplant", CATEGORY_IE, false, "If true, replant is needed for Natura crops, otherwise Plant Gatherer won't remove the crops.");
     }
 
 }
