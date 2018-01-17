@@ -2,7 +2,7 @@
 
 [![Downloads](http://cf.way2muchnoise.eu/full_integration-foregoing_downloads.svg)](https://minecraft.curseforge.com/projects/integration-foregoing) [![MCVersion](http://cf.way2muchnoise.eu/versions/integration-foregoing.svg)](https://minecraft.curseforge.com/projects/integration-foregoing/files)
 
-[![GitHub issues](https://img.shields.io/github/issues/Jacky1356400/IntegrationForegoing.svg)](https://github.com/Jacky1356400/IntegrationForegoing/issues) [![GitHub pull requests](https://img.shields.io/github/issues-pr/Jacky1356400/IntegrationForegoing.svg)](https://github.com/Jacky1356400/IntegrationForegoing/pulls) [![license](https://img.shields.io/github/license/Jacky1356400/IntegrationForegoing.svg)](../dev-1.12.x/LICENSE)
+[![GitHub issues](https://img.shields.io/github/issues/JackyyTV/IntegrationForegoing.svg)](https://github.com/JackyyTV/IntegrationForegoing/issues) [![GitHub pull requests](https://img.shields.io/github/issues-pr/JackyyTV/IntegrationForegoing.svg)](https://github.com/JackyyTV/IntegrationForegoing/pulls) [![license](https://img.shields.io/github/license/Jacky1356400/IntegrationForegoing.svg)](../dev-1.12.x/LICENSE)
 
 An addon mod for Industrial Foregoing!
 
@@ -12,9 +12,9 @@ An addon mod for Industrial Foregoing!
 
 This is the GitHub repo for the Integration Foregoing Minecraft mod, where the source code and issue tracker are in here.
 
-Submit any bug reports / suggestions via [issue tracker](https://github.com/Jacky1356400/IntegrationForegoing/issues).
+Submit any bug reports / suggestions via [issue tracker](https://github.com/JackyyTV/IntegrationForegoing/issues).
 
-[Pull requests](https://github.com/Jacky1356400/IntegrationForegoing/pulls) are welcome if you would like to add features / help with bug fixes or translations.
+[Pull requests](https://github.com/JackyyTV/IntegrationForegoing/pulls) are welcome if you would like to add features / help with bug fixes or translations.
 
 ---
 
@@ -32,8 +32,8 @@ Submit any bug reports / suggestions via [issue tracker](https://github.com/Jack
 If you would like to set up the workspace yourself to submit PRs of features additions or bug fixes, or compile the mod, here's how you do it.
 
 1. Clone the mod.
-    - HTTPS: `git clone https://github.com/Jacky1356400/IntegrationForegoing.git`
-    - SSH: `git clone git@github.com:Jacky1356400/IntegrationForegoing.git`
+    - HTTPS: `git clone https://github.com/JackyyTV/IntegrationForegoing.git`
+    - SSH: `git clone git@github.com:JackyyTV/IntegrationForegoing.git`
     - Or, use the GitHub desktop app to clone the repo via GUI interface.
 
 2. Setting up the workspace, depending on what you need.
