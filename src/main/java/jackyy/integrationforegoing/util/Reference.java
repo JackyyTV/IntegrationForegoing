@@ -2,8 +2,7 @@ package jackyy.integrationforegoing.util;
 
 import net.minecraft.block.properties.PropertyInteger;
 
-public class Reference {
-
+public final class Reference {
     public static final String MODID = "integrationforegoing";
     public static final String MODNAME = "Integration Foregoing";
     public static final String VERSION = "1.12-1.5";
@@ -24,8 +23,10 @@ public class Reference {
             + "after:" + ModNames.XU2 + ";"
             + "after:" + ModNames.ORESHRUBS + ";"
             + "after:" + ModNames.HARVESTCRAFT + ";"
-            + "after:" + ModNames.EXNIHILOCREATIO + ";";
-    public static final String GUIFACTORY = "jackyy.integrationforegoing.config.ConfigGuiFactory";
+            + "after:" + ModNames.EXNIHILOCREATIO + ";"
+            + "after:" + ModNames.SIMPLECORN + ";"
+            + "after:" + ModNames.NATURA + ";";
+
     public static final String COMMON_PROXY = "jackyy.integrationforegoing.proxy.CommonProxy";
     public static final String CLIENT_PROXY = "jackyy.integrationforegoing.proxy.ClientProxy";
 
@@ -38,5 +39,4 @@ public class Reference {
     public static final PropertyInteger NATURA_BERRIES_AGE = PropertyInteger.create("age", 0, 3);
     public static final PropertyInteger NATURA_BARLEY_AGE = PropertyInteger.create("age", 0, 3);
     public static final PropertyInteger NATURA_COTTON_AGE = PropertyInteger.create("age", 0, 4);
-
 }

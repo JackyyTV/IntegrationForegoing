@@ -1,7 +1,7 @@
 package jackyy.integrationforegoing.integration.plant;
 
 import com.buuz135.industrial.api.plant.PlantRecollectable;
-import jackyy.integrationforegoing.config.Config;
+import jackyy.integrationforegoing.util.ModConfig;
 import jackyy.integrationforegoing.util.ModNames;
 import jackyy.integrationforegoing.util.ModUtils;
 import jackyy.integrationforegoing.util.Reference;
@@ -18,7 +18,6 @@ import net.minecraftforge.registries.IForgeRegistry;
 import java.util.Collections;
 import java.util.List;
 
-@SuppressWarnings("null")
 public class PlantRecollectableNatura {
 
     @SubscribeEvent
@@ -37,28 +36,28 @@ public class PlantRecollectableNatura {
                 NonNullList<ItemStack> stacks = NonNullList.create();
                 switch (blockState.getBlock().getRegistryName().getResourcePath()) {
                     case "overworld_berrybush_raspberry" :
-                        stacks.add(0, ModUtils.getItemStackByObject(ModNames.NATURA, "edibles", 1, 2));
+                        stacks.add(0, ModUtils.getItemStackByName(ModNames.NATURA, "edibles", 1, 2));
                         break;
                     case "overworld_berrybush_blueberry" :
-                        stacks.add(0, ModUtils.getItemStackByObject(ModNames.NATURA, "edibles", 1, 3));
+                        stacks.add(0, ModUtils.getItemStackByName(ModNames.NATURA, "edibles", 1, 3));
                         break;
                     case "overworld_berrybush_blackberry" :
-                        stacks.add(0, ModUtils.getItemStackByObject(ModNames.NATURA, "edibles", 1, 4));
+                        stacks.add(0, ModUtils.getItemStackByName(ModNames.NATURA, "edibles", 1, 4));
                         break;
                     case "overworld_berrybush_maloberry" :
-                        stacks.add(0, ModUtils.getItemStackByObject(ModNames.NATURA, "edibles", 1, 5));
+                        stacks.add(0, ModUtils.getItemStackByName(ModNames.NATURA, "edibles", 1, 5));
                         break;
                     case "nether_berrybush_blightberry" :
-                        stacks.add(0, ModUtils.getItemStackByObject(ModNames.NATURA, "edibles", 1, 6));
+                        stacks.add(0, ModUtils.getItemStackByName(ModNames.NATURA, "edibles", 1, 6));
                         break;
                     case "nether_berrybush_duskberry" :
-                        stacks.add(0, ModUtils.getItemStackByObject(ModNames.NATURA, "edibles", 1, 7));
+                        stacks.add(0, ModUtils.getItemStackByName(ModNames.NATURA, "edibles", 1, 7));
                         break;
                     case "nether_berrybush_skyberry" :
-                        stacks.add(0, ModUtils.getItemStackByObject(ModNames.NATURA, "edibles", 1, 8));
+                        stacks.add(0, ModUtils.getItemStackByName(ModNames.NATURA, "edibles", 1, 8));
                         break;
                     case "nether_berrybush_stingberry" :
-                        stacks.add(0, ModUtils.getItemStackByObject(ModNames.NATURA, "edibles", 1, 9));
+                        stacks.add(0, ModUtils.getItemStackByName(ModNames.NATURA, "edibles", 1, 9));
                         break;
                 }
                 world.setBlockState(pos, blockState.withProperty(Reference.NATURA_BERRIES_AGE, 2));
@@ -91,11 +90,11 @@ public class PlantRecollectableNatura {
             public List<ItemStack> doHarvestOperation(World world, BlockPos pos, IBlockState blockState) {
                 NonNullList<ItemStack> stacks = NonNullList.create();
                 blockState.getBlock().getDrops(stacks, world, pos, blockState, 0);
-                if (Config.naturaCropsReplant) {
+                if (ModConfig.Misc.natura.naturaCropsReplant) {
                     world.setBlockToAir(pos);
                 } else {
                     for (int i = 0; i < stacks.size(); i++) {
-                        if (stacks.get(i).getItem() == ModUtils.getItemByObject(ModNames.NATURA, "overworld_seeds")) {
+                        if (stacks.get(i).getItem() == ModUtils.getItemByName(ModNames.NATURA, "overworld_seeds")) {
                             stacks.remove(i);
                         }
                     }
@@ -118,7 +117,7 @@ public class PlantRecollectableNatura {
 
             @Override
             public List<String> getRecollectablesNames() {
-                return Config.naturaCropsReplant ? Collections.singletonList(Reference.PLANT_TEXT + "natura_crops_replant") : Collections.singletonList(Reference.PLANT_TEXT + "natura_crops_no_replant");
+                return ModConfig.Misc.natura.naturaCropsReplant ? Collections.singletonList(Reference.PLANT_TEXT + "natura_crops_replant") : Collections.singletonList(Reference.PLANT_TEXT + "natura_crops_no_replant");
             }
         });
     }

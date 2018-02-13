@@ -39,7 +39,7 @@ public class PlantRecollectableOreShrubs {
                 NonNullList<ItemStack> stacks = NonNullList.create();
                 String name = blockState.getBlock().getRegistryName().getResourcePath().substring(9);
                 if (!name.equals("random")) {
-                    ItemStack berries = ModUtils.getItemStackByObject(ModNames.ORESHRUBS, "oreberries", 1, 0);
+                    ItemStack berries = ModUtils.getItemStackByName(ModNames.ORESHRUBS, "oreberries", 1, 0);
                     berries.setTagCompound(new NBTTagCompound());
                     NBTTagCompound tag = new NBTTagCompound();
                     tag.setString("Name", name);
@@ -47,7 +47,7 @@ public class PlantRecollectableOreShrubs {
                     stacks.add(0, berries);
                     world.setBlockState(pos, blockState.withProperty(Reference.ORESHRUBS_AGE, 3));
                 } else {
-                    stacks.add(0, ModUtils.getItemStackByObject(ModNames.ORESHRUBS, "oreberries_random", 1, 0));
+                    stacks.add(0, ModUtils.getItemStackByName(ModNames.ORESHRUBS, "oreberries_random", 1, 0));
                     world.setBlockState(pos, blockState.withProperty(Reference.ORESHRUBS_AGE, 3));
                 }
                 return stacks;
