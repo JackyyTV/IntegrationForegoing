@@ -37,7 +37,7 @@ public class PlantRecollectableOreberries {
             public List<ItemStack> doHarvestOperation(World world, BlockPos pos, IBlockState blockState) {
                 NonNullList<ItemStack> stacks = NonNullList.create();
                 String name = blockState.getBlock().getRegistryName().getResourcePath();
-                stacks.add(0, ModUtils.getItemStackByObject(ModNames.OREBERRIES, name.substring(0, name.length() - 5), world.rand.nextInt(3) + 1, 0));
+                stacks.add(0, ModUtils.getItemStackByName(ModNames.OREBERRIES, name.substring(0, name.length() - 5), world.rand.nextInt(3) + 1, 0));
                 world.setBlockState(pos, blockState.withProperty(Reference.OREBERRIES_AGE, 2));
                 return stacks;
             }

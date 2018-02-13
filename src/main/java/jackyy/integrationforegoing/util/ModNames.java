@@ -1,6 +1,6 @@
 package jackyy.integrationforegoing.util;
 
-public class ModNames {
+public final class ModNames {
 
     public static final String IF = "industrialforegoing";
     public static final String TF = "thermalfoundation";

@@ -3,7 +3,7 @@ package jackyy.integrationforegoing.integration.straw;
 import com.buuz135.industrial.api.straw.StrawHandler;
 import com.buuz135.industrial.utils.strawhandlers.PotionStrawHandler;
 import com.buuz135.industrial.utils.strawhandlers.StrawHandlerBase;
-import jackyy.integrationforegoing.config.Config;
+import jackyy.integrationforegoing.util.ModConfig;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.effect.EntityLightningBolt;
 import net.minecraft.entity.player.EntityPlayer;
@@ -52,11 +52,12 @@ public class StrawRegistryThermalFoundation {
             @Override
             public void onDrink(World world, BlockPos pos, FluidStack stack, EntityPlayer player, boolean fromFluidContainer) {
                 if (!world.isRemote) {
-                    double x = player.posX - MathHelper.clamp(Config.strawEnderRange, 8, 65536) + player.world.rand.nextInt(MathHelper.clamp(Config.strawEnderRange, 8, 65536) * 2);
+                    double x = player.posX - MathHelper.clamp(ModConfig.Misc.thermalFoundation.strawEnderRange, 8, 65536)
+                            + player.world.rand.nextInt(MathHelper.clamp(ModConfig.Misc.thermalFoundation.strawEnderRange, 8, 65536) * 2);
                     double y = player.posY + player.world.rand.nextInt(8);
-                    double z = player.posZ - MathHelper.clamp(Config.strawEnderRange, 8, 65536) + player.world.rand.nextInt(MathHelper.clamp(Config.strawEnderRange, 8, 65536) * 2);
+                    double z = player.posZ - MathHelper.clamp(ModConfig.Misc.thermalFoundation.strawEnderRange, 8, 65536)
+                            + player.world.rand.nextInt(MathHelper.clamp(ModConfig.Misc.thermalFoundation.strawEnderRange, 8, 65536) * 2);
                     EnderTeleportEvent event = new EnderTeleportEvent(player, x, y, z, 0);
-
                     if (!player.world.getBlockState(new BlockPos(x, y, z)).getMaterial().isSolid()) {
                         player.setPositionAndUpdate(event.getTargetX(), event.getTargetY(), event.getTargetZ());
                         player.playSound(SoundEvents.ENTITY_ENDERMEN_TELEPORT, 1.0F, 1.0F);

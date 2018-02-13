@@ -49,12 +49,12 @@ public class TConstructCompat {
 
     public static void init() {
         final Material plastic = materials.get("plastic");
-        plastic.addItem(ModUtils.getItemByObject(ModNames.IF, "plastic"), 1, Material.VALUE_Fragment);
-        plastic.setRepresentativeItem(ModUtils.getItemByObject(ModNames.IF, "plastic"));
+        plastic.addItem(ModUtils.getItemByName(ModNames.IF, "plastic"), 1, Material.VALUE_Fragment);
+        plastic.setRepresentativeItem(ModUtils.getItemByName(ModNames.IF, "plastic"));
 
         final Material pinkSlime = materials.get("pink_slime");
-        pinkSlime.addItem(ModUtils.getItemByObject(ModNames.IF, "pink_slime"), 1, Material.VALUE_Fragment);
-        pinkSlime.setRepresentativeItem(ModUtils.getItemByObject(ModNames.IF, "pink_slime"));
+        pinkSlime.addItem(ModUtils.getItemByName(ModNames.IF, "pink_slime"), 1, Material.VALUE_Fragment);
+        pinkSlime.setRepresentativeItem(ModUtils.getItemByName(ModNames.IF, "pink_slime"));
     }
 
 }

@@ -18,23 +18,23 @@ import java.util.Map;
 
 public class ModUtils {
 
-    public static Item getItemByObject(String modid, String name) {
+    public static Item getItemByName(String modid, String name) {
         return Item.REGISTRY.getObject(new ResourceLocation(modid, name));
     }
 
-    public static ItemStack getItemStackByObject(String modid, String name, int amount, int meta) {
-        return new ItemStack(getItemByObject(modid, name), amount, meta);
+    public static ItemStack getItemStackByName(String modid, String name, int amount, int meta) {
+        return new ItemStack(getItemByName(modid, name), amount, meta);
     }
 
-    public static ItemStack getBlockItemStackByObject(String modid, String name, int amount, int meta) {
-        return new ItemStack(getBlockByObject(modid, name), amount, meta);
+    public static ItemStack getBlockStackByName(String modid, String name, int amount, int meta) {
+        return new ItemStack(getBlockByName(modid, name), amount, meta);
     }
 
-    public static Block getBlockByObject(String modid, String name) {
+    public static Block getBlockByName(String modid, String name) {
         return Block.REGISTRY.getObject(new ResourceLocation(modid, name));
     }
 
-    public static Potion getPotionByObject(String modid, String name) {
+    public static Potion getPotionByName(String modid, String name) {
         return Potion.REGISTRY.getObject(new ResourceLocation(modid, name));
     }
 
@@ -57,37 +57,37 @@ public class ModUtils {
 
     public static void addCustomBioReactorEntryItem(String modid, String name, int amount, int meta) {
         if (ForgeRegistries.ITEMS.getValue(new ResourceLocation(modid, name)) != null) {
-            IndustrialForegoingHelper.addBioReactorEntry(new BioReactorEntry(getItemStackByObject(modid, name, amount, meta)));
+            IndustrialForegoingHelper.addBioReactorEntry(new BioReactorEntry(getItemStackByName(modid, name, amount, meta)));
         }
     }
 
     public static void addCustomBioReactorEntryBlock(String modid, String name, int amount, int meta) {
         if (ForgeRegistries.BLOCKS.getValue(new ResourceLocation(modid, name)) != null) {
-            IndustrialForegoingHelper.addBioReactorEntry(new BioReactorEntry(getBlockItemStackByObject(modid, name, amount, meta)));
+            IndustrialForegoingHelper.addBioReactorEntry(new BioReactorEntry(getBlockStackByName(modid, name, amount, meta)));
         }
     }
 
     public static void addCustomProteinReactorEntryItem(String modid, String name, int amount, int meta) {
         if (ForgeRegistries.ITEMS.getValue(new ResourceLocation(modid, name)) != null) {
-            IndustrialForegoingHelper.addProteinReactorEntry(new ProteinReactorEntry(getItemStackByObject(modid, name, amount, meta)));
+            IndustrialForegoingHelper.addProteinReactorEntry(new ProteinReactorEntry(getItemStackByName(modid, name, amount, meta)));
         }
     }
 
     public static void addCustomProteinReactorEntryBlock(String modid, String name, int amount, int meta) {
         if (ForgeRegistries.BLOCKS.getValue(new ResourceLocation(modid, name)) != null) {
-            IndustrialForegoingHelper.addProteinReactorEntry(new ProteinReactorEntry(getBlockItemStackByObject(modid, name, amount, meta)));
+            IndustrialForegoingHelper.addProteinReactorEntry(new ProteinReactorEntry(getBlockStackByName(modid, name, amount, meta)));
         }
     }
 
     public static void addCustomLaserDrillEntryItem(int laserMeta, String modid, String name, int amount, int meta, int weight) {
         if (ForgeRegistries.ITEMS.getValue(new ResourceLocation(modid, name)) != null) {
-            IndustrialForegoingHelper.addLaserDrillEntry(new LaserDrillEntry(laserMeta, getItemStackByObject(modid, name, amount, meta), weight));
+            IndustrialForegoingHelper.addLaserDrillEntry(new LaserDrillEntry(laserMeta, getItemStackByName(modid, name, amount, meta), weight));
         }
     }
 
     public static void addCustomLaserDrillEntryBlock(int laserMeta, String modid, String name, int amount, int meta, int weight) {
         if (ForgeRegistries.BLOCKS.getValue(new ResourceLocation(modid, name)) != null) {
-            IndustrialForegoingHelper.addLaserDrillEntry(new LaserDrillEntry(laserMeta, getBlockItemStackByObject(modid, name, amount, meta), weight));
+            IndustrialForegoingHelper.addLaserDrillEntry(new LaserDrillEntry(laserMeta, getBlockStackByName(modid, name, amount, meta), weight));
         }
     }
 

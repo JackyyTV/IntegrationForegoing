@@ -1,7 +1,7 @@
 package jackyy.integrationforegoing.integration.plant;
 
 import com.buuz135.industrial.api.plant.PlantRecollectable;
-import jackyy.integrationforegoing.config.Config;
+import jackyy.integrationforegoing.util.ModConfig;
 import jackyy.integrationforegoing.util.ModNames;
 import jackyy.integrationforegoing.util.ModUtils;
 import jackyy.integrationforegoing.util.Reference;
@@ -25,15 +25,15 @@ public class PlantRecollectableIE {
         registry.register(new PlantRecollectable("hemp") {
             @Override
             public boolean canBeHarvested(World world, BlockPos pos, IBlockState blockState) {
-                return blockState.getBlock() == ModUtils.getBlockByObject(ModNames.IE, "hemp")
-                        && world.getBlockState(pos.up()).getBlock() == ModUtils.getBlockByObject(ModNames.IE, "hemp")
+                return blockState.getBlock() == ModUtils.getBlockByName(ModNames.IE, "hemp")
+                        && world.getBlockState(pos.up()).getBlock() == ModUtils.getBlockByName(ModNames.IE, "hemp")
                         && blockState.getBlock().getMetaFromState(blockState) == 4;
             }
 
             @Override
             public List<ItemStack> doHarvestOperation(World world, BlockPos pos, IBlockState blockState) {
                 NonNullList<ItemStack> stacks = NonNullList.create();
-                if (Config.hempHarvestBothBlocks) {
+                if (ModConfig.Misc.immersiveEngineering.hempHarvestBothBlocks) {
                     blockState.getBlock().getDrops(stacks, world, pos.up(), blockState, 0);
                     blockState.getBlock().getDrops(stacks, world, pos, blockState, 0);
                     world.setBlockToAir(pos.up());
@@ -52,7 +52,7 @@ public class PlantRecollectableIE {
 
             @Override
             public List<String> getRecollectablesNames() {
-                return Config.hempHarvestBothBlocks ? Collections.singletonList(Reference.PLANT_TEXT + "hemp_replant") : Collections.singletonList(Reference.PLANT_TEXT + "hemp_no_replant");
+                return ModConfig.Misc.immersiveEngineering.hempHarvestBothBlocks ? Collections.singletonList(Reference.PLANT_TEXT + "hemp_replant") : Collections.singletonList(Reference.PLANT_TEXT + "hemp_no_replant");
             }
         });
     }
