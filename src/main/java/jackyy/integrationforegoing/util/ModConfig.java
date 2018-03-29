@@ -12,7 +12,7 @@ public class ModConfig {
     public static Integrations integrations = new Integrations();
     public static Misc misc = new Misc();
 
-    public static class Integrations{
+    public static class Integrations {
         public boolean thermalFoundation = true;
         public boolean immersiveEngineering = true;
         public boolean mysticalAgriculture = true;
@@ -30,12 +30,12 @@ public class ModConfig {
         public boolean exNihiloCreatio = true;
         public boolean simpleCorn = true;
         public boolean natura = true;
+        public boolean rustic = true;
+        public boolean matterOverdrive = true;
     }
 
     public static class Misc {
-        public static ThermalFoundation thermalFoundation = new ThermalFoundation();
-        public static ImmersiveEngineering immersiveEngineering = new ImmersiveEngineering();
-        public static Natura natura = new Natura();
+        public ThermalFoundation thermalFoundation = new ThermalFoundation();
         public static class ThermalFoundation {
             @Config.RangeInt(min = 64, max = 65536)
             @Config.Comment({
@@ -45,16 +45,30 @@ public class ModConfig {
             })
             public int strawEnderRange = 16384;
         }
+        public ImmersiveEngineering immersiveEngineering = new ImmersiveEngineering();
         public static class ImmersiveEngineering {
             @Config.Comment({
                     "If true, both top and bottom blocks of Industrial Hemp gets harvested by the Plant Recollector.",
                     "Set to false if you only want the top block to be harvested."
             })
             public boolean hempHarvestBothBlocks = false;
+            public GardenCloche gardenCloche = new GardenCloche();
+            public static class GardenCloche {
+                @Config.Comment("If true, allows Fertilizer from Industrial Foregoing to be used in Garden Cloche.")
+                public boolean allowFertilizer = true;
+                @Config.Comment("Set the growth multiplier for Fertilizer from Industrial Foregoing in Garden Cloche.")
+                public float fertilizerGrowthMultiplier = 1.5f;
+            }
         }
+        public Natura natura = new Natura();
         public static class Natura {
             @Config.Comment("If true, replant is needed for Natura crops, otherwise Plant Gatherer won't remove the crops.")
             public boolean naturaCropsReplant = false;
+        }
+        public Rustic rustic = new Rustic();
+        public static class Rustic {
+            @Config.Comment("If true, replant is needed for Rustic herbs, otherwise Plant Gatherer won't remove the herbs.")
+            public boolean rusticHerbsReplant = false;
         }
     }
 

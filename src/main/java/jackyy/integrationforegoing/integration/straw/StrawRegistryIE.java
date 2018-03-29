@@ -20,7 +20,6 @@ public class StrawRegistryIE {
                 .setRegistryName("biodiesel"));
         registry.register(new PotionStrawHandler("concrete")
                 .addPotion(new PotionEffect(MobEffects.SLOWNESS, 60 * 20, 3))
-                .addPotion(new PotionEffect(ModUtils.getPotionByName(ModNames.IE, "concreteFeet"), 60 * 20, 0))
                 .addPotion(new PotionEffect(MobEffects.MINING_FATIGUE, 60 * 20, 3))
                 .setRegistryName("concrete"));
         registry.register(new PotionStrawHandler("creosote")

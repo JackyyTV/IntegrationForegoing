@@ -2,6 +2,7 @@ package jackyy.integrationforegoing.integration;
 
 import jackyy.integrationforegoing.IntegrationForegoing;
 import jackyy.integrationforegoing.integration.bioreactor.*;
+import jackyy.integrationforegoing.integration.compat.IEGardenClocheCompat;
 import jackyy.integrationforegoing.integration.compat.IFBookCompat;
 import jackyy.integrationforegoing.integration.compat.TConstructCompat;
 import jackyy.integrationforegoing.integration.laserdrill.*;
@@ -9,10 +10,7 @@ import jackyy.integrationforegoing.integration.plant.*;
 import jackyy.integrationforegoing.integration.proteinreactor.ProteinReactorHandlerExNihiloCreatio;
 import jackyy.integrationforegoing.integration.proteinreactor.ProteinReactorHandlerHarvestCraft;
 import jackyy.integrationforegoing.integration.proteinreactor.ProteinReactorHandlerNatura;
-import jackyy.integrationforegoing.integration.straw.StrawRegistryExNihiloCreatio;
-import jackyy.integrationforegoing.integration.straw.StrawRegistryIE;
-import jackyy.integrationforegoing.integration.straw.StrawRegistryTConstruct;
-import jackyy.integrationforegoing.integration.straw.StrawRegistryThermalFoundation;
+import jackyy.integrationforegoing.integration.straw.*;
 import jackyy.integrationforegoing.util.ModConfig;
 import jackyy.integrationforegoing.util.ModNames;
 import jackyy.integrationforegoing.util.ModUtils;
@@ -66,9 +64,18 @@ public class Integrations {
             ModUtils.logIntegration(1, "drink handlers", ModNames.EXNIHILOCREATIO);
         }
         if (ModConfig.integrations.natura && Loader.isModLoaded(ModNames.NATURA)) {
-            ModUtils.logIntegration(0, "drink handlers", ModNames.NATURA);
+            ModUtils.logIntegration(0, "Plant Gatherer entries", ModNames.NATURA);
             MinecraftForge.EVENT_BUS.register(new PlantRecollectableNatura());
-            ModUtils.logIntegration(1, "drink handlers", ModNames.NATURA);
+            ModUtils.logIntegration(1, "Plant Gatherer entries", ModNames.NATURA);
+        }
+        if (ModConfig.integrations.rustic && Loader.isModLoaded(ModNames.RUSTIC)) {
+            ModUtils.logIntegration(0, "drink handlers", ModNames.RUSTIC);
+            MinecraftForge.EVENT_BUS.register(new StrawRegistryRustic());
+            ModUtils.logIntegration(1, "drink handlers", ModNames.RUSTIC);
+
+            ModUtils.logIntegration(0, "Plant Gatherer entries", ModNames.RUSTIC);
+            MinecraftForge.EVENT_BUS.register(new PlantRecollectableRustic());
+            ModUtils.logIntegration(1, "Plant Gatherer entries", ModNames.RUSTIC);
         }
     }
 
@@ -85,6 +92,10 @@ public class Integrations {
             ModUtils.logIntegration(0, "Bioreactor entries", ModNames.IE);
             BioReactorHandlerIE.init();
             ModUtils.logIntegration(1, "Bioreactor entries", ModNames.IE);
+
+            ModUtils.logIntegration(0, "Garden Cloche integration", ModNames.IE);
+            IEGardenClocheCompat.init();
+            ModUtils.logIntegration(1, "Garden Cloche integration", ModNames.IE);
         }
         if (ModConfig.integrations.mysticalAgriculture && Loader.isModLoaded(ModNames.MAG)) {
             ModUtils.logIntegration(0, "Bioreactor entries", ModNames.MAG);
@@ -173,6 +184,16 @@ public class Integrations {
             ModUtils.logIntegration(0, "Protein Reactor entries", ModNames.NATURA);
             ProteinReactorHandlerNatura.init();
             ModUtils.logIntegration(1, "Protein Reactor entries", ModNames.NATURA);
+        }
+        if (ModConfig.integrations.rustic && Loader.isModLoaded(ModNames.RUSTIC)) {
+            ModUtils.logIntegration(0, "Bioreactor entries", ModNames.RUSTIC);
+            BioReactorHandlerRustic.init();
+            ModUtils.logIntegration(1, "Bioreactor entries", ModNames.RUSTIC);
+        }
+        if (ModConfig.integrations.matterOverdrive && Loader.isModLoaded(ModNames.MATTEROVERDRIVE)) {
+            ModUtils.logIntegration(0, "Laser Drill entries", ModNames.MATTEROVERDRIVE);
+            LaserDrillHandlerMatterOverdrive.init();
+            ModUtils.logIntegration(1, "Laser Drill entries", ModNames.MATTEROVERDRIVE);
         }
     }
 
