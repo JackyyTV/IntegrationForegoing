@@ -28,47 +28,48 @@ minecraft {
 }
 
 repositories {
-    mavenCentral()
-    jcenter()
-    maven {
-		name = "JEI, TCon and Mantle Maven"
-        url = "http://dvs1.progwml6.com/files/maven"
-    }
-    maven {
-		name = "Tesla Maven"
-        url = "http://maven.epoxide.xyz"
-    }
-	maven {
-		name = "HWYLA Maven"
-		url = "https://tehnut.info/maven"
-	}
-	maven {
-		name = "TOP Maven"
-        url = "http://maven.tterrag.com"
-    }
-	maven {
-		name = "Industrial Foregoing Maven"
-		url = "http://dyonovan.com/maven2"
-	}
-	maven {
-        name = "CoFH Maven"
-        url = "http://maven.covers1624.net"
-    }
-	maven {
-		name = "CraftTweaker Maven"
-		url = "http://maven.blamejared.com/"
-	}
-	maven {
-		name = "TeslaCoreLib Maven"
-		url = "https://maven.modcrafters.net"
-	}
-	maven {
-		name = "Shadowfacts Maven"
-		url = "http://maven.shadowfacts.net"
-	}
+  mavenCentral()
+  jcenter()
+  maven {
+    name = "JEI, TCon and Mantle Maven"
+    url = "http://dvs1.progwml6.com/files/maven"
+  }
+  maven {
+    name = "Tesla Maven"
+    url = "http://maven.epoxide.xyz"
+  }
+  maven {
+    name = "HWYLA Maven"
+    url = "https://tehnut.info/maven"
+  }
+  maven {
+    name = "TOP Maven"
+    url = "http://maven.tterrag.com"
+  }
+  maven {
+    name = "Industrial Foregoing Maven"
+    url = "http://dyonovan.com/maven2"
+  }
+  maven {
+    name = "CoFH Maven"
+    url = "http://maven.covers1624.net"
+  }
+  maven {
+    name = "CraftTweaker Maven"
+    url = "http://maven.blamejared.com/"
+  }
+  maven {
+    name = "TeslaCoreLib Maven"
+    url = "https://maven.mcmoddev.com"
+  }
+  maven {
+    name = "Shadowfacts Maven"
+    url = "http://maven.shadowfacts.net"
+  }
 }
 
 dependencies {
+  compile files('libs/')
 	deobfCompile "mezz.jei:jei_1.12.2:+"
 	deobfCompile "mcp.mobius.waila:Hwyla:+"
 	deobfCompile "mcjty.theoneprobe:TheOneProbe-1.12:+"

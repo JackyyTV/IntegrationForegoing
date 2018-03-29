@@ -33,7 +33,7 @@ public class PlantRecollectableIE {
             @Override
             public List<ItemStack> doHarvestOperation(World world, BlockPos pos, IBlockState blockState) {
                 NonNullList<ItemStack> stacks = NonNullList.create();
-                if (ModConfig.Misc.immersiveEngineering.hempHarvestBothBlocks) {
+                if (ModConfig.misc.immersiveEngineering.hempHarvestBothBlocks) {
                     blockState.getBlock().getDrops(stacks, world, pos.up(), blockState, 0);
                     blockState.getBlock().getDrops(stacks, world, pos, blockState, 0);
                     world.setBlockToAir(pos.up());
@@ -52,7 +52,7 @@ public class PlantRecollectableIE {
 
             @Override
             public List<String> getRecollectablesNames() {
-                return ModConfig.Misc.immersiveEngineering.hempHarvestBothBlocks ? Collections.singletonList(Reference.PLANT_TEXT + "hemp_replant") : Collections.singletonList(Reference.PLANT_TEXT + "hemp_no_replant");
+                return ModConfig.misc.immersiveEngineering.hempHarvestBothBlocks ? Collections.singletonList(Reference.PLANT_TEXT + "hemp_replant") : Collections.singletonList(Reference.PLANT_TEXT + "hemp_no_replant");
             }
         });
     }

@@ -20,5 +20,7 @@ public final class ModNames {
     public static final String EXNIHILOCREATIO = "exnihilocreatio";
     public static final String SIMPLECORN = "simplecorn";
     public static final String NATURA = "natura";
+    public static final String RUSTIC = "rustic";
+    public static final String MATTEROVERDRIVE = "matteroverdrive";
 
 }

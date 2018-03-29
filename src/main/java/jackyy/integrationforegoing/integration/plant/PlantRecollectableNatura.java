@@ -90,7 +90,7 @@ public class PlantRecollectableNatura {
             public List<ItemStack> doHarvestOperation(World world, BlockPos pos, IBlockState blockState) {
                 NonNullList<ItemStack> stacks = NonNullList.create();
                 blockState.getBlock().getDrops(stacks, world, pos, blockState, 0);
-                if (ModConfig.Misc.natura.naturaCropsReplant) {
+                if (ModConfig.misc.natura.naturaCropsReplant) {
                     world.setBlockToAir(pos);
                 } else {
                     for (int i = 0; i < stacks.size(); i++) {
@@ -117,7 +117,7 @@ public class PlantRecollectableNatura {
 
             @Override
             public List<String> getRecollectablesNames() {
-                return ModConfig.Misc.natura.naturaCropsReplant ? Collections.singletonList(Reference.PLANT_TEXT + "natura_crops_replant") : Collections.singletonList(Reference.PLANT_TEXT + "natura_crops_no_replant");
+                return ModConfig.misc.natura.naturaCropsReplant ? Collections.singletonList(Reference.PLANT_TEXT + "natura_crops_replant") : Collections.singletonList(Reference.PLANT_TEXT + "natura_crops_no_replant");
             }
         });
     }

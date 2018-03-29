@@ -1,11 +1,12 @@
 package jackyy.integrationforegoing.util;
 
+import net.minecraft.block.properties.PropertyBool;
 import net.minecraft.block.properties.PropertyInteger;
 
 public final class Reference {
     public static final String MODID = "integrationforegoing";
     public static final String MODNAME = "Integration Foregoing";
-    public static final String VERSION = "1.12-1.5";
+    public static final String VERSION = "1.12-1.6";
     public static final String MCVERSION = "[1.12,1.13)";
     public static final String DEPENDS
             = "required-after:" + ModNames.IF + "@[1.12.2-1.6.5,);"
@@ -25,7 +26,9 @@ public final class Reference {
             + "after:" + ModNames.HARVESTCRAFT + ";"
             + "after:" + ModNames.EXNIHILOCREATIO + ";"
             + "after:" + ModNames.SIMPLECORN + ";"
-            + "after:" + ModNames.NATURA + ";";
+            + "after:" + ModNames.NATURA + ";"
+            + "after:" + ModNames.RUSTIC + ";"
+            + "after:" + ModNames.MATTEROVERDRIVE + ";";
 
     public static final String COMMON_PROXY = "jackyy.integrationforegoing.proxy.CommonProxy";
     public static final String CLIENT_PROXY = "jackyy.integrationforegoing.proxy.ClientProxy";
@@ -39,4 +42,7 @@ public final class Reference {
     public static final PropertyInteger NATURA_BERRIES_AGE = PropertyInteger.create("age", 0, 3);
     public static final PropertyInteger NATURA_BARLEY_AGE = PropertyInteger.create("age", 0, 3);
     public static final PropertyInteger NATURA_COTTON_AGE = PropertyInteger.create("age", 0, 4);
+    public static final PropertyBool RUSTIC_WILDBERRIES = PropertyBool.create("berries");
+    public static final PropertyInteger RUSTIC_CROPS_AGE = PropertyInteger.create("age", 0, 3);
+    public static final PropertyBool RUSTIC_GRAPES = PropertyBool.create("grapes");
 }
