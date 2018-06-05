@@ -1,11 +1,11 @@
 buildscript {
-    repositories {
-        jcenter()
-        maven { url = "http://files.minecraftforge.net/maven" }
-    }
-    dependencies {
-        classpath 'net.minecraftforge.gradle:ForgeGradle:2.3-SNAPSHOT'
-    }
+  repositories {
+    jcenter()
+    maven { url = "http://files.minecraftforge.net/maven" }
+  }
+  dependencies {
+    classpath 'net.minecraftforge.gradle:ForgeGradle:2.3-SNAPSHOT'
+  }
 }
 apply plugin: 'net.minecraftforge.gradle.forge'
 
@@ -15,16 +15,16 @@ archivesBaseName = "IntegrationForegoing"
 
 sourceCompatibility = targetCompatibility = "1.8"
 compileJava {
-    sourceCompatibility = targetCompatibility = "1.8"
+  sourceCompatibility = targetCompatibility = "1.8"
 }
 
 minecraft {
-    version = "${forge_version}"
-    runDir = "run"
-    mappings = "${mappings_version}"
+  version = "${forge_version}"
+  runDir = "run"
+  mappings = "${mappings_version}"
 
-    replace '@FINGERPRINT@', project.findProperty('signSHA1')
-    replaceIn "IntegrationForegoing.java"
+  replace '@FINGERPRINT@', project.findProperty('signSHA1')
+  replaceIn "IntegrationForegoing.java"
 }
 
 repositories {
@@ -70,46 +70,46 @@ repositories {
 
 dependencies {
   compile files('libs/')
-	deobfCompile "mezz.jei:jei_1.12.2:+"
-	deobfCompile "mcp.mobius.waila:Hwyla:+"
-	deobfCompile "mcjty.theoneprobe:TheOneProbe-1.12:+"
-	deobfCompile "com.buuz135.industrial.IndustrialForegoing:industrialforegoing:+"
-	deobfCompile "slimeknights.mantle:Mantle:+"
-	deobfCompile "slimeknights:TConstruct:1.12-2.+"
-	deobfCompile "net.shadowfacts:Forgelin:+"
+  deobfCompile "mezz.jei:jei_1.12.2:+"
+  deobfCompile "mcp.mobius.waila:Hwyla:+"
+  deobfCompile "mcjty.theoneprobe:TheOneProbe-1.12:+"
+  deobfCompile "com.buuz135.industrial.IndustrialForegoing:industrialforegoing:+"
+  deobfCompile "slimeknights.mantle:Mantle:+"
+  deobfCompile "slimeknights:TConstruct:1.12-2.+"
+  deobfCompile "net.shadowfacts:Forgelin:+"
 }
 
 processResources {
-    inputs.property "version", project.version
-    inputs.property "mcversion", project.minecraft.version
-    from(sourceSets.main.resources.srcDirs) {
-        include 'mcmod.info'
-        expand 'version':project.version, 'mcversion':project.minecraft.version
-    }
-    from(sourceSets.main.resources.srcDirs) {
-        exclude 'mcmod.info'
-    }
+  inputs.property "version", project.version
+  inputs.property "mcversion", project.minecraft.version
+  from(sourceSets.main.resources.srcDirs) {
+    include 'mcmod.info'
+    expand 'version':project.version, 'mcversion':project.minecraft.version
+  }
+  from(sourceSets.main.resources.srcDirs) {
+    exclude 'mcmod.info'
+  }
 }
 
 task signJar(type: SignJar, dependsOn: reobfJar) {
-    onlyIf {
-		project.hasProperty('keyStore')
-	}
-	keyStore = project.findProperty('keyStore')
-	alias = project.findProperty('keyStoreAlias')
-	storePass = project.findProperty('keyStorePass')
-	keyPass = project.findProperty('keyStoreKeyPass')
-	inputFile = jar.archivePath
-	outputFile = jar.archivePath
+  onlyIf {
+    project.hasProperty('keyStore')
+  }
+  keyStore = project.findProperty('keyStore')
+  alias = project.findProperty('keyStoreAlias')
+  storePass = project.findProperty('keyStorePass')
+  keyPass = project.findProperty('keyStoreKeyPass')
+  inputFile = jar.archivePath
+  outputFile = jar.archivePath
 }
 
 build.dependsOn signJar
 
 task deobfJar(type: Jar) {
-    from sourceSets.main.output
-    classifier = 'deobf'
+  from sourceSets.main.output
+  classifier = 'deobf'
 }
 
 artifacts {
-    archives deobfJar
+  archives deobfJar
 }
