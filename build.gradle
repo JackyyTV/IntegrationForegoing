@@ -35,10 +35,6 @@ repositories {
     url = "http://dvs1.progwml6.com/files/maven"
   }
   maven {
-    name = "Tesla Maven"
-    url = "http://maven.epoxide.xyz"
-  }
-  maven {
     name = "HWYLA Maven"
     url = "https://tehnut.info/maven"
   }
@@ -59,7 +55,7 @@ repositories {
     url = "http://maven.blamejared.com/"
   }
   maven {
-    name = "TeslaCoreLib Maven"
+    name = "Tesla and TeslaCoreLib Maven"
     url = "https://maven.mcmoddev.com"
   }
   maven {
