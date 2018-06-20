@@ -77,6 +77,21 @@ public class Integrations {
             MinecraftForge.EVENT_BUS.register(new PlantRecollectableRustic());
             ModUtils.logIntegration(1, "Plant Gatherer entries", ModNames.RUSTIC);
         }
+        if (ModConfig.integrations.agriCraft && Loader.isModLoaded(ModNames.AGRICRAFT)) {
+            ModUtils.logIntegration(0, "Plant Gatherer entries", ModNames.AGRICRAFT);
+            MinecraftForge.EVENT_BUS.register(new PlantRecollectableAgriCraft());
+            ModUtils.logIntegration(1, "Plant Gatherer entries", ModNames.AGRICRAFT);
+        }
+        if (ModConfig.integrations.enderIO && Loader.isModLoaded(ModNames.ENDERIO)) {
+            ModUtils.logIntegration(0, "drink handlers", ModNames.ENDERIO);
+            MinecraftForge.EVENT_BUS.register(new StrawRegistryEnderIO());
+            ModUtils.logIntegration(1, "drink handlers", ModNames.ENDERIO);
+        }
+        if (ModConfig.integrations.immersivePetroleum && Loader.isModLoaded(ModNames.IP)) {
+            ModUtils.logIntegration(0, "drink handlers", ModNames.IP);
+            MinecraftForge.EVENT_BUS.register(new StrawRegistryIP());
+            ModUtils.logIntegration(1, "drink handlers", ModNames.IP);
+        }
     }
 
     public static void init() {
@@ -194,6 +209,20 @@ public class Integrations {
             ModUtils.logIntegration(0, "Laser Drill entries", ModNames.MATTEROVERDRIVE);
             LaserDrillHandlerMatterOverdrive.init();
             ModUtils.logIntegration(1, "Laser Drill entries", ModNames.MATTEROVERDRIVE);
+        }
+        if (ModConfig.integrations.agriCraft && Loader.isModLoaded(ModNames.AGRICRAFT)) {
+            ModUtils.logIntegration(0, "Bioreactor entries", ModNames.AGRICRAFT);
+            BioReactorHandlerAgriCraft.init();
+            ModUtils.logIntegration(1, "Bioreactor entries", ModNames.AGRICRAFT);
+        }
+        if (ModConfig.integrations.silentsGems && Loader.isModLoaded(ModNames.SILENTSGEMS)) {
+            ModUtils.logIntegration(0, "Laser Drill entries", ModNames.SILENTSGEMS);
+            LaserDrillHandlerSilentsGems.init();
+            ModUtils.logIntegration(1, "Laser Drill entries", ModNames.SILENTSGEMS);
+
+            ModUtils.logIntegration(0, "Bioreactor entries", ModNames.SILENTSGEMS);
+            BioReactorHandlerSilentsGems.init();
+            ModUtils.logIntegration(1, "Bioreactor entries", ModNames.SILENTSGEMS);
         }
     }
 

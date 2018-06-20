@@ -13,36 +13,38 @@ import net.minecraftforge.fluids.FluidStack;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.registries.IForgeRegistry;
 
-public class StrawRegistryIE {
+public class StrawRegistryIP {
 
     @SubscribeEvent
     public void register(RegistryEvent.Register<StrawHandler> event) {
         IForgeRegistry<StrawHandler> registry = event.getRegistry();
-        registry.register(new StrawHandlerBase("biodiesel") {
+        registry.register(new StrawHandlerBase("oil") {
+            @Override
+            public void onDrink(World world, BlockPos pos, FluidStack stack, EntityPlayer player, boolean fromFluidContainer) {
+                player.addPotionEffect(new PotionEffect(MobEffects.SLOWNESS, 60 * 20, 2));
+            }
+        }.setRegistryName("ip_crude_oil"));
+        registry.register(new StrawHandlerBase("diesel") {
             @Override
             public void onDrink(World world, BlockPos pos, FluidStack stack, EntityPlayer player, boolean fromFluidContainer) {
                 player.setFire(10);
             }
-        }.setRegistryName("biodiesel"));
-        registry.register(new PotionStrawHandler("concrete")
-                .addPotion(new PotionEffect(MobEffects.SLOWNESS, 60 * 20, 3))
-                .addPotion(new PotionEffect(MobEffects.MINING_FATIGUE, 60 * 20, 3))
-                .setRegistryName("concrete"));
-        registry.register(new StrawHandlerBase("creosote") {
+        }.setRegistryName("ip_diesel"));
+        registry.register(new PotionStrawHandler("lubricant")
+                .addPotion(new PotionEffect(MobEffects.SPEED, 60 * 20, 5))
+                .setRegistryName("ip_lubricant"));
+        registry.register(new StrawHandlerBase("gasoline") {
             @Override
             public void onDrink(World world, BlockPos pos, FluidStack stack, EntityPlayer player, boolean fromFluidContainer) {
-                player.setFire(15);
+                player.setFire(20);
             }
-        }.setRegistryName("creosote"));
-        registry.register(new PotionStrawHandler("ethanol")
-                .addPotion(new PotionEffect(MobEffects.NAUSEA, 60 * 20, 0))
-                .setRegistryName("ethanol"));
-        registry.register(new StrawHandlerBase("plantoil") {
+        }.setRegistryName("ip_gasoline"));
+        registry.register(new StrawHandlerBase("napalm") {
             @Override
             public void onDrink(World world, BlockPos pos, FluidStack stack, EntityPlayer player, boolean fromFluidContainer) {
-                player.setFire(15);
+                player.setFire(20);
             }
-        }.setRegistryName("plantoil"));
+        }.setRegistryName("ip_napalm"));
     }
 
 }
