@@ -22,5 +22,9 @@ public final class ModNames {
     public static final String NATURA = "natura";
     public static final String RUSTIC = "rustic";
     public static final String MATTEROVERDRIVE = "matteroverdrive";
+    public static final String AGRICRAFT = "agricraft";
+    public static final String SILENTSGEMS = "silentgems";
+    public static final String ENDERIO = "enderio";
+    public static final String IP = "immersivepetroleum";
 
 }

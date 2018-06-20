@@ -28,8 +28,6 @@ minecraft {
 }
 
 repositories {
-  mavenCentral()
-  jcenter()
   maven {
     name = "JEI, TCon and Mantle Maven"
     url = "http://dvs1.progwml6.com/files/maven"
@@ -46,33 +44,23 @@ repositories {
     name = "Industrial Foregoing Maven"
     url = "http://dyonovan.com/maven2"
   }
-  maven {
-    name = "CoFH Maven"
-    url = "http://maven.covers1624.net"
-  }
-  maven {
-    name = "CraftTweaker Maven"
-    url = "http://maven.blamejared.com/"
-  }
-  maven {
-    name = "Tesla and TeslaCoreLib Maven"
-    url = "https://maven.mcmoddev.com"
-  }
-  maven {
-    name = "Shadowfacts Maven"
-    url = "http://maven.shadowfacts.net"
-  }
 }
 
 dependencies {
   compile files('libs/')
   deobfCompile "mezz.jei:jei_1.12.2:+"
   deobfCompile "mcp.mobius.waila:Hwyla:+"
-  deobfCompile "mcjty.theoneprobe:TheOneProbe-1.12:+"
-  deobfCompile "com.buuz135.industrial.IndustrialForegoing:industrialforegoing:+"
+  deobfCompile("mcjty.theoneprobe:TheOneProbe-1.12:+") {
+      transitive = false
+  }
+  deobfCompile("com.buuz135.industrial.IndustrialForegoing:industrialforegoing:+") {
+      transitive = false
+  }
+  deobfCompile("slimeknights:TConstruct:1.12.2-2.+") {
+      transitive = false
+  }
   deobfCompile "slimeknights.mantle:Mantle:+"
-  deobfCompile "slimeknights:TConstruct:1.12-2.+"
-  deobfCompile "net.shadowfacts:Forgelin:+"
+  deobfCompile "com.infinityraider.agricraft:AgriCraft:+"
 }
 
 processResources {

@@ -32,6 +32,10 @@ public class ModConfig {
         public boolean natura = true;
         public boolean rustic = true;
         public boolean matterOverdrive = true;
+        public boolean agriCraft = true;
+        public boolean silentsGems = true;
+        public boolean enderIO = true;
+        public boolean immersivePetroleum = true;
     }
 
     public static class Misc {
