@@ -68,10 +68,9 @@ public class PlantRecollectableRustic {
                         || path.equals("marsh_mallow"));
             }
 
-            @Override
+            @Override @SuppressWarnings("deprecation")
             public List<ItemStack> doHarvestOperation(World world, BlockPos pos, IBlockState blockState) {
-                NonNullList<ItemStack> stacks = NonNullList.create();
-                blockState.getBlock().getDrops(stacks, world, pos, blockState, 0);
+                List<ItemStack> stacks = blockState.getBlock().getDrops(world, pos, blockState, 0);
                 if (ModConfig.misc.rustic.rusticHerbsReplant) {
                     world.setBlockToAir(pos);
                 } else {

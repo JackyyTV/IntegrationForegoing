@@ -26,5 +26,6 @@ public final class ModNames {
     public static final String SILENTSGEMS = "silentgems";
     public static final String ENDERIO = "enderio";
     public static final String IP = "immersivepetroleum";
+    public static final String BIOMESOP = "biomesoplenty";
 
 }

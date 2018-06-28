@@ -36,6 +36,7 @@ public class ModConfig {
         public boolean silentsGems = true;
         public boolean enderIO = true;
         public boolean immersivePetroleum = true;
+        public boolean biomesoPlenty = true;
     }
 
     public static class Misc {
