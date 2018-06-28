@@ -75,7 +75,7 @@ public class StrawRegistryRustic {
                     player.addPotionEffect(new PotionEffect(MobEffects.REGENERATION, 75));
                 }
             }
-        }.setRegistryName("honey"));
+        }.setRegistryName("rustic_honey"));
     }
 
 }

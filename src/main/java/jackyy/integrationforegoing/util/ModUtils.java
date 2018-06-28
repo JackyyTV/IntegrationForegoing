@@ -42,11 +42,43 @@ public class ModUtils {
         return MobEffects.LUCK;
     }
 
-    public static void logIntegration(int state, String type, String modid) {
+    public static void logIntegration(int state, EnumIntegrations type, String modid) {
         if (state == 0) {
-            IntegrationForegoing.logger.info("Registering " + type + " for " + getModNameByID(modid) + "...");
+            switch (type) {
+                case STRAW:
+                    IntegrationForegoing.logger.info("Registering drink handlers for " + getModNameByID(modid) + "...");
+                    break;
+                case PLANT:
+                    IntegrationForegoing.logger.info("Registering Plant Gatherer entries for " + getModNameByID(modid) + "...");
+                    break;
+                case LASERDRILL:
+                    IntegrationForegoing.logger.info("Registering Laser Drill entries for " + getModNameByID(modid) + "...");
+                    break;
+                case BIOREACTOR:
+                    IntegrationForegoing.logger.info("Registering Bioreactor entries for " + getModNameByID(modid) + "...");
+                    break;
+                case PROTEIN:
+                    IntegrationForegoing.logger.info("Registering Protein Reactor entries for " + getModNameByID(modid) + "...");
+                    break;
+            }
         } else if (state == 1) {
-            IntegrationForegoing.logger.info("Registered " + type + " for " + getModNameByID(modid));
+            switch (type) {
+                case STRAW:
+                    IntegrationForegoing.logger.info("Registered drink handlers for " + getModNameByID(modid));
+                    break;
+                case PLANT:
+                    IntegrationForegoing.logger.info("Registered Plant Gatherer entries for " + getModNameByID(modid));
+                    break;
+                case LASERDRILL:
+                    IntegrationForegoing.logger.info("Registered Laser Drill entries for " + getModNameByID(modid));
+                    break;
+                case BIOREACTOR:
+                    IntegrationForegoing.logger.info("Registered Bioreactor entries for " + getModNameByID(modid));
+                    break;
+                case PROTEIN:
+                    IntegrationForegoing.logger.info("Registered Protein Reactor entries for " + getModNameByID(modid));
+                    break;
+            }
         }
     }
 

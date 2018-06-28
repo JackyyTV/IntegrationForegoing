@@ -17,7 +17,7 @@ public class StrawRegistryTConstruct {
                 .addPotion(new PotionEffect(MobEffects.POISON, 30 * 20, 0))
                 .addPotion(new PotionEffect(MobEffects.REGENERATION, 30 * 20, 0))
                 .addPotion(new PotionEffect(MobEffects.HEALTH_BOOST, 30 * 20, 0))
-                .setRegistryName("blood"));
+                .setRegistryName("tcon_blood"));
         registry.register(new PotionStrawHandler("blueslime")
                 .addPotion(new PotionEffect(MobEffects.SLOWNESS, 60 * 20, 2))
                 .addPotion(new PotionEffect(MobEffects.JUMP_BOOST, 60 * 20, 2))
