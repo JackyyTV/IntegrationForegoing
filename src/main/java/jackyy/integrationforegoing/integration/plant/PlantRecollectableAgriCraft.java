@@ -1,7 +1,6 @@
 package jackyy.integrationforegoing.integration.plant;
 
 import com.buuz135.industrial.api.plant.PlantRecollectable;
-import com.infinityraider.agricraft.blocks.BlockCrop;
 import com.infinityraider.agricraft.tiles.TileEntityCrop;
 import jackyy.integrationforegoing.util.Reference;
 import net.minecraft.block.state.IBlockState;
@@ -25,18 +24,18 @@ public class PlantRecollectableAgriCraft {
         registry.register(new PlantRecollectable("agricraft_crops") {
             @Override
             public boolean canBeHarvested(World world, BlockPos pos, IBlockState blockState) {
-                return blockState.getBlock() instanceof BlockCrop && ((BlockCrop)blockState.getBlock()).isMature(world, pos);
+                TileEntity tile = world.getTileEntity(pos);
+                if (tile instanceof TileEntityCrop)
+                    return ((TileEntityCrop)tile).isMature();
+                return false;
             }
 
             @Override
             public List<ItemStack> doHarvestOperation(World world, BlockPos pos, IBlockState blockState) {
                 NonNullList<ItemStack> stacks = NonNullList.create();
                 TileEntity tile = world.getTileEntity(pos);
-                if (tile instanceof TileEntityCrop) {
-                    TileEntityCrop cropTile = (TileEntityCrop)tile;
-                    if (cropTile.isMature())
-                        cropTile.onHarvest(stacks::add, null);
-                }
+                if (tile instanceof TileEntityCrop)
+                    ((TileEntityCrop)tile).onHarvest(stacks::add, null);
                 return stacks;
             }
 
