@@ -30,14 +30,14 @@ public class PlantRecollectableOreShrubs {
                 Block block = blockState.getBlock();
                 if (block.getMetaFromState(blockState) != 4) return false;
                 ResourceLocation registryName = block.getRegistryName();
-                return registryName.getResourceDomain().equals(ModNames.ORESHRUBS)
-                        && registryName.getResourcePath().startsWith("oreshrub_");
+                return registryName.getNamespace().equals(ModNames.ORESHRUBS)
+                        && registryName.getPath().startsWith("oreshrub_");
             }
 
             @Override
             public List<ItemStack> doHarvestOperation(World world, BlockPos pos, IBlockState blockState) {
                 NonNullList<ItemStack> stacks = NonNullList.create();
-                String name = blockState.getBlock().getRegistryName().getResourcePath().substring(9);
+                String name = blockState.getBlock().getRegistryName().getPath().substring(9);
                 if (!name.equals("random")) {
                     ItemStack berries = ModUtils.getItemStackByName(ModNames.ORESHRUBS, "oreberries", 1, 0);
                     berries.setTagCompound(new NBTTagCompound());

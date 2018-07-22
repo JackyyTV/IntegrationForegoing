@@ -1,7 +1,7 @@
 package jackyy.integrationforegoing.integration.straw;
 
 import com.buuz135.industrial.api.straw.StrawHandler;
-import com.buuz135.industrial.utils.strawhandlers.PotionStrawHandler;
+import com.buuz135.industrial.utils.apihandlers.straw.PotionStrawHandler;
 import net.minecraft.init.MobEffects;
 import net.minecraft.potion.PotionEffect;
 import net.minecraftforge.event.RegistryEvent;

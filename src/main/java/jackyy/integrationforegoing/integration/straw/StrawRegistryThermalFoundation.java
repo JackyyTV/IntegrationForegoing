@@ -1,8 +1,8 @@
 package jackyy.integrationforegoing.integration.straw;
 
 import com.buuz135.industrial.api.straw.StrawHandler;
-import com.buuz135.industrial.utils.strawhandlers.PotionStrawHandler;
-import com.buuz135.industrial.utils.strawhandlers.StrawHandlerBase;
+import com.buuz135.industrial.utils.apihandlers.straw.PotionStrawHandler;
+import com.buuz135.industrial.utils.apihandlers.straw.StrawHandlerBase;
 import jackyy.integrationforegoing.util.ModConfig;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.effect.EntityLightningBolt;
