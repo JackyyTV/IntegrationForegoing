@@ -27,14 +27,14 @@ public class PlantRecollectableNatura {
             @Override
             public boolean canBeHarvested(World world, BlockPos pos, IBlockState blockState) {
                 return blockState.getBlock().getMetaFromState(blockState) == 3
-                        && blockState.getBlock().getRegistryName().getResourceDomain().equals(ModNames.NATURA)
-                        && blockState.getBlock().getRegistryName().getResourcePath().contains("berrybush");
+                        && blockState.getBlock().getRegistryName().getNamespace().equals(ModNames.NATURA)
+                        && blockState.getBlock().getRegistryName().getPath().contains("berrybush");
             }
 
             @Override
             public List<ItemStack> doHarvestOperation(World world, BlockPos pos, IBlockState blockState) {
                 NonNullList<ItemStack> stacks = NonNullList.create();
-                switch (blockState.getBlock().getRegistryName().getResourcePath()) {
+                switch (blockState.getBlock().getRegistryName().getPath()) {
                     case "overworld_berrybush_raspberry" :
                         stacks.add(0, ModUtils.getItemStackByName(ModNames.NATURA, "edibles", 1, 2));
                         break;
@@ -78,9 +78,9 @@ public class PlantRecollectableNatura {
             @Override
             public boolean canBeHarvested(World world, BlockPos pos, IBlockState blockState) {
                 ResourceLocation regname = blockState.getBlock().getRegistryName();
-                if (regname.getResourceDomain().equals(ModNames.NATURA) && regname.getResourcePath().equals("barley_crop")) {
+                if (regname.getNamespace().equals(ModNames.NATURA) && regname.getPath().equals("barley_crop")) {
                     return blockState.getBlock().getMetaFromState(blockState) == 3;
-                } else if (regname.getResourceDomain().equals(ModNames.NATURA) && regname.getResourcePath().equals("cotton_crop")) {
+                } else if (regname.getNamespace().equals(ModNames.NATURA) && regname.getPath().equals("cotton_crop")) {
                     return blockState.getBlock().getMetaFromState(blockState) == 4;
                 }
                 return false;
@@ -98,7 +98,7 @@ public class PlantRecollectableNatura {
                             stacks.remove(i);
                         }
                     }
-                    switch (blockState.getBlock().getRegistryName().getResourcePath()) {
+                    switch (blockState.getBlock().getRegistryName().getPath()) {
                         case "barley_crop" :
                             world.setBlockState(pos, blockState.withProperty(Reference.NATURA_BARLEY_AGE, 1));
                             break;
