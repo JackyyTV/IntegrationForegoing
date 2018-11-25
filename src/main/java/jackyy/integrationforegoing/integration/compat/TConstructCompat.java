@@ -45,6 +45,24 @@ public class TConstructCompat {
         );
         TinkerRegistry.integrate(pinkSlime).preInit();
         materials.put("pink_slime", pinkSlime);
+
+        Material reinforcedPinkSlime = new Material(Reference.MODID + ".reinforced_pink_slime", 0xFFF3AEC6);
+        reinforcedPinkSlime.setCraftable(true);
+        reinforcedPinkSlime.addTrait(SLIMEY_PINK, MaterialTypes.HEAD);
+        reinforcedPinkSlime.addTrait(TinkerTraits.dense, MaterialTypes.HEAD);
+        reinforcedPinkSlime.addTrait(SLIMEY_PINK, MaterialTypes.EXTRA);
+        reinforcedPinkSlime.addTrait(TinkerTraits.unnatural, MaterialTypes.EXTRA);
+        reinforcedPinkSlime.addTrait(SLIMEY_PINK, MaterialTypes.HANDLE);
+        reinforcedPinkSlime.addTrait(TinkerTraits.unnatural, MaterialTypes.HANDLE);
+        TinkerRegistry.addMaterialStats(
+                reinforcedPinkSlime,
+                new HeadMaterialStats(2800, 7.5f, 5.5f, HarvestLevels.DIAMOND),
+                new HandleMaterialStats(3.2f, 2350),
+                new ExtraMaterialStats(270),
+                new BowMaterialStats(18.5f, 5.3f, 6.0f)
+        );
+        TinkerRegistry.integrate(reinforcedPinkSlime).preInit();
+        materials.put("reinforced_pink_slime", reinforcedPinkSlime);
     }
 
     public static void init() {
@@ -55,6 +73,10 @@ public class TConstructCompat {
         final Material pinkSlime = materials.get("pink_slime");
         pinkSlime.addItem(ModUtils.getItemByName(ModNames.IF, "pink_slime"), 1, Material.VALUE_Fragment);
         pinkSlime.setRepresentativeItem(ModUtils.getItemByName(ModNames.IF, "pink_slime"));
+
+        final Material reinforcedPinkSlime = materials.get("reinforced_pink_slime");
+        reinforcedPinkSlime.addItem(ModUtils.getItemByName(ModNames.IF, "pink_slime_ingot"), 1, Material.VALUE_Ingot);
+        reinforcedPinkSlime.setRepresentativeItem(ModUtils.getItemByName(ModNames.IF, "pink_slime_ingot"));
     }
 
 }

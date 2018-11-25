@@ -1,6 +1,7 @@
 #Tinkers' Construct Compat
 material.integrationforegoing.plastic.name=Plastic
 material.integrationforegoing.pink_slime.name=Pink Slime
+material.integrationforegoing.reinforced_pink_slime.name=Reinforced Pink Slime
 
 #Plant Gatherer Tooltips
 text.integrationforegoing.plant.ender_lilly= - Ender Lilly from Extra Utilities 2
