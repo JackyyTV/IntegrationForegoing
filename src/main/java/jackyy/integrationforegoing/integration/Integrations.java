@@ -17,6 +17,8 @@ import jackyy.integrationforegoing.util.ModNames;
 import jackyy.integrationforegoing.util.ModUtils;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.Loader;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class Integrations {
 
@@ -238,6 +240,13 @@ public class Integrations {
             ModUtils.logIntegration(0, EnumIntegrations.BIOREACTOR, ModNames.BIOMESOP);
             BioReactorHandlerBiomesOP.init();
             ModUtils.logIntegration(1, EnumIntegrations.BIOREACTOR, ModNames.BIOMESOP);
+        }
+    }
+
+    @SideOnly(Side.CLIENT)
+    public static void preInitClient() {
+        if (ModConfig.integrations.tconstruct && Loader.isModLoaded(ModNames.TCON)) {
+            TConstructCompat.initClient();
         }
     }
 
