@@ -100,6 +100,16 @@ public class Integrations {
             MinecraftForge.EVENT_BUS.register(new StrawRegistryBiomesOP());
             ModUtils.logIntegration(1, EnumIntegrations.STRAW, ModNames.BIOMESOP);
         }
+        if (ModConfig.integrations.astralSorcery && Loader.isModLoaded(ModNames.AS)) {
+            ModUtils.logIntegration(0, EnumIntegrations.STRAW, ModNames.AS);
+            MinecraftForge.EVENT_BUS.register(new StrawRegistryAstralSorcery());
+            ModUtils.logIntegration(1, EnumIntegrations.STRAW, ModNames.AS);
+        }
+        if (ModConfig.integrations.botania && Loader.isModLoaded(ModNames.BOTANIA)) {
+            ModUtils.logIntegration(0, EnumIntegrations.PLANT, ModNames.BOTANIA);
+            MinecraftForge.EVENT_BUS.register(new PlantRecollectableBotania());
+            ModUtils.logIntegration(1, EnumIntegrations.PLANT, ModNames.BOTANIA);
+        }
     }
 
     public static void init() {
@@ -240,6 +250,16 @@ public class Integrations {
             ModUtils.logIntegration(0, EnumIntegrations.BIOREACTOR, ModNames.BIOMESOP);
             BioReactorHandlerBiomesOP.init();
             ModUtils.logIntegration(1, EnumIntegrations.BIOREACTOR, ModNames.BIOMESOP);
+        }
+        if (ModConfig.integrations.astralSorcery && Loader.isModLoaded(ModNames.AS)) {
+            ModUtils.logIntegration(0, EnumIntegrations.LASERDRILL, ModNames.AS);
+            LaserDrillHandlerAstralSorcery.init();
+            ModUtils.logIntegration(1, EnumIntegrations.LASERDRILL, ModNames.AS);
+        }
+        if (ModConfig.integrations.botania && Loader.isModLoaded(ModNames.BOTANIA)) {
+            ModUtils.logIntegration(0, EnumIntegrations.BIOREACTOR, ModNames.BOTANIA);
+            BioReactorHandlerBotania.init();
+            ModUtils.logIntegration(1, EnumIntegrations.BIOREACTOR, ModNames.BOTANIA);
         }
     }
 

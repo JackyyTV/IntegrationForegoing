@@ -3,11 +3,11 @@ package jackyy.integrationforegoing.integration.bioreactor;
 import jackyy.integrationforegoing.util.ModNames;
 import jackyy.integrationforegoing.util.ModUtils;
 
-public class BioReactorHandlerTConstruct {
+public class BioReactorHandlerBotania {
 
     public static void init() {
-        for (int i = 0; i <= 2; i++) {
-            ModUtils.addCustomBioReactorEntryItem(ModNames.TCON, "slime_sapling", 1, i);
+        for (int i = 0; i <= 15; i++) {
+            ModUtils.addCustomBioReactorEntryItem(ModNames.BOTANIA, "petal", 1, i);
         }
     }
 

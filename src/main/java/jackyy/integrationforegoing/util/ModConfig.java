@@ -37,6 +37,8 @@ public class ModConfig {
         public boolean enderIO = true;
         public boolean immersivePetroleum = true;
         public boolean biomesoPlenty = true;
+        public boolean astralSorcery = true;
+        public boolean botania = true;
     }
 
     public static class Misc {
