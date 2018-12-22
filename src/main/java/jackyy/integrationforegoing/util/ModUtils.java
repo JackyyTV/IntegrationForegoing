@@ -2,7 +2,6 @@ package jackyy.integrationforegoing.util;
 
 import com.buuz135.industrial.api.IndustrialForegoingHelper;
 import com.buuz135.industrial.api.recipe.BioReactorEntry;
-import com.buuz135.industrial.api.recipe.LaserDrillEntry;
 import com.buuz135.industrial.api.recipe.ProteinReactorEntry;
 import jackyy.integrationforegoing.IntegrationForegoing;
 import net.minecraft.block.Block;
@@ -103,10 +102,13 @@ public class ModUtils {
         }
     }
 
+    //TODO Generate JSON files for the entries
     public static void addCustomLaserDrillEntryBlock(int laserMeta, String modid, String name, int amount, int meta, int weight) {
+        /*
         if (ForgeRegistries.BLOCKS.getValue(new ResourceLocation(modid, name)) != null) {
             IndustrialForegoingHelper.addLaserDrillEntry(new LaserDrillEntry(laserMeta, getBlockStackByName(modid, name, amount, meta), weight));
         }
+        */
     }
 
 }
