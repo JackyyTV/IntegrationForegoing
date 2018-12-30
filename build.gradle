@@ -41,8 +41,8 @@ repositories {
     url = "http://maven.tterrag.com"
   }
   maven {
-    name = "Industrial Foregoing Maven"
-    url = "http://dyonovan.com/maven2"
+    name = "CurseForge Maven"
+    url = "https://minecraft.curseforge.com/api/maven"
   }
 }
 
@@ -53,7 +53,7 @@ dependencies {
   deobfCompile("mcjty.theoneprobe:TheOneProbe-1.12:+") {
       transitive = false
   }
-  deobfCompile("com.buuz135.industrial.IndustrialForegoing:industrialforegoing:+") {
+  deobfCompile("industrial-foregoing:industrialforegoing-1.12.2:1.12.2:226") {
       transitive = false
   }
   deobfCompile("slimeknights:TConstruct:1.12.2-2.+") {
