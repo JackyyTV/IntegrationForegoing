@@ -6,7 +6,7 @@ import jackyy.integrationforegoing.util.ModUtils;
 public class LaserDrillHandlerActuallyAdditions {
 
     public static void init() {
-        ModUtils.addCustomLaserDrillEntryBlock(15, ModNames.AA, "block_misc", 1, 3, 6);
+        ModUtils.loadLaserDrillFile(ModNames.AA);
     }
 
 }

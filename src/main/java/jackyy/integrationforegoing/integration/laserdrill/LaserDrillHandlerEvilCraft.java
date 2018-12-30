@@ -6,7 +6,7 @@ import jackyy.integrationforegoing.util.ModUtils;
 public class LaserDrillHandlerEvilCraft {
 
     public static void init() {
-        ModUtils.addCustomLaserDrillEntryBlock(15, ModNames.EVILCRAFT, "dark_ore", 1, 0, 2);
+        ModUtils.loadLaserDrillFile(ModNames.EVILCRAFT);
     }
 
 }

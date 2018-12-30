@@ -2,6 +2,7 @@ package jackyy.integrationforegoing.util;
 
 import com.buuz135.industrial.api.IndustrialForegoingHelper;
 import com.buuz135.industrial.api.recipe.BioReactorEntry;
+import com.buuz135.industrial.api.recipe.LaserDrillEntry;
 import com.buuz135.industrial.api.recipe.ProteinReactorEntry;
 import jackyy.integrationforegoing.IntegrationForegoing;
 import net.minecraft.block.Block;
@@ -14,6 +15,9 @@ import net.minecraftforge.fml.common.Loader;
 import net.minecraftforge.fml.common.ModContainer;
 import net.minecraftforge.fml.common.registry.ForgeRegistries;
 
+import java.io.File;
+import java.nio.file.Files;
+import java.nio.file.Path;
 import java.util.Map;
 
 public class ModUtils {
@@ -102,13 +106,19 @@ public class ModUtils {
         }
     }
 
-    //TODO Generate JSON files for the entries
-    public static void addCustomLaserDrillEntryBlock(int laserMeta, String modid, String name, int amount, int meta, int weight) {
-        /*
-        if (ForgeRegistries.BLOCKS.getValue(new ResourceLocation(modid, name)) != null) {
-            IndustrialForegoingHelper.addLaserDrillEntry(new LaserDrillEntry(laserMeta, getBlockStackByName(modid, name, amount, meta), weight));
+    public static void loadLaserDrillFile(String fileName) {
+        LaserDrillEntry.addOreFile(new ResourceLocation(Reference.MODID, fileName + "_ores.json"));
+    }
+
+    public static void deleteExistingLaserDrillFile(File dir, String fileName) {
+        Path path = dir.toPath().resolve("laser_drill_ores");
+        if (Files.exists(path)) {
+            File file = new File(path.toFile(), fileName + "_ores.json");
+            if (!file.exists())
+                return;
+            if (file.delete())
+                IntegrationForegoing.logger.info("Deleted existing Laser Drill config file " + file.getName());
         }
-        */
     }
 
 }

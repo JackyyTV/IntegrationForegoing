@@ -39,6 +39,7 @@ public class ModConfig {
         public boolean biomesoPlenty = true;
         public boolean astralSorcery = true;
         public boolean botania = true;
+        public boolean nuclearCraft = true;
     }
 
     public static class Misc {

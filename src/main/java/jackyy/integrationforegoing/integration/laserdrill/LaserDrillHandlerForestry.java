@@ -6,7 +6,7 @@ import jackyy.integrationforegoing.util.ModUtils;
 public class LaserDrillHandlerForestry {
 
     public static void init() {
-        ModUtils.addCustomLaserDrillEntryBlock(3, ModNames.FORESTRY, "resources", 1, 0, 6);
+        ModUtils.loadLaserDrillFile(ModNames.FORESTRY);
     }
 
 }

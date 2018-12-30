@@ -29,5 +29,6 @@ public final class ModNames {
     public static final String BIOMESOP = "biomesoplenty";
     public static final String AS = "astralsorcery";
     public static final String BOTANIA = "botania";
+    public static final String NUCLEARCRAFT = "nuclearcraft";
 
 }
