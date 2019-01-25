@@ -1,0 +1,22 @@
+#Tinkers' Construct Compat
+material.integrationforegoing.plastic.name=Пластик
+material.integrationforegoing.pink_slime.name=Розовый слизень
+material.integrationforegoing.reinforced_pink_slime.name=Усиленная розовая слизень
+fluid.integrationforegoing.molten_reinforced_pink_slime=Раплавленная усиленная розовая слизень
+
+#Plant Gatherer Tooltips
+text.integrationforegoing.plant.ender_lilly= - Эндер лилия из Extra Utilities 2
+text.integrationforegoing.plant.red_orchid= - Красная орхидея Extra Utilities 2
+text.integrationforegoing.plant.hemp_replant= - Промышленная конопля из Immersive Engineering §o(собирает оба блока)
+text.integrationforegoing.plant.hemp_no_replant= - Промышленная конопля из Immersive Engineering §o(собирает только верхний блок)
+text.integrationforegoing.plant.oreberries= - Рудные ягоды §o(любой вид)
+text.integrationforegoing.plant.oreshrubs= - Рудные кустарники §o(любой вид)
+text.integrationforegoing.plant.natura_berry_bush= - Любые ягодные кусты из Natura
+text.integrationforegoing.plant.natura_crops_replant= - Любые культуры из Natura §o(необходима пересадка)
+text.integrationforegoing.plant.natura_crops_no_replant= - Любые культуры из Natura §o(пересадка не необходима)
+text.integrationforegoing.plant.rustic_wildberry_bush= - Куст дикой ягоды из Rustic
+text.integrationforegoing.plant.rustic_herbs_replant= - Любые травы из Rustic §o(необходима пересадка)
+text.integrationforegoing.plant.rustic_herbs_no_replant= - Любые травы из Rustic §o(пересадка не необходима)
+text.integrationforegoing.plant.rustic_crops= - Любые культуры из Rustic
+text.integrationforegoing.plant.agricraft_crops= - Любые культуры из AgriCraft
+text.integrationforegoing.plant.botania_tall_mystical_flowers= - Любые высокие мистические цветы из Botania
