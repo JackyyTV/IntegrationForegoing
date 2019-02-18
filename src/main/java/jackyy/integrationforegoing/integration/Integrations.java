@@ -1,20 +1,15 @@
 package jackyy.integrationforegoing.integration;
 
-import jackyy.integrationforegoing.IntegrationForegoing;
 import jackyy.integrationforegoing.integration.bioreactor.*;
 import jackyy.integrationforegoing.integration.compat.IEGardenClocheCompat;
 import jackyy.integrationforegoing.integration.compat.IFBookCompat;
 import jackyy.integrationforegoing.integration.compat.TConstructCompat;
-import jackyy.integrationforegoing.integration.laserdrill.*;
 import jackyy.integrationforegoing.integration.plant.*;
 import jackyy.integrationforegoing.integration.proteinreactor.ProteinReactorHandlerExNihiloCreatio;
 import jackyy.integrationforegoing.integration.proteinreactor.ProteinReactorHandlerHarvestCraft;
 import jackyy.integrationforegoing.integration.proteinreactor.ProteinReactorHandlerNatura;
 import jackyy.integrationforegoing.integration.straw.*;
-import jackyy.integrationforegoing.util.EnumIntegrations;
-import jackyy.integrationforegoing.util.ModConfig;
-import jackyy.integrationforegoing.util.ModNames;
-import jackyy.integrationforegoing.util.ModUtils;
+import jackyy.integrationforegoing.util.*;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.Loader;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
@@ -30,24 +25,24 @@ public class Integrations {
             ModUtils.logIntegration(1, EnumIntegrations.STRAW, ModNames.TF);
 
             ModUtils.logIntegration(0, EnumIntegrations.LASERDRILL, ModNames.TF);
-            LaserDrillHandlerThermalFoundation.init();
+            ModUtils.loadLaserDrillFile(ModNames.TF);
             ModUtils.logIntegration(1, EnumIntegrations.LASERDRILL, ModNames.TF);
         } else if (!ModConfig.integrations.thermalFoundation) {
             ModUtils.deleteExistingLaserDrillFile(event.getModConfigurationDirectory(), ModNames.TF);
         }
         if (ModConfig.integrations.immersiveEngineering && Loader.isModLoaded(ModNames.IE)) {
             ModUtils.logIntegration(0, EnumIntegrations.STRAW, ModNames.IE);
-            MinecraftForge.EVENT_BUS.register(new StrawRegistryIE());
+            MinecraftForge.EVENT_BUS.register(new StrawRegistryImmersiveEngineering());
             ModUtils.logIntegration(1, EnumIntegrations.STRAW, ModNames.IE);
 
             ModUtils.logIntegration(0, EnumIntegrations.PLANT, ModNames.IE);
-            MinecraftForge.EVENT_BUS.register(new PlantRecollectableIE());
+            MinecraftForge.EVENT_BUS.register(new PlantRecollectableImmersiveEngineering());
             ModUtils.logIntegration(1, EnumIntegrations.PLANT, ModNames.IE);
         }
         if (ModConfig.integrations.tconstruct && Loader.isModLoaded(ModNames.TCON)) {
-            IntegrationForegoing.logger.info("Pre-initialising integration for Tinkers' Construct...");
+            Reference.LOGGER.info("Pre-initialising integration for Tinkers' Construct...");
             TConstructCompat.preInit();
-            IntegrationForegoing.logger.info("Pre-initialised integration for Tinkers' Construct");
+            Reference.LOGGER.info("Pre-initialised integration for Tinkers' Construct");
 
             ModUtils.logIntegration(0, EnumIntegrations.STRAW, ModNames.TCON);
             MinecraftForge.EVENT_BUS.register(new StrawRegistryTConstruct());
@@ -55,7 +50,7 @@ public class Integrations {
         }
         if (ModConfig.integrations.mysticalAgriculture && Loader.isModLoaded(ModNames.MAG)) {
             ModUtils.logIntegration(0, EnumIntegrations.LASERDRILL, ModNames.MAG);
-            LaserDrillHandlerMysticalAgriculture.init();
+            ModUtils.loadLaserDrillFile(ModNames.MAG);
             ModUtils.logIntegration(1, EnumIntegrations.LASERDRILL, ModNames.MAG);
         } else if (!ModConfig.integrations.mysticalAgriculture) {
             ModUtils.deleteExistingLaserDrillFile(event.getModConfigurationDirectory(), ModNames.MAG);
@@ -67,35 +62,35 @@ public class Integrations {
         }
         if (ModConfig.integrations.ae2 && Loader.isModLoaded(ModNames.AE2)) {
             ModUtils.logIntegration(0, EnumIntegrations.LASERDRILL, ModNames.AE2);
-            LaserDrillHandlerAE2.init();
+            ModUtils.loadLaserDrillFile(ModNames.AE2);
             ModUtils.logIntegration(1, EnumIntegrations.LASERDRILL, ModNames.AE2);
         } else if (!ModConfig.integrations.ae2) {
             ModUtils.deleteExistingLaserDrillFile(event.getModConfigurationDirectory(), ModNames.AE2);
         }
         if (ModConfig.integrations.rftools && Loader.isModLoaded(ModNames.RFTOOLS)) {
             ModUtils.logIntegration(0, EnumIntegrations.LASERDRILL, ModNames.RFTOOLS);
-            LaserDrillHandlerRFTools.init();
+            ModUtils.loadLaserDrillFile(ModNames.RFTOOLS);
             ModUtils.logIntegration(1, EnumIntegrations.LASERDRILL, ModNames.RFTOOLS);
         } else if (!ModConfig.integrations.rftools) {
             ModUtils.deleteExistingLaserDrillFile(event.getModConfigurationDirectory(), ModNames.RFTOOLS);
         }
         if (ModConfig.integrations.evilcraft && Loader.isModLoaded(ModNames.EVILCRAFT)) {
             ModUtils.logIntegration(0, EnumIntegrations.LASERDRILL, ModNames.EVILCRAFT);
-            LaserDrillHandlerEvilCraft.init();
+            ModUtils.loadLaserDrillFile(ModNames.EVILCRAFT);
             ModUtils.logIntegration(1, EnumIntegrations.LASERDRILL, ModNames.EVILCRAFT);
         } else if (!ModConfig.integrations.evilcraft) {
             ModUtils.deleteExistingLaserDrillFile(event.getModConfigurationDirectory(), ModNames.EVILCRAFT);
         }
         if (ModConfig.integrations.actuallyAdditions && Loader.isModLoaded(ModNames.AA)) {
             ModUtils.logIntegration(0, EnumIntegrations.LASERDRILL, ModNames.AA);
-            LaserDrillHandlerActuallyAdditions.init();
+            ModUtils.loadLaserDrillFile(ModNames.AA);
             ModUtils.logIntegration(1, EnumIntegrations.LASERDRILL, ModNames.AA);
         } else if (!ModConfig.integrations.actuallyAdditions) {
             ModUtils.deleteExistingLaserDrillFile(event.getModConfigurationDirectory(), ModNames.AA);
         }
         if (ModConfig.integrations.forestry && Loader.isModLoaded(ModNames.FORESTRY)) {
             ModUtils.logIntegration(0, EnumIntegrations.LASERDRILL, ModNames.FORESTRY);
-            LaserDrillHandlerForestry.init();
+            ModUtils.loadLaserDrillFile(ModNames.FORESTRY);
             ModUtils.logIntegration(1, EnumIntegrations.LASERDRILL, ModNames.FORESTRY);
         } else if (!ModConfig.integrations.forestry) {
             ModUtils.deleteExistingLaserDrillFile(event.getModConfigurationDirectory(), ModNames.FORESTRY);
@@ -131,7 +126,7 @@ public class Integrations {
         }
         if (ModConfig.integrations.matterOverdrive && Loader.isModLoaded(ModNames.MATTEROVERDRIVE)) {
             ModUtils.logIntegration(0, EnumIntegrations.LASERDRILL, ModNames.MATTEROVERDRIVE);
-            LaserDrillHandlerMatterOverdrive.init();
+            ModUtils.loadLaserDrillFile(ModNames.MATTEROVERDRIVE);
             ModUtils.logIntegration(1, EnumIntegrations.LASERDRILL, ModNames.MATTEROVERDRIVE);
         } else if (!ModConfig.integrations.matterOverdrive) {
             ModUtils.deleteExistingLaserDrillFile(event.getModConfigurationDirectory(), ModNames.MATTEROVERDRIVE);
@@ -143,7 +138,7 @@ public class Integrations {
         }
         if (ModConfig.integrations.silentsGems && Loader.isModLoaded(ModNames.SILENTSGEMS)) {
             ModUtils.logIntegration(0, EnumIntegrations.LASERDRILL, ModNames.SILENTSGEMS);
-            LaserDrillHandlerSilentsGems.init();
+            ModUtils.loadLaserDrillFile(ModNames.SILENTSGEMS);
             ModUtils.logIntegration(1, EnumIntegrations.LASERDRILL, ModNames.SILENTSGEMS);
         } else if (!ModConfig.integrations.silentsGems) {
             ModUtils.deleteExistingLaserDrillFile(event.getModConfigurationDirectory(), ModNames.SILENTSGEMS);
@@ -155,16 +150,16 @@ public class Integrations {
         }
         if (ModConfig.integrations.immersivePetroleum && Loader.isModLoaded(ModNames.IP)) {
             ModUtils.logIntegration(0, EnumIntegrations.STRAW, ModNames.IP);
-            MinecraftForge.EVENT_BUS.register(new StrawRegistryIP());
+            MinecraftForge.EVENT_BUS.register(new StrawRegistryImmersivePetroleum());
             ModUtils.logIntegration(1, EnumIntegrations.STRAW, ModNames.IP);
         }
         if (ModConfig.integrations.biomesoPlenty && Loader.isModLoaded(ModNames.BIOMESOP)) {
             ModUtils.logIntegration(0, EnumIntegrations.STRAW, ModNames.BIOMESOP);
-            MinecraftForge.EVENT_BUS.register(new StrawRegistryBiomesOP());
+            MinecraftForge.EVENT_BUS.register(new StrawRegistryBiomesOPlenty());
             ModUtils.logIntegration(1, EnumIntegrations.STRAW, ModNames.BIOMESOP);
 
             ModUtils.logIntegration(0, EnumIntegrations.LASERDRILL, ModNames.BIOMESOP);
-            LaserDrillHandlerBiomesOP.init();
+            ModUtils.loadLaserDrillFile(ModNames.BIOMESOP);
             ModUtils.logIntegration(1, EnumIntegrations.LASERDRILL, ModNames.BIOMESOP);
         } else if (!ModConfig.integrations.biomesoPlenty) {
             ModUtils.deleteExistingLaserDrillFile(event.getModConfigurationDirectory(), ModNames.BIOMESOP);
@@ -175,7 +170,7 @@ public class Integrations {
             ModUtils.logIntegration(1, EnumIntegrations.STRAW, ModNames.AS);
 
             ModUtils.logIntegration(0, EnumIntegrations.LASERDRILL, ModNames.AS);
-            LaserDrillHandlerAstralSorcery.init();
+            ModUtils.loadLaserDrillFile(ModNames.AS);
             ModUtils.logIntegration(1, EnumIntegrations.LASERDRILL, ModNames.AS);
         } else if (!ModConfig.integrations.astralSorcery) {
             ModUtils.deleteExistingLaserDrillFile(event.getModConfigurationDirectory(), ModNames.AS);
@@ -187,7 +182,7 @@ public class Integrations {
         }
         if (ModConfig.integrations.nuclearCraft && Loader.isModLoaded(ModNames.NUCLEARCRAFT)) {
             ModUtils.logIntegration(0, EnumIntegrations.LASERDRILL, ModNames.NUCLEARCRAFT);
-            LaserDrillHandlerNuclearCraft.init();
+            ModUtils.loadLaserDrillFile(ModNames.NUCLEARCRAFT);
             ModUtils.logIntegration(1, EnumIntegrations.LASERDRILL, ModNames.NUCLEARCRAFT);
         } else if (!ModConfig.integrations.nuclearCraft) {
             ModUtils.deleteExistingLaserDrillFile(event.getModConfigurationDirectory(), ModNames.NUCLEARCRAFT);
@@ -195,22 +190,22 @@ public class Integrations {
     }
 
     public static void init() {
-        IntegrationForegoing.logger.info("Registering Guide Book entries...");
+        Reference.LOGGER.info("Registering Guide Book entries...");
         IFBookCompat.init();
-        IntegrationForegoing.logger.info("Registered Guide Book entries");
+        Reference.LOGGER.info("Registered Guide Book entries");
         if (ModConfig.integrations.immersiveEngineering && Loader.isModLoaded(ModNames.IE)) {
-            IntegrationForegoing.logger.info("Initialising Garden Cloche integration for Immersive Engineering...");
+            Reference.LOGGER.info("Initialising Garden Cloche integration for Immersive Engineering...");
             IEGardenClocheCompat.init();
-            IntegrationForegoing.logger.info("Initialised Garden Cloche integration for Immersive Engineering");
+            Reference.LOGGER.info("Initialised Garden Cloche integration for Immersive Engineering");
 
             ModUtils.logIntegration(0, EnumIntegrations.BIOREACTOR, ModNames.IE);
-            BioReactorHandlerIE.init();
+            BioReactorHandlerImmersiveEngineering.init();
             ModUtils.logIntegration(1, EnumIntegrations.BIOREACTOR, ModNames.IE);
         }
         if (ModConfig.integrations.tconstruct && Loader.isModLoaded(ModNames.TCON)) {
-            IntegrationForegoing.logger.info("Initialising integration for Tinkers' Construct...");
+            Reference.LOGGER.info("Initialising integration for Tinkers' Construct...");
             TConstructCompat.init();
-            IntegrationForegoing.logger.info("Initialised integration for Tinkers' Construct");
+            Reference.LOGGER.info("Initialised integration for Tinkers' Construct");
 
             ModUtils.logIntegration(0, EnumIntegrations.BIOREACTOR, ModNames.TCON);
             BioReactorHandlerTConstruct.init();
@@ -285,7 +280,7 @@ public class Integrations {
         }
         if (ModConfig.integrations.biomesoPlenty && Loader.isModLoaded(ModNames.BIOMESOP)) {
             ModUtils.logIntegration(0, EnumIntegrations.BIOREACTOR, ModNames.BIOMESOP);
-            BioReactorHandlerBiomesOP.init();
+            BioReactorHandlerBiomesOPlenty.init();
             ModUtils.logIntegration(1, EnumIntegrations.BIOREACTOR, ModNames.BIOMESOP);
         }
         if (ModConfig.integrations.botania && Loader.isModLoaded(ModNames.BOTANIA)) {

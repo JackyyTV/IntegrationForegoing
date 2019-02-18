@@ -1,10 +1,7 @@
 package jackyy.integrationforegoing.integration.plant;
 
 import com.buuz135.industrial.api.plant.PlantRecollectable;
-import jackyy.integrationforegoing.util.ModConfig;
-import jackyy.integrationforegoing.util.ModNames;
-import jackyy.integrationforegoing.util.ModUtils;
-import jackyy.integrationforegoing.util.Reference;
+import jackyy.integrationforegoing.util.*;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.NonNullList;
@@ -34,7 +31,7 @@ public class PlantRecollectableRustic {
             public List<ItemStack> doHarvestOperation(World world, BlockPos pos, IBlockState blockState) {
                 NonNullList<ItemStack> stacks = NonNullList.create();
                 stacks.add(0, ModUtils.getItemStackByName(ModNames.RUSTIC, "wildberries", 1, 0));
-                world.setBlockState(pos, blockState.withProperty(Reference.RUSTIC_WILDBERRIES, false));
+                world.setBlockState(pos, blockState.withProperty(ModProps.RUSTIC_WILDBERRIES, false));
                 return stacks;
             }
 
@@ -74,7 +71,7 @@ public class PlantRecollectableRustic {
                 if (ModConfig.misc.rustic.rusticHerbsReplant) {
                     world.setBlockToAir(pos);
                 } else {
-                    world.setBlockState(pos, blockState.withProperty(Reference.RUSTIC_CROPS_AGE, 0));
+                    world.setBlockState(pos, blockState.withProperty(ModProps.RUSTIC_CROPS_AGE, 0));
                 }
                 return stacks;
             }
@@ -119,11 +116,11 @@ public class PlantRecollectableRustic {
                     switch (blockState.getBlock().getRegistryName().getPath()) {
                         case "tomato_crop":
                             stacks.add(0, ModUtils.getItemStackByName(ModNames.RUSTIC, "tomato", 1, 0));
-                            world.setBlockState(pos, blockState.withProperty(Reference.RUSTIC_CROPS_AGE, 2));
+                            world.setBlockState(pos, blockState.withProperty(ModProps.RUSTIC_CROPS_AGE, 2));
                             break;
                         case "chili_crop":
                             stacks.add(0, ModUtils.getItemStackByName(ModNames.RUSTIC, "chili_pepper", 1, 0));
-                            world.setBlockState(pos, blockState.withProperty(Reference.RUSTIC_CROPS_AGE, 2));
+                            world.setBlockState(pos, blockState.withProperty(ModProps.RUSTIC_CROPS_AGE, 2));
                             break;
                     }
                 }
@@ -132,15 +129,15 @@ public class PlantRecollectableRustic {
                     switch (world.getBlockState(pos.up()).getBlock().getRegistryName().getPath()) {
                         case "grape_leaves":
                             stacks.add(0, ModUtils.getItemStackByName(ModNames.RUSTIC, "grapes", 1, 0));
-                            world.setBlockState(pos.up(), world.getBlockState(pos.up()).withProperty(Reference.RUSTIC_GRAPES, false));
+                            world.setBlockState(pos.up(), world.getBlockState(pos.up()).withProperty(ModProps.RUSTIC_GRAPES, false));
                             break;
                         case "tomato_crop":
                             stacks.add(0, ModUtils.getItemStackByName(ModNames.RUSTIC, "tomato", 1, 0));
-                            world.setBlockState(pos.up(), world.getBlockState(pos.up()).withProperty(Reference.RUSTIC_CROPS_AGE, 2));
+                            world.setBlockState(pos.up(), world.getBlockState(pos.up()).withProperty(ModProps.RUSTIC_CROPS_AGE, 2));
                             break;
                         case "chili_crop":
                             stacks.add(0, ModUtils.getItemStackByName(ModNames.RUSTIC, "chili_pepper", 1, 0));
-                            world.setBlockState(pos.up(), world.getBlockState(pos.up()).withProperty(Reference.RUSTIC_CROPS_AGE, 2));
+                            world.setBlockState(pos.up(), world.getBlockState(pos.up()).withProperty(ModProps.RUSTIC_CROPS_AGE, 2));
                             break;
                     }
                 }
@@ -148,7 +145,7 @@ public class PlantRecollectableRustic {
                     switch (world.getBlockState(pos.up(2)).getBlock().getRegistryName().getPath()) {
                         case "tomato_crop":
                             stacks.add(0, ModUtils.getItemStackByName(ModNames.RUSTIC, "tomato", 1, 0));
-                            world.setBlockState(pos.up(2), world.getBlockState(pos.up(2)).withProperty(Reference.RUSTIC_CROPS_AGE, 2));
+                            world.setBlockState(pos.up(2), world.getBlockState(pos.up(2)).withProperty(ModProps.RUSTIC_CROPS_AGE, 2));
                             break;
                     }
                 }

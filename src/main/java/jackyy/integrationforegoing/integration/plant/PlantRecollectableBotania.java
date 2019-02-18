@@ -2,6 +2,7 @@ package jackyy.integrationforegoing.integration.plant;
 
 import com.buuz135.industrial.api.plant.PlantRecollectable;
 import jackyy.integrationforegoing.util.ModNames;
+import jackyy.integrationforegoing.util.ModProps;
 import jackyy.integrationforegoing.util.ModUtils;
 import jackyy.integrationforegoing.util.Reference;
 import net.minecraft.block.state.IBlockState;
@@ -43,35 +44,35 @@ public class PlantRecollectableBotania {
                     case "doubleflower1":
                         switch (blockState.getBlock().getMetaFromState(blockState)) {
                             case 0:
-                                world.setBlockState(pos, petal.withProperty(Reference.BOTANIA_COLOR, EnumDyeColor.WHITE));
+                                world.setBlockState(pos, petal.withProperty(ModProps.BOTANIA_COLOR, EnumDyeColor.WHITE));
                                 stacks.add(0, ModUtils.getItemStackByName(ModNames.BOTANIA, "petal", 3, 0));
                                 break;
                             case 1:
-                                world.setBlockState(pos, petal.withProperty(Reference.BOTANIA_COLOR, EnumDyeColor.ORANGE));
+                                world.setBlockState(pos, petal.withProperty(ModProps.BOTANIA_COLOR, EnumDyeColor.ORANGE));
                                 stacks.add(0, ModUtils.getItemStackByName(ModNames.BOTANIA, "petal", 3, 1));
                                 break;
                             case 2:
-                                world.setBlockState(pos, petal.withProperty(Reference.BOTANIA_COLOR, EnumDyeColor.MAGENTA));
+                                world.setBlockState(pos, petal.withProperty(ModProps.BOTANIA_COLOR, EnumDyeColor.MAGENTA));
                                 stacks.add(0, ModUtils.getItemStackByName(ModNames.BOTANIA, "petal", 3, 2));
                                 break;
                             case 3:
-                                world.setBlockState(pos, petal.withProperty(Reference.BOTANIA_COLOR, EnumDyeColor.LIGHT_BLUE));
+                                world.setBlockState(pos, petal.withProperty(ModProps.BOTANIA_COLOR, EnumDyeColor.LIGHT_BLUE));
                                 stacks.add(0, ModUtils.getItemStackByName(ModNames.BOTANIA, "petal", 3, 3));
                                 break;
                             case 4:
-                                world.setBlockState(pos, petal.withProperty(Reference.BOTANIA_COLOR, EnumDyeColor.YELLOW));
+                                world.setBlockState(pos, petal.withProperty(ModProps.BOTANIA_COLOR, EnumDyeColor.YELLOW));
                                 stacks.add(0, ModUtils.getItemStackByName(ModNames.BOTANIA, "petal", 3, 4));
                                 break;
                             case 5:
-                                world.setBlockState(pos, petal.withProperty(Reference.BOTANIA_COLOR, EnumDyeColor.LIME));
+                                world.setBlockState(pos, petal.withProperty(ModProps.BOTANIA_COLOR, EnumDyeColor.LIME));
                                 stacks.add(0, ModUtils.getItemStackByName(ModNames.BOTANIA, "petal", 3, 5));
                                 break;
                             case 6:
-                                world.setBlockState(pos, petal.withProperty(Reference.BOTANIA_COLOR, EnumDyeColor.PINK));
+                                world.setBlockState(pos, petal.withProperty(ModProps.BOTANIA_COLOR, EnumDyeColor.PINK));
                                 stacks.add(0, ModUtils.getItemStackByName(ModNames.BOTANIA, "petal", 3, 6));
                                 break;
                             case 7:
-                                world.setBlockState(pos, petal.withProperty(Reference.BOTANIA_COLOR, EnumDyeColor.GRAY));
+                                world.setBlockState(pos, petal.withProperty(ModProps.BOTANIA_COLOR, EnumDyeColor.GRAY));
                                 stacks.add(0, ModUtils.getItemStackByName(ModNames.BOTANIA, "petal", 3, 7));
                                 break;
                         }
@@ -79,35 +80,35 @@ public class PlantRecollectableBotania {
                     case "doubleflower2":
                         switch (blockState.getBlock().getMetaFromState(blockState)) {
                             case 0:
-                                world.setBlockState(pos, petal.withProperty(Reference.BOTANIA_COLOR, EnumDyeColor.SILVER));
+                                world.setBlockState(pos, petal.withProperty(ModProps.BOTANIA_COLOR, EnumDyeColor.SILVER));
                                 stacks.add(0, ModUtils.getItemStackByName(ModNames.BOTANIA, "petal", 3, 8));
                                 break;
                             case 1:
-                                world.setBlockState(pos, petal.withProperty(Reference.BOTANIA_COLOR, EnumDyeColor.CYAN));
+                                world.setBlockState(pos, petal.withProperty(ModProps.BOTANIA_COLOR, EnumDyeColor.CYAN));
                                 stacks.add(0, ModUtils.getItemStackByName(ModNames.BOTANIA, "petal", 3, 9));
                                 break;
                             case 2:
-                                world.setBlockState(pos, petal.withProperty(Reference.BOTANIA_COLOR, EnumDyeColor.PURPLE));
+                                world.setBlockState(pos, petal.withProperty(ModProps.BOTANIA_COLOR, EnumDyeColor.PURPLE));
                                 stacks.add(0, ModUtils.getItemStackByName(ModNames.BOTANIA, "petal", 3, 10));
                                 break;
                             case 3:
-                                world.setBlockState(pos, petal.withProperty(Reference.BOTANIA_COLOR, EnumDyeColor.BLUE));
+                                world.setBlockState(pos, petal.withProperty(ModProps.BOTANIA_COLOR, EnumDyeColor.BLUE));
                                 stacks.add(0, ModUtils.getItemStackByName(ModNames.BOTANIA, "petal", 3, 11));
                                 break;
                             case 4:
-                                world.setBlockState(pos, petal.withProperty(Reference.BOTANIA_COLOR, EnumDyeColor.BROWN));
+                                world.setBlockState(pos, petal.withProperty(ModProps.BOTANIA_COLOR, EnumDyeColor.BROWN));
                                 stacks.add(0, ModUtils.getItemStackByName(ModNames.BOTANIA, "petal", 3, 12));
                                 break;
                             case 5:
-                                world.setBlockState(pos, petal.withProperty(Reference.BOTANIA_COLOR, EnumDyeColor.GREEN));
+                                world.setBlockState(pos, petal.withProperty(ModProps.BOTANIA_COLOR, EnumDyeColor.GREEN));
                                 stacks.add(0, ModUtils.getItemStackByName(ModNames.BOTANIA, "petal", 3, 13));
                                 break;
                             case 6:
-                                world.setBlockState(pos, petal.withProperty(Reference.BOTANIA_COLOR, EnumDyeColor.RED));
+                                world.setBlockState(pos, petal.withProperty(ModProps.BOTANIA_COLOR, EnumDyeColor.RED));
                                 stacks.add(0, ModUtils.getItemStackByName(ModNames.BOTANIA, "petal", 3, 14));
                                 break;
                             case 7:
-                                world.setBlockState(pos, petal.withProperty(Reference.BOTANIA_COLOR, EnumDyeColor.BLACK));
+                                world.setBlockState(pos, petal.withProperty(ModProps.BOTANIA_COLOR, EnumDyeColor.BLACK));
                                 stacks.add(0, ModUtils.getItemStackByName(ModNames.BOTANIA, "petal", 3, 15));
                                 break;
                         }

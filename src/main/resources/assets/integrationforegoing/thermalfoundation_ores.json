@@ -1,8 +1,15 @@
 [
   {
-    "item" : "thermalfoundation:ore:8",
-    "color" : 3,
+    "item" : "oreClathrateOilSand",
+    "color" : 15,
     "rarity" : [
+      {
+        "whitelist": "minecraft:desert, minecraft:desert_hills, minecraft:mutated_desert, minecraft:mesa, minecraft:mesa_rock, minecraft:mesa_clear_rock, minecraft:mutated_mesa, minecraft:mutated_mesa_rock",
+        "blacklist": "",
+        "depth_min": 40,
+        "depth_max": 85,
+        "weight": 3
+      },
       {
         "whitelist": "",
         "blacklist": "minecraft:hell, minecraft:sky",
@@ -13,46 +20,47 @@
     ]
   },
   {
-    "item" : "thermalfoundation:ore_fluid:0",
+    "item" : "oreClathrateOilShale",
     "color" : 15,
     "rarity" : [
       {
         "whitelist": "",
         "blacklist": "minecraft:hell, minecraft:sky",
-        "depth_min": 0,
-        "depth_max": 255,
+        "depth_min": 20,
+        "depth_max": 65,
         "weight": 2
-      }
-    ]
-  },
-  {
-    "item" : "thermalfoundation:ore_fluid:1",
-    "color" : 15,
-    "rarity" : [
+      },
       {
         "whitelist": "",
         "blacklist": "minecraft:hell, minecraft:sky",
         "depth_min": 0,
         "depth_max": 255,
-        "weight": 2
+        "weight": 1
       }
     ]
   },
   {
-    "item" : "thermalfoundation:ore_fluid:2",
+    "item" : "oreClathrateRedstone",
     "color" : 14,
     "rarity" : [
       {
         "whitelist": "",
         "blacklist": "minecraft:hell, minecraft:sky",
+        "depth_min": 4,
+        "depth_max": 20,
+        "weight": 3
+      },
+      {
+        "whitelist": "",
+        "blacklist": "minecraft:hell, minecraft:sky",
         "depth_min": 0,
         "depth_max": 255,
-        "weight": 3
+        "weight": 1
       }
     ]
   },
   {
-    "item" : "thermalfoundation:ore_fluid:3",
+    "item" : "oreClathrateGlowstone",
     "color" : 4,
     "rarity" : [
       {
@@ -65,7 +73,7 @@
     ]
   },
   {
-    "item" : "thermalfoundation:ore_fluid:4",
+    "item" : "oreClathrateEnder",
     "color" : 13,
     "rarity" : [
       {
@@ -73,20 +81,7 @@
         "blacklist": "",
         "depth_min": 0,
         "depth_max": 255,
-        "weight": 1
-      }
-    ]
-  },
-  {
-    "item" : "thermalfoundation:ore_fluid:5",
-    "color" : 15,
-    "rarity" : [
-      {
-        "whitelist": "",
-        "blacklist": "minecraft:hell, minecraft:sky",
-        "depth_min": 0,
-        "depth_max": 255,
-        "weight": 1
+        "weight": 2
       }
     ]
   }

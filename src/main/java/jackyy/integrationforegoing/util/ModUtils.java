@@ -4,12 +4,9 @@ import com.buuz135.industrial.api.IndustrialForegoingHelper;
 import com.buuz135.industrial.api.recipe.BioReactorEntry;
 import com.buuz135.industrial.api.recipe.LaserDrillEntry;
 import com.buuz135.industrial.api.recipe.ProteinReactorEntry;
-import jackyy.integrationforegoing.IntegrationForegoing;
 import net.minecraft.block.Block;
-import net.minecraft.init.MobEffects;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.potion.Potion;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.common.Loader;
 import net.minecraftforge.fml.common.ModContainer;
@@ -30,56 +27,45 @@ public class ModUtils {
         return new ItemStack(getItemByName(modid, name), amount, meta);
     }
 
-    public static ItemStack getBlockStackByName(String modid, String name, int amount, int meta) {
-        return new ItemStack(getBlockByName(modid, name), amount, meta);
-    }
-
     public static Block getBlockByName(String modid, String name) {
         return Block.REGISTRY.getObject(new ResourceLocation(modid, name));
-    }
-
-    public static Potion getPotionByName(String modid, String name) {
-        if (ForgeRegistries.POTIONS.getValue(new ResourceLocation(modid, name)) != null) {
-            return Potion.REGISTRY.getObject(new ResourceLocation(modid, name));
-        }
-        return MobEffects.LUCK;
     }
 
     public static void logIntegration(int state, EnumIntegrations type, String modid) {
         if (state == 0) {
             switch (type) {
                 case STRAW:
-                    IntegrationForegoing.logger.info("Registering drink handlers for " + getModNameByID(modid) + "...");
+                    Reference.LOGGER.info("Registering drink handlers for " + getModNameByID(modid) + "...");
                     break;
                 case PLANT:
-                    IntegrationForegoing.logger.info("Registering Plant Gatherer entries for " + getModNameByID(modid) + "...");
+                    Reference.LOGGER.info("Registering Plant Gatherer entries for " + getModNameByID(modid) + "...");
                     break;
                 case LASERDRILL:
-                    IntegrationForegoing.logger.info("Registering Laser Drill entries for " + getModNameByID(modid) + "...");
+                    Reference.LOGGER.info("Registering Laser Drill entries for " + getModNameByID(modid) + "...");
                     break;
                 case BIOREACTOR:
-                    IntegrationForegoing.logger.info("Registering Bioreactor entries for " + getModNameByID(modid) + "...");
+                    Reference.LOGGER.info("Registering Bioreactor entries for " + getModNameByID(modid) + "...");
                     break;
                 case PROTEIN:
-                    IntegrationForegoing.logger.info("Registering Protein Reactor entries for " + getModNameByID(modid) + "...");
+                    Reference.LOGGER.info("Registering Protein Reactor entries for " + getModNameByID(modid) + "...");
                     break;
             }
         } else if (state == 1) {
             switch (type) {
                 case STRAW:
-                    IntegrationForegoing.logger.info("Registered drink handlers for " + getModNameByID(modid));
+                    Reference.LOGGER.info("Registered drink handlers for " + getModNameByID(modid));
                     break;
                 case PLANT:
-                    IntegrationForegoing.logger.info("Registered Plant Gatherer entries for " + getModNameByID(modid));
+                    Reference.LOGGER.info("Registered Plant Gatherer entries for " + getModNameByID(modid));
                     break;
                 case LASERDRILL:
-                    IntegrationForegoing.logger.info("Registered Laser Drill entries for " + getModNameByID(modid));
+                    Reference.LOGGER.info("Registered Laser Drill entries for " + getModNameByID(modid));
                     break;
                 case BIOREACTOR:
-                    IntegrationForegoing.logger.info("Registered Bioreactor entries for " + getModNameByID(modid));
+                    Reference.LOGGER.info("Registered Bioreactor entries for " + getModNameByID(modid));
                     break;
                 case PROTEIN:
-                    IntegrationForegoing.logger.info("Registered Protein Reactor entries for " + getModNameByID(modid));
+                    Reference.LOGGER.info("Registered Protein Reactor entries for " + getModNameByID(modid));
                     break;
             }
         }
@@ -94,13 +80,13 @@ public class ModUtils {
         return modid;
     }
 
-    public static void addCustomBioReactorEntryItem(String modid, String name, int amount, int meta) {
+    public static void registerBioReactorEntry(String modid, String name, int amount, int meta) {
         if (ForgeRegistries.ITEMS.getValue(new ResourceLocation(modid, name)) != null) {
             IndustrialForegoingHelper.addBioReactorEntry(new BioReactorEntry(getItemStackByName(modid, name, amount, meta)));
         }
     }
 
-    public static void addCustomProteinReactorEntryItem(String modid, String name, int amount, int meta) {
+    public static void registerProteinReactorEntry(String modid, String name, int amount, int meta) {
         if (ForgeRegistries.ITEMS.getValue(new ResourceLocation(modid, name)) != null) {
             IndustrialForegoingHelper.addProteinReactorEntry(new ProteinReactorEntry(getItemStackByName(modid, name, amount, meta)));
         }
@@ -117,7 +103,7 @@ public class ModUtils {
             if (!file.exists())
                 return;
             if (file.delete())
-                IntegrationForegoing.logger.info("Deleted existing Laser Drill config file " + file.getName());
+                Reference.LOGGER.info("Deleted existing Laser Drill config file " + file.getName());
         }
     }
 

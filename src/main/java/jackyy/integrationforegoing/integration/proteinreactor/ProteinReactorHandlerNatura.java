@@ -6,7 +6,7 @@ import jackyy.integrationforegoing.util.ModUtils;
 public class ProteinReactorHandlerNatura {
 
     public static void init() {
-        ModUtils.addCustomProteinReactorEntryItem(ModNames.NATURA, "edibles", 1, 0);
+        ModUtils.registerProteinReactorEntry(ModNames.NATURA, "edibles", 1, 0);
     }
 
 }

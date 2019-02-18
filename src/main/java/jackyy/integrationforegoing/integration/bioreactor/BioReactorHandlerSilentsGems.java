@@ -6,7 +6,7 @@ import jackyy.integrationforegoing.util.ModUtils;
 public class BioReactorHandlerSilentsGems {
 
     public static void init() {
-        ModUtils.addCustomBioReactorEntryItem(ModNames.SILENTSGEMS, "fluffypuffseeds", 1, 0);
+        ModUtils.registerBioReactorEntry(ModNames.SILENTSGEMS, "fluffypuffseeds", 1, 0);
     }
 
 }

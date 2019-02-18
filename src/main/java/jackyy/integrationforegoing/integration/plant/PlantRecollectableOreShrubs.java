@@ -2,6 +2,7 @@ package jackyy.integrationforegoing.integration.plant;
 
 import com.buuz135.industrial.api.plant.PlantRecollectable;
 import jackyy.integrationforegoing.util.ModNames;
+import jackyy.integrationforegoing.util.ModProps;
 import jackyy.integrationforegoing.util.ModUtils;
 import jackyy.integrationforegoing.util.Reference;
 import net.minecraft.block.Block;
@@ -45,10 +46,10 @@ public class PlantRecollectableOreShrubs {
                     tag.setString("Name", name);
                     berries.getTagCompound().setTag("OreShrubVariant", tag);
                     stacks.add(0, berries);
-                    world.setBlockState(pos, blockState.withProperty(Reference.ORESHRUBS_AGE, 3));
+                    world.setBlockState(pos, blockState.withProperty(ModProps.ORESHRUBS_AGE, 3));
                 } else {
                     stacks.add(0, ModUtils.getItemStackByName(ModNames.ORESHRUBS, "oreberries_random", 1, 0));
-                    world.setBlockState(pos, blockState.withProperty(Reference.ORESHRUBS_AGE, 3));
+                    world.setBlockState(pos, blockState.withProperty(ModProps.ORESHRUBS_AGE, 3));
                 }
                 return stacks;
             }

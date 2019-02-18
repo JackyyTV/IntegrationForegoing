@@ -7,7 +7,7 @@ public class BioReactorHandlerTConstruct {
 
     public static void init() {
         for (int i = 0; i <= 2; i++) {
-            ModUtils.addCustomBioReactorEntryItem(ModNames.TCON, "slime_sapling", 1, i);
+            ModUtils.registerBioReactorEntry(ModNames.TCON, "slime_sapling", 1, i);
         }
     }
 

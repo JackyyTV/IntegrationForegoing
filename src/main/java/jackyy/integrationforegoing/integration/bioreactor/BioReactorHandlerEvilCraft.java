@@ -6,7 +6,7 @@ import jackyy.integrationforegoing.util.ModUtils;
 public class BioReactorHandlerEvilCraft {
 
     public static void init() {
-        ModUtils.addCustomBioReactorEntryItem(ModNames.EVILCRAFT, "undead_sapling", 1, 0);
+        ModUtils.registerBioReactorEntry(ModNames.EVILCRAFT, "undead_sapling", 1, 0);
     }
 
 }

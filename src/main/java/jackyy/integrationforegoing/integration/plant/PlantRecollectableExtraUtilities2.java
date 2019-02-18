@@ -2,6 +2,7 @@ package jackyy.integrationforegoing.integration.plant;
 
 import com.buuz135.industrial.api.plant.PlantRecollectable;
 import jackyy.integrationforegoing.util.ModNames;
+import jackyy.integrationforegoing.util.ModProps;
 import jackyy.integrationforegoing.util.ModUtils;
 import jackyy.integrationforegoing.util.Reference;
 import net.minecraft.block.state.IBlockState;
@@ -35,7 +36,7 @@ public class PlantRecollectableExtraUtilities2 {
                         stacks.remove(i);
                     }
                 }
-                world.setBlockState(pos, blockState.withProperty(Reference.ENDERLILLY_AGE, 0));
+                world.setBlockState(pos, blockState.withProperty(ModProps.ENDERLILLY_AGE, 0));
                 return stacks;
             }
 
@@ -64,7 +65,7 @@ public class PlantRecollectableExtraUtilities2 {
                         stacks.remove(i);
                     }
                 }
-                world.setBlockState(pos, blockState.withProperty(Reference.REDORCHID_AGE, 0));
+                world.setBlockState(pos, blockState.withProperty(ModProps.REDORCHID_AGE, 0));
                 return stacks;
             }
 

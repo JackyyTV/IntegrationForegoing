@@ -7,7 +7,7 @@ public class BioReactorHandlerBotania {
 
     public static void init() {
         for (int i = 0; i <= 15; i++) {
-            ModUtils.addCustomBioReactorEntryItem(ModNames.BOTANIA, "petal", 1, i);
+            ModUtils.registerBioReactorEntry(ModNames.BOTANIA, "petal", 1, i);
         }
     }
 

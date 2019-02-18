@@ -6,7 +6,7 @@ import jackyy.integrationforegoing.util.ModUtils;
 public class BioReactorHandlerSimpleCorn {
 
     public static void init() {
-        ModUtils.addCustomBioReactorEntryItem(ModNames.SIMPLECORN, "kernels", 1, 0);
+        ModUtils.registerBioReactorEntry(ModNames.SIMPLECORN, "kernels", 1, 0);
     }
 
 }
