@@ -1,9 +1,9 @@
 package jackyy.integrationforegoing.integration.plant;
 
 import com.buuz135.industrial.api.plant.PlantRecollectable;
+import jackyy.gunpowderlib.helper.ObjectHelper;
 import jackyy.integrationforegoing.util.ModNames;
 import jackyy.integrationforegoing.util.ModProps;
-import jackyy.integrationforegoing.util.ModUtils;
 import jackyy.integrationforegoing.util.Reference;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.item.ItemStack;
@@ -24,7 +24,7 @@ public class PlantRecollectableExtraUtilities2 {
         registry.register(new PlantRecollectable("ender_lilly") {
             @Override
             public boolean canBeHarvested(World world, BlockPos pos, IBlockState blockState) {
-                return blockState.getBlock() == ModUtils.getBlockByName(ModNames.XU2, "enderlilly")
+                return blockState.getBlock() == ObjectHelper.getBlockByName(ModNames.XU2, "enderlilly")
                         && blockState.getBlock().getMetaFromState(blockState) == 7;
             }
 
@@ -32,7 +32,7 @@ public class PlantRecollectableExtraUtilities2 {
             public List<ItemStack> doHarvestOperation(World world, BlockPos pos, IBlockState blockState) {
                 List<ItemStack> stacks = blockState.getBlock().getDrops(world, pos, blockState, 0);
                 for (int i = 0; i < stacks.size(); i++) {
-                    if (stacks.get(i).getItem() == ModUtils.getItemByName(ModNames.XU2, "enderlilly")) {
+                    if (stacks.get(i).getItem() == ObjectHelper.getItemByName(ModNames.XU2, "enderlilly")) {
                         stacks.remove(i);
                     }
                 }
@@ -53,7 +53,7 @@ public class PlantRecollectableExtraUtilities2 {
         registry.register(new PlantRecollectable("red_orchid") {
             @Override
             public boolean canBeHarvested(World world, BlockPos pos, IBlockState blockState) {
-                return blockState.getBlock() == ModUtils.getBlockByName(ModNames.XU2, "redorchid")
+                return blockState.getBlock() == ObjectHelper.getBlockByName(ModNames.XU2, "redorchid")
                         && blockState.getBlock().getMetaFromState(blockState) == 6;
             }
 
@@ -61,7 +61,7 @@ public class PlantRecollectableExtraUtilities2 {
             public List<ItemStack> doHarvestOperation(World world, BlockPos pos, IBlockState blockState) {
                 List<ItemStack> stacks = blockState.getBlock().getDrops(world, pos, blockState, 0);
                 for (int i = 0; i < stacks.size(); i++) {
-                    if (stacks.get(i).getItem() == ModUtils.getItemByName(ModNames.XU2, "redorchid")) {
+                    if (stacks.get(i).getItem() == ObjectHelper.getItemByName(ModNames.XU2, "redorchid")) {
                         stacks.remove(i);
                     }
                 }

@@ -3,7 +3,7 @@
   "modid": "integrationforegoing",
   "name": "Integration Foregoing",
   "description": "An addon mod for Industrial Foregoing!",
-  "version": "1.12.2-1.9",
+  "version": "1.12.2-1.10",
   "mcversion": "1.12.2",
   "url": "https://github.com/JackyyTV/IntegrationForegoing",
   "updateUrl": "",
@@ -11,6 +11,6 @@
   "credits": "",
   "logoFile": "assets/integrationforegoing/logo.png",
   "screenshots": [],
-  "dependencies": ["industrialforegoing"]
+  "dependencies": ["industrialforegoing", "gunpowderlib"]
 }
 ]

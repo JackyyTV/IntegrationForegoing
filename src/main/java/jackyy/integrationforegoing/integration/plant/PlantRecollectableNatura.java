@@ -1,7 +1,11 @@
 package jackyy.integrationforegoing.integration.plant;
 
 import com.buuz135.industrial.api.plant.PlantRecollectable;
-import jackyy.integrationforegoing.util.*;
+import jackyy.gunpowderlib.helper.ObjectHelper;
+import jackyy.integrationforegoing.util.ModConfig;
+import jackyy.integrationforegoing.util.ModNames;
+import jackyy.integrationforegoing.util.ModProps;
+import jackyy.integrationforegoing.util.Reference;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.NonNullList;
@@ -33,28 +37,28 @@ public class PlantRecollectableNatura {
                 NonNullList<ItemStack> stacks = NonNullList.create();
                 switch (blockState.getBlock().getRegistryName().getPath()) {
                     case "overworld_berrybush_raspberry" :
-                        stacks.add(0, ModUtils.getItemStackByName(ModNames.NATURA, "edibles", 1, 2));
+                        stacks.add(0, ObjectHelper.getItemStackByName(ModNames.NATURA, "edibles", 1, 2));
                         break;
                     case "overworld_berrybush_blueberry" :
-                        stacks.add(0, ModUtils.getItemStackByName(ModNames.NATURA, "edibles", 1, 3));
+                        stacks.add(0, ObjectHelper.getItemStackByName(ModNames.NATURA, "edibles", 1, 3));
                         break;
                     case "overworld_berrybush_blackberry" :
-                        stacks.add(0, ModUtils.getItemStackByName(ModNames.NATURA, "edibles", 1, 4));
+                        stacks.add(0, ObjectHelper.getItemStackByName(ModNames.NATURA, "edibles", 1, 4));
                         break;
                     case "overworld_berrybush_maloberry" :
-                        stacks.add(0, ModUtils.getItemStackByName(ModNames.NATURA, "edibles", 1, 5));
+                        stacks.add(0, ObjectHelper.getItemStackByName(ModNames.NATURA, "edibles", 1, 5));
                         break;
                     case "nether_berrybush_blightberry" :
-                        stacks.add(0, ModUtils.getItemStackByName(ModNames.NATURA, "edibles", 1, 6));
+                        stacks.add(0, ObjectHelper.getItemStackByName(ModNames.NATURA, "edibles", 1, 6));
                         break;
                     case "nether_berrybush_duskberry" :
-                        stacks.add(0, ModUtils.getItemStackByName(ModNames.NATURA, "edibles", 1, 7));
+                        stacks.add(0, ObjectHelper.getItemStackByName(ModNames.NATURA, "edibles", 1, 7));
                         break;
                     case "nether_berrybush_skyberry" :
-                        stacks.add(0, ModUtils.getItemStackByName(ModNames.NATURA, "edibles", 1, 8));
+                        stacks.add(0, ObjectHelper.getItemStackByName(ModNames.NATURA, "edibles", 1, 8));
                         break;
                     case "nether_berrybush_stingberry" :
-                        stacks.add(0, ModUtils.getItemStackByName(ModNames.NATURA, "edibles", 1, 9));
+                        stacks.add(0, ObjectHelper.getItemStackByName(ModNames.NATURA, "edibles", 1, 9));
                         break;
                 }
                 world.setBlockState(pos, blockState.withProperty(ModProps.NATURA_BERRIES_AGE, 2));
@@ -91,7 +95,7 @@ public class PlantRecollectableNatura {
                     world.setBlockToAir(pos);
                 } else {
                     for (int i = 0; i < stacks.size(); i++) {
-                        if (stacks.get(i).getItem() == ModUtils.getItemByName(ModNames.NATURA, "overworld_seeds")) {
+                        if (stacks.get(i).getItem() == ObjectHelper.getItemByName(ModNames.NATURA, "overworld_seeds")) {
                             stacks.remove(i);
                         }
                     }

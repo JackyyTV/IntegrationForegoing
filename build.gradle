@@ -2,12 +2,15 @@ buildscript {
   repositories {
     jcenter()
     maven { url = "http://files.minecraftforge.net/maven" }
+    maven { url = "https://plugins.gradle.org/m2/" }
   }
   dependencies {
     classpath 'net.minecraftforge.gradle:ForgeGradle:2.3-SNAPSHOT'
+    classpath 'com.wynprice.cursemaven:CurseMaven:2.1.1'
   }
 }
 apply plugin: 'net.minecraftforge.gradle.forge'
+apply plugin: 'com.wynprice.cursemaven'
 
 version = "${mc_version}-${mod_version}"
 group = "jackyy.integrationforegoing"
@@ -40,10 +43,6 @@ repositories {
     name = "TOP Maven"
     url = "http://maven.tterrag.com"
   }
-  maven {
-    name = "CurseForge Maven"
-    url = "https://minecraft.curseforge.com/api/maven"
-  }
 }
 
 dependencies {
@@ -53,13 +52,12 @@ dependencies {
   deobfCompile("mcjty.theoneprobe:TheOneProbe-1.12:+") {
       transitive = false
   }
-  deobfCompile("industrial-foregoing:industrialforegoing-1.12.2:1.12.5:229") {
-      transitive = false
-  }
+  deobfCompile "curse.maven:gunpowderlib:2852431"
+  deobfCompile "curse.maven:industrialforegoing:2745321"
   deobfCompile("slimeknights:TConstruct:1.12.2-2.+") {
       transitive = false
   }
-  deobfCompile "slimeknights.mantle:Mantle:+"
+  deobfCompile "slimeknights.mantle:Mantle:1.12-1.+"
   deobfCompile "com.infinityraider.agricraft:AgriCraft:+"
 }
 

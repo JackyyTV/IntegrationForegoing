@@ -2,8 +2,8 @@ package jackyy.integrationforegoing.integration.compat;
 
 import com.buuz135.industrial.entity.EntityPinkSlime;
 import gnu.trove.map.hash.THashMap;
+import jackyy.gunpowderlib.helper.ObjectHelper;
 import jackyy.integrationforegoing.util.ModNames;
-import jackyy.integrationforegoing.util.ModUtils;
 import jackyy.integrationforegoing.util.Reference;
 import net.minecraft.block.Block;
 import net.minecraft.init.Items;
@@ -80,16 +80,16 @@ public class TConstructCompat {
 
     public static void init() {
         final Material plastic = materials.get("plastic");
-        plastic.addItem(ModUtils.getItemByName(ModNames.IF, "plastic"), 1, Material.VALUE_Fragment);
-        plastic.setRepresentativeItem(ModUtils.getItemByName(ModNames.IF, "plastic"));
+        plastic.addItem(ObjectHelper.getItemByName(ModNames.IF, "plastic"), 1, Material.VALUE_Fragment);
+        plastic.setRepresentativeItem(ObjectHelper.getItemByName(ModNames.IF, "plastic"));
 
         final Material pinkSlime = materials.get("pink_slime");
-        pinkSlime.addItem(ModUtils.getItemByName(ModNames.IF, "pink_slime"), 1, Material.VALUE_Fragment);
-        pinkSlime.setRepresentativeItem(ModUtils.getItemByName(ModNames.IF, "pink_slime"));
+        pinkSlime.addItem(ObjectHelper.getItemByName(ModNames.IF, "pink_slime"), 1, Material.VALUE_Fragment);
+        pinkSlime.setRepresentativeItem(ObjectHelper.getItemByName(ModNames.IF, "pink_slime"));
 
         final Material reinforcedPinkSlime = materials.get("reinforced_pink_slime");
-        reinforcedPinkSlime.addItem(ModUtils.getItemByName(ModNames.IF, "pink_slime_ingot"), 1, Material.VALUE_Ingot);
-        reinforcedPinkSlime.setRepresentativeItem(ModUtils.getItemByName(ModNames.IF, "pink_slime_ingot"));
+        reinforcedPinkSlime.addItem(ObjectHelper.getItemByName(ModNames.IF, "pink_slime_ingot"), 1, Material.VALUE_Ingot);
+        reinforcedPinkSlime.setRepresentativeItem(ObjectHelper.getItemByName(ModNames.IF, "pink_slime_ingot"));
         reinforcedPinkSlime.setCraftable(false).setCastable(true);
         reinforcedPinkSlime.setFluid(FluidRegistry.getFluid("molten_reinforced_pink_slime"));
         FluidMoltenReinforcedPinkSlime.registerRecipes();
@@ -145,12 +145,12 @@ public class TConstructCompat {
             Fluid f = FluidRegistry.getFluid("molten_reinforced_pink_slime");
             if (f != null) {
                 TinkerRegistry.registerMelting(
-                        ModUtils.getItemByName(ModNames.IF, "pink_slime_ingot"),
+                        ObjectHelper.getItemByName(ModNames.IF, "pink_slime_ingot"),
                         f, Material.VALUE_Ingot
                 );
                 TinkerRegistry.registerTableCasting(
-                        ModUtils.getItemStackByName(ModNames.IF, "pink_slime_ingot", 1 ,0),
-                        ModUtils.getItemStackByName(ModNames.TCON, "cast_custom", 1, 0),
+                        ObjectHelper.getItemStackByName(ModNames.IF, "pink_slime_ingot", 1 ,0),
+                        ObjectHelper.getItemStackByName(ModNames.TCON, "cast_custom", 1, 0),
                         f, Material.VALUE_Ingot
                 );
             }

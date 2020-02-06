@@ -1,9 +1,9 @@
 package jackyy.integrationforegoing.integration.plant;
 
 import com.buuz135.industrial.api.plant.PlantRecollectable;
+import jackyy.gunpowderlib.helper.ObjectHelper;
 import jackyy.integrationforegoing.util.ModConfig;
 import jackyy.integrationforegoing.util.ModNames;
-import jackyy.integrationforegoing.util.ModUtils;
 import jackyy.integrationforegoing.util.Reference;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.item.ItemStack;
@@ -25,8 +25,8 @@ public class PlantRecollectableImmersiveEngineering {
         registry.register(new PlantRecollectable("hemp") {
             @Override
             public boolean canBeHarvested(World world, BlockPos pos, IBlockState blockState) {
-                return blockState.getBlock() == ModUtils.getBlockByName(ModNames.IE, "hemp")
-                        && world.getBlockState(pos.up()).getBlock() == ModUtils.getBlockByName(ModNames.IE, "hemp")
+                return blockState.getBlock() == ObjectHelper.getBlockByName(ModNames.IE, "hemp")
+                        && world.getBlockState(pos.up()).getBlock() == ObjectHelper.getBlockByName(ModNames.IE, "hemp")
                         && blockState.getBlock().getMetaFromState(blockState) == 4;
             }
 

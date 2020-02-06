@@ -1,9 +1,9 @@
 package jackyy.integrationforegoing.integration.plant;
 
 import com.buuz135.industrial.api.plant.PlantRecollectable;
+import jackyy.gunpowderlib.helper.ObjectHelper;
 import jackyy.integrationforegoing.util.ModNames;
 import jackyy.integrationforegoing.util.ModProps;
-import jackyy.integrationforegoing.util.ModUtils;
 import jackyy.integrationforegoing.util.Reference;
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
@@ -40,7 +40,7 @@ public class PlantRecollectableOreShrubs {
                 NonNullList<ItemStack> stacks = NonNullList.create();
                 String name = blockState.getBlock().getRegistryName().getPath().substring(9);
                 if (!name.equals("random")) {
-                    ItemStack berries = ModUtils.getItemStackByName(ModNames.ORESHRUBS, "oreberries", 1, 0);
+                    ItemStack berries = ObjectHelper.getItemStackByName(ModNames.ORESHRUBS, "oreberries", 1, 0);
                     berries.setTagCompound(new NBTTagCompound());
                     NBTTagCompound tag = new NBTTagCompound();
                     tag.setString("Name", name);
@@ -48,7 +48,7 @@ public class PlantRecollectableOreShrubs {
                     stacks.add(0, berries);
                     world.setBlockState(pos, blockState.withProperty(ModProps.ORESHRUBS_AGE, 3));
                 } else {
-                    stacks.add(0, ModUtils.getItemStackByName(ModNames.ORESHRUBS, "oreberries_random", 1, 0));
+                    stacks.add(0, ObjectHelper.getItemStackByName(ModNames.ORESHRUBS, "oreberries_random", 1, 0));
                     world.setBlockState(pos, blockState.withProperty(ModProps.ORESHRUBS_AGE, 3));
                 }
                 return stacks;

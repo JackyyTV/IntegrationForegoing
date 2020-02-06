@@ -3,6 +3,7 @@ package jackyy.integrationforegoing.util;
 public final class ModNames {
 
     public static final String IF = "industrialforegoing";
+    public static final String LIB = "gunpowderlib";
     public static final String TF = "thermalfoundation";
     public static final String IE = "immersiveengineering";
     public static final String TCON = "tconstruct";
