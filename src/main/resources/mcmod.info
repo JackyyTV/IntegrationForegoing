@@ -11,6 +11,6 @@
   "credits": "",
   "logoFile": "assets/integrationforegoing/logo.png",
   "screenshots": [],
-  "dependencies": ["industrialforegoing", "gunpowderlib"]
+  "dependencies": []
 }
 ]
