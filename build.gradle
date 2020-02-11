@@ -36,7 +36,7 @@ repositories {
     url = "http://dvs1.progwml6.com/files/maven"
   }
   maven {
-    name = "HWYLA Maven"
+    name = "HWYLA and AgriCraft Maven"
     url = "https://tehnut.info/maven"
   }
   maven {
@@ -46,7 +46,6 @@ repositories {
 }
 
 dependencies {
-  compile files('libs/')
   deobfCompile "mezz.jei:jei_1.12.2:+"
   deobfCompile "mcp.mobius.waila:Hwyla:1.8.26-B41_1.12.2"
   deobfCompile("mcjty.theoneprobe:TheOneProbe-1.12:+") {
@@ -58,6 +57,8 @@ dependencies {
       transitive = false
   }
   deobfCompile "slimeknights.mantle:Mantle:1.12-1.+"
+  deobfCompile "curse.maven:immersiveengineering:2799143"
+  deobfCompile "curse.maven:infinitylib:2537265"
   deobfCompile "com.infinityraider.agricraft:AgriCraft:+"
 }
 
