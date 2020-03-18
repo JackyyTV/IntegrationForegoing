@@ -40,7 +40,11 @@ public final class Reference {
             + "after:" + BIOMESOP + ";"
             + "after:" + AS + ";"
             + "after:" + BOTANIA + ";"
-            + "after:" + NUCLEARCRAFT + ";";
+            + "after:" + NUCLEARCRAFT + ";"
+            + "after:" + CYCLIC + ";"
+            + "after:" + RANDOMTHINGS + ";"
+            + "after:" + THAUMCRAFT + ";"
+            + "after:" + BEWITCHMENT + ";";
 
     public static final Logger LOGGER = LogManager.getLogger(MODNAME);
 

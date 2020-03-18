@@ -3,7 +3,7 @@ package jackyy.integrationforegoing.integration.plant;
 import com.buuz135.industrial.api.plant.PlantRecollectable;
 import jackyy.gunpowderlib.helper.ObjectHelper;
 import jackyy.integrationforegoing.util.ModNames;
-import jackyy.integrationforegoing.util.ModProps;
+import jackyy.integrationforegoing.util.ModUtils;
 import jackyy.integrationforegoing.util.Reference;
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
@@ -39,7 +39,7 @@ public class PlantRecollectableOreberries {
                 NonNullList<ItemStack> stacks = NonNullList.create();
                 String name = blockState.getBlock().getRegistryName().getPath();
                 stacks.add(0, ObjectHelper.getItemStackByName(ModNames.OREBERRIES, name.substring(0, name.length() - 5), world.rand.nextInt(3) + 1, 0));
-                world.setBlockState(pos, blockState.withProperty(ModProps.OREBERRIES_AGE, 2));
+                world.setBlockState(pos, blockState.withProperty(ModUtils.getGenericGrowthAge(3), 2));
                 return stacks;
             }
 

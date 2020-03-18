@@ -4,7 +4,7 @@ import com.buuz135.industrial.api.plant.PlantRecollectable;
 import jackyy.gunpowderlib.helper.ObjectHelper;
 import jackyy.integrationforegoing.util.ModConfig;
 import jackyy.integrationforegoing.util.ModNames;
-import jackyy.integrationforegoing.util.ModProps;
+import jackyy.integrationforegoing.util.ModUtils;
 import jackyy.integrationforegoing.util.Reference;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.item.ItemStack;
@@ -61,7 +61,7 @@ public class PlantRecollectableNatura {
                         stacks.add(0, ObjectHelper.getItemStackByName(ModNames.NATURA, "edibles", 1, 9));
                         break;
                 }
-                world.setBlockState(pos, blockState.withProperty(ModProps.NATURA_BERRIES_AGE, 2));
+                world.setBlockState(pos, blockState.withProperty(ModUtils.getGenericGrowthAge(3), 2));
                 return stacks;
             }
 
@@ -101,10 +101,10 @@ public class PlantRecollectableNatura {
                     }
                     switch (blockState.getBlock().getRegistryName().getPath()) {
                         case "barley_crop" :
-                            world.setBlockState(pos, blockState.withProperty(ModProps.NATURA_BARLEY_AGE, 1));
+                            world.setBlockState(pos, blockState.withProperty(ModUtils.getGenericGrowthAge(3), 1));
                             break;
                         case "cotton_crop" :
-                            world.setBlockState(pos, blockState.withProperty(ModProps.NATURA_COTTON_AGE, 2));
+                            world.setBlockState(pos, blockState.withProperty(ModUtils.getGenericGrowthAge(4), 2));
                             break;
                     }
                 }

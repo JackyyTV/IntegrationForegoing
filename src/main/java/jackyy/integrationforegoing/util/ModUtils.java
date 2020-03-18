@@ -6,6 +6,7 @@ import com.buuz135.industrial.api.recipe.LaserDrillEntry;
 import com.buuz135.industrial.api.recipe.ProteinReactorEntry;
 import jackyy.gunpowderlib.helper.ObjectHelper;
 import jackyy.gunpowderlib.helper.StringHelper;
+import net.minecraft.block.properties.PropertyInteger;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.common.registry.ForgeRegistries;
 
@@ -80,6 +81,10 @@ public class ModUtils {
             if (file.delete())
                 Reference.LOGGER.info("Deleted existing Laser Drill config file " + file.getName());
         }
+    }
+
+    public static PropertyInteger getGenericGrowthAge(int maxAge) {
+        return PropertyInteger.create("age", 0, maxAge);
     }
 
 }

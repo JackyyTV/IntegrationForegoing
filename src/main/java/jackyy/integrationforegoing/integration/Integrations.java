@@ -187,6 +187,32 @@ public class Integrations {
         } else if (!ModConfig.integrations.nuclearCraft) {
             ModUtils.deleteExistingLaserDrillFile(event.getModConfigurationDirectory(), ModNames.NUCLEARCRAFT);
         }
+        if (ModConfig.integrations.cyclic && Loader.isModLoaded(ModNames.CYCLIC)) {
+            ModUtils.logIntegration(0, EnumIntegrations.LASERDRILL, ModNames.CYCLIC);
+            ModUtils.loadLaserDrillFile(ModNames.CYCLIC.substring(0, 6));
+            ModUtils.logIntegration(1, EnumIntegrations.LASERDRILL, ModNames.CYCLIC);
+        } else if (!ModConfig.integrations.cyclic) {
+            ModUtils.deleteExistingLaserDrillFile(event.getModConfigurationDirectory(), ModNames.CYCLIC.substring(0, 6));
+        }
+        if (ModConfig.integrations.randomThings && Loader.isModLoaded(ModNames.RANDOMTHINGS)) {
+            ModUtils.logIntegration(0, EnumIntegrations.PLANT, ModNames.RANDOMTHINGS);
+            MinecraftForge.EVENT_BUS.register(new PlantRecollectableRandomThings());
+            ModUtils.logIntegration(1, EnumIntegrations.PLANT, ModNames.RANDOMTHINGS);
+        }
+        if (ModConfig.integrations.thaumcraft && Loader.isModLoaded(ModNames.THAUMCRAFT)) {
+            ModUtils.logIntegration(0, EnumIntegrations.LASERDRILL, ModNames.THAUMCRAFT);
+            ModUtils.loadLaserDrillFile(ModNames.THAUMCRAFT);
+            ModUtils.logIntegration(1, EnumIntegrations.LASERDRILL, ModNames.THAUMCRAFT);
+        } else if (!ModConfig.integrations.thaumcraft) {
+            ModUtils.deleteExistingLaserDrillFile(event.getModConfigurationDirectory(), ModNames.THAUMCRAFT);
+        }
+        if (ModConfig.integrations.bewitchment && Loader.isModLoaded(ModNames.BEWITCHMENT)) {
+            ModUtils.logIntegration(0, EnumIntegrations.LASERDRILL, ModNames.BEWITCHMENT);
+            ModUtils.loadLaserDrillFile(ModNames.BEWITCHMENT);
+            ModUtils.logIntegration(1, EnumIntegrations.LASERDRILL, ModNames.BEWITCHMENT);
+        } else if (!ModConfig.integrations.bewitchment) {
+            ModUtils.deleteExistingLaserDrillFile(event.getModConfigurationDirectory(), ModNames.BEWITCHMENT);
+        }
     }
 
     public static void init() {
@@ -287,6 +313,21 @@ public class Integrations {
             ModUtils.logIntegration(0, EnumIntegrations.BIOREACTOR, ModNames.BOTANIA);
             BioReactorHandlerBotania.init();
             ModUtils.logIntegration(1, EnumIntegrations.BIOREACTOR, ModNames.BOTANIA);
+        }
+        if (ModConfig.integrations.randomThings && Loader.isModLoaded(ModNames.RANDOMTHINGS)) {
+            ModUtils.logIntegration(0, EnumIntegrations.BIOREACTOR, ModNames.RANDOMTHINGS);
+            BioReactorHandlerRandomThings.init();
+            ModUtils.logIntegration(1, EnumIntegrations.BIOREACTOR, ModNames.RANDOMTHINGS);
+        }
+        if (ModConfig.integrations.thaumcraft && Loader.isModLoaded(ModNames.THAUMCRAFT)) {
+            ModUtils.logIntegration(0, EnumIntegrations.BIOREACTOR, ModNames.THAUMCRAFT);
+            BioReactorHandlerThaumcraft.init();
+            ModUtils.logIntegration(1, EnumIntegrations.BIOREACTOR, ModNames.THAUMCRAFT);
+        }
+        if (ModConfig.integrations.bewitchment && Loader.isModLoaded(ModNames.BEWITCHMENT)) {
+            ModUtils.logIntegration(0, EnumIntegrations.BIOREACTOR, ModNames.BEWITCHMENT);
+            BioReactorHandlerBewitchment.init();
+            ModUtils.logIntegration(1, EnumIntegrations.BIOREACTOR, ModNames.BEWITCHMENT);
         }
     }
 

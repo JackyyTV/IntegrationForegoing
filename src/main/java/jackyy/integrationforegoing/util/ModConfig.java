@@ -40,6 +40,10 @@ public class ModConfig {
         public boolean astralSorcery = true;
         public boolean botania = true;
         public boolean nuclearCraft = true;
+        public boolean cyclic = true;
+        public boolean randomThings = true;
+        public boolean thaumcraft = true;
+        public boolean bewitchment = true;
     }
 
     public static class Misc {
@@ -77,6 +81,11 @@ public class ModConfig {
         public static class Rustic {
             @Config.Comment("If true, replant is needed for Rustic herbs, otherwise Plant Gatherer won't remove the herbs.")
             public boolean rusticHerbsReplant = false;
+        }
+        public RandomThings randomThings = new RandomThings();
+        public static class RandomThings {
+            @Config.Comment("If true, replant is needed for Random Things lotus crops, otherwise Plant Gatherer won't remove the crops.")
+            public boolean randomThingsLotusReplant = false;
         }
     }
 

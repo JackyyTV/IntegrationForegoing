@@ -31,5 +31,9 @@ public final class ModNames {
     public static final String AS = "astralsorcery";
     public static final String BOTANIA = "botania";
     public static final String NUCLEARCRAFT = "nuclearcraft";
+    public static final String CYCLIC = "cyclicmagic";
+    public static final String RANDOMTHINGS = "randomthings";
+    public static final String THAUMCRAFT = "thaumcraft";
+    public static final String BEWITCHMENT = "bewitchment";
 
 }
