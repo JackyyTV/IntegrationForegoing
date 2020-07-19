@@ -2,15 +2,12 @@ buildscript {
   repositories {
     jcenter()
     maven { url = "http://files.minecraftforge.net/maven" }
-    maven { url = "https://plugins.gradle.org/m2/" }
   }
   dependencies {
     classpath 'net.minecraftforge.gradle:ForgeGradle:2.3-SNAPSHOT'
-    classpath 'com.wynprice.cursemaven:CurseMaven:2.+'
   }
 }
 apply plugin: 'net.minecraftforge.gradle.forge'
-apply plugin: 'com.wynprice.cursemaven'
 
 version = "${mc_version}-${mod_version}"
 group = "jackyy.integrationforegoing"
@@ -33,15 +30,19 @@ minecraft {
 repositories {
   maven {
     name = "JEI, TCon and Mantle Maven"
-    url = "http://dvs1.progwml6.com/files/maven"
+    url = "https://dvs1.progwml6.com/files/maven"
   }
   maven {
-    name = "HWYLA and AgriCraft Maven"
-    url = "https://tehnut.info/maven"
+    name = "HWYLA Maven"
+    url = "https://maven.tehnut.info"
   }
   maven {
     name = "TOP Maven"
-    url = "http://maven.tterrag.com"
+    url = "https://maven.tterrag.com/"
+  }
+  maven {
+    name = "Curse Maven"
+    url = "https://www.cursemaven.com"
   }
 }
 
@@ -59,7 +60,7 @@ dependencies {
   deobfCompile "slimeknights.mantle:Mantle:1.12-1.+"
   deobfCompile "curse.maven:immersiveengineering:2799143"
   deobfCompile "curse.maven:infinitylib:2537265"
-  deobfCompile "com.infinityraider.agricraft:AgriCraft:+"
+  deobfCompile "curse.maven:agricraft:2609648"
 }
 
 processResources {
