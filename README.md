@@ -2,7 +2,7 @@
 
 [![Downloads](http://cf.way2muchnoise.eu/full_integration-foregoing_downloads.svg)](https://minecraft.curseforge.com/projects/integration-foregoing) [![MCVersion](http://cf.way2muchnoise.eu/versions/integration-foregoing.svg)](https://minecraft.curseforge.com/projects/integration-foregoing/files)
 
-[![GitHub issues](https://img.shields.io/github/issues/JackyyTV/IntegrationForegoing.svg)](https://github.com/JackyyTV/IntegrationForegoing/issues) [![GitHub pull requests](https://img.shields.io/github/issues-pr/JackyyTV/IntegrationForegoing.svg)](https://github.com/JackyyTV/IntegrationForegoing/pulls) [![license](https://img.shields.io/github/license/Jacky1356400/IntegrationForegoing.svg)](../dev-1.12.x/LICENSE)
+[![GitHub issues](https://img.shields.io/github/issues/JackyyTV/IntegrationForegoing.svg)](https://github.com/JackyyTV/IntegrationForegoing/issues) [![GitHub pull requests](https://img.shields.io/github/issues-pr/JackyyTV/IntegrationForegoing.svg)](https://github.com/JackyyTV/IntegrationForegoing/pulls)
 
 The official addon for Industrial Foregoing that adds mods compatibility!
 
