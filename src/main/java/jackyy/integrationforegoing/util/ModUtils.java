@@ -1,13 +1,18 @@
 package jackyy.integrationforegoing.util;
 
 import com.buuz135.industrial.api.IndustrialForegoingHelper;
+import com.buuz135.industrial.api.extractor.ExtractorEntry;
 import com.buuz135.industrial.api.recipe.BioReactorEntry;
 import com.buuz135.industrial.api.recipe.LaserDrillEntry;
 import com.buuz135.industrial.api.recipe.ProteinReactorEntry;
+import com.buuz135.industrial.proxy.FluidsRegistry;
+import com.buuz135.industrial.utils.apihandlers.RecipeHandlers;
 import jackyy.gunpowderlib.helper.ObjectHelper;
 import jackyy.gunpowderlib.helper.StringHelper;
 import net.minecraft.block.properties.PropertyInteger;
 import net.minecraft.util.ResourceLocation;
+import net.minecraftforge.fluids.FluidRegistry;
+import net.minecraftforge.fluids.FluidStack;
 import net.minecraftforge.fml.common.registry.ForgeRegistries;
 
 import java.io.File;
@@ -34,6 +39,9 @@ public class ModUtils {
                 case PROTEIN:
                     Reference.LOGGER.info("Registering Protein Reactor entries for " + StringHelper.getModNameByID(modid) + "...");
                     break;
+                case TREEFLUID:
+                    Reference.LOGGER.info("Registering Tree Fluid Extractor entries for " + StringHelper.getModNameByID(modid) + "...");
+                    break;
             }
         } else if (state == 1) {
             switch (type) {
@@ -52,19 +60,34 @@ public class ModUtils {
                 case PROTEIN:
                     Reference.LOGGER.info("Registered Protein Reactor entries for " + StringHelper.getModNameByID(modid));
                     break;
+                case TREEFLUID:
+                    Reference.LOGGER.info("Registered Tree Fluid Extractor entries for " + StringHelper.getModNameByID(modid) + "...");
+                    break;
             }
         }
     }
 
-    public static void registerBioReactorEntry(String modid, String name, int amount, int meta) {
-        if (ForgeRegistries.ITEMS.getValue(new ResourceLocation(modid, name)) != null) {
-            IndustrialForegoingHelper.addBioReactorEntry(new BioReactorEntry(ObjectHelper.getItemStackByName(modid, name, amount, meta)));
+    public static void registerBioReactorEntry(String namespace, String path, int amount, int meta) {
+        if (ForgeRegistries.ITEMS.getValue(new ResourceLocation(namespace, path)) != null) {
+            IndustrialForegoingHelper.addBioReactorEntry(new BioReactorEntry(ObjectHelper.getItemStackByName(namespace, path, amount, meta)));
         }
     }
 
-    public static void registerProteinReactorEntry(String modid, String name, int amount, int meta) {
-        if (ForgeRegistries.ITEMS.getValue(new ResourceLocation(modid, name)) != null) {
-            IndustrialForegoingHelper.addProteinReactorEntry(new ProteinReactorEntry(ObjectHelper.getItemStackByName(modid, name, amount, meta)));
+    public static void registerProteinReactorEntry(String namespace, String path, int amount, int meta) {
+        if (ForgeRegistries.ITEMS.getValue(new ResourceLocation(namespace, path)) != null) {
+            IndustrialForegoingHelper.addProteinReactorEntry(new ProteinReactorEntry(ObjectHelper.getItemStackByName(namespace, path, amount, meta)));
+        }
+    }
+
+    public static void registerTreeFluidExtractorEntry(String namespace, String path, int fluidAmount) {
+        if (ForgeRegistries.ITEMS.getValue(new ResourceLocation(namespace, path)) != null) {
+            RecipeHandlers.tryToAddWoodToLatex(namespace + ":" + path, new FluidStack(FluidsRegistry.LATEX, fluidAmount));
+        }
+    }
+
+    public static void registerTreeFluidExtractorEntry(String namespace, String path, int amount, int meta, int fluidAmount) {
+        if (ForgeRegistries.ITEMS.getValue(new ResourceLocation(namespace, path)) != null) {
+            IndustrialForegoingHelper.addWoodToLatex(new ExtractorEntry(ObjectHelper.getItemStackByName(namespace, path, amount, meta), new FluidStack(FluidsRegistry.LATEX, fluidAmount)));
         }
     }
 
@@ -85,6 +108,10 @@ public class ModUtils {
 
     public static PropertyInteger getGenericGrowthAge(int maxAge) {
         return PropertyInteger.create("age", 0, maxAge);
+    }
+
+    public static FluidStack getFakeFluid() {
+        return new FluidStack(FluidRegistry.WATER, 69);
     }
 
 }

@@ -8,20 +8,12 @@ import jackyy.integrationforegoing.util.Reference;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
 
-import java.util.Arrays;
-
 public class IFBookCompat {
 
     public static void init() {
         BookCategory.GETTING_STARTED.getEntries().put(
-                new ResourceLocation(Reference.MODID, "integration_foregoing"),
-                new CategoryEntry("Integration Foregoing", new ItemStack(ItemRegistry.strawItem), Arrays.asList(new PageText(
-                        "Seems like you've installed Integration Foregoing...\n\n"
-                                + "Integration Foregoing is the official addon for Industrial Foregoing, "
-                                + "making use of its API and added some missing mod integrations.\n\n"
-                                + "Added contents includes: Additional straw drinking handler for fluids from other mods, "
-                                + "Bioreactor entries, Plant Gatherer handlers, Tinkers' Construct tool materials and more!"
-                )))
+                new ResourceLocation(Reference.MODID, "addon_introduction"),
+                new CategoryEntry(Reference.MODNAME, new ItemStack(ItemRegistry.strawItem), PageText.createTranslatedPages(Reference.BOOK_TEXT + "addon_introduction"))
         );
     }
 

@@ -3,8 +3,11 @@ package jackyy.integrationforegoing.integration;
 import jackyy.integrationforegoing.integration.bioreactor.*;
 import jackyy.integrationforegoing.integration.compat.IEGardenClocheCompat;
 import jackyy.integrationforegoing.integration.compat.IFBookCompat;
-import jackyy.integrationforegoing.integration.compat.TConstructCompat;
+import jackyy.integrationforegoing.integration.compat.crafttweaker.CraftTweakerCompat;
+import jackyy.integrationforegoing.integration.compat.tconstruct.TConstructCompat;
+import jackyy.integrationforegoing.integration.extractor.*;
 import jackyy.integrationforegoing.integration.plant.*;
+import jackyy.integrationforegoing.integration.proteinreactor.ProteinReactorHandlerAOA;
 import jackyy.integrationforegoing.integration.proteinreactor.ProteinReactorHandlerExNihiloCreatio;
 import jackyy.integrationforegoing.integration.proteinreactor.ProteinReactorHandlerHarvestCraft;
 import jackyy.integrationforegoing.integration.proteinreactor.ProteinReactorHandlerNatura;
@@ -19,6 +22,11 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 public class Integrations {
 
     public static void preInit(FMLPreInitializationEvent event) {
+        if (ModConfig.integrations.craftTweaker && Loader.isModLoaded(ModNames.CT)) {
+            Reference.LOGGER.info("Initialising CraftTweaker support...");
+            CraftTweakerCompat.init();
+            Reference.LOGGER.info("Initialised CraftTweaker support");
+        }
         if (ModConfig.integrations.thermalFoundation && Loader.isModLoaded(ModNames.TF)) {
             ModUtils.logIntegration(0, EnumIntegrations.STRAW, ModNames.TF);
             MinecraftForge.EVENT_BUS.register(new StrawRegistryThermalFoundation());
@@ -213,12 +221,20 @@ public class Integrations {
         } else if (!ModConfig.integrations.bewitchment) {
             ModUtils.deleteExistingLaserDrillFile(event.getModConfigurationDirectory(), ModNames.BEWITCHMENT);
         }
+        if (ModConfig.integrations.adventOfAscension && Loader.isModLoaded(ModNames.AOA)) {
+            ModUtils.logIntegration(0, EnumIntegrations.STRAW, ModNames.AOA);
+            MinecraftForge.EVENT_BUS.register(new StrawRegistryAOA());
+            ModUtils.logIntegration(1, EnumIntegrations.STRAW, ModNames.AOA);
+
+            ModUtils.logIntegration(0, EnumIntegrations.LASERDRILL, ModNames.AOA);
+            ModUtils.loadLaserDrillFile(ModNames.AOA);
+            ModUtils.logIntegration(1, EnumIntegrations.LASERDRILL, ModNames.AOA);
+        } else if (!ModConfig.integrations.adventOfAscension) {
+            ModUtils.deleteExistingLaserDrillFile(event.getModConfigurationDirectory(), ModNames.AOA);
+        }
     }
 
     public static void init() {
-        Reference.LOGGER.info("Registering Guide Book entries...");
-        IFBookCompat.init();
-        Reference.LOGGER.info("Registered Guide Book entries");
         if (ModConfig.integrations.immersiveEngineering && Loader.isModLoaded(ModNames.IE)) {
             Reference.LOGGER.info("Initialising Garden Cloche integration for Immersive Engineering...");
             IEGardenClocheCompat.init();
@@ -251,11 +267,25 @@ public class Integrations {
             ModUtils.logIntegration(0, EnumIntegrations.BIOREACTOR, ModNames.EVILCRAFT);
             BioReactorHandlerEvilCraft.init();
             ModUtils.logIntegration(1, EnumIntegrations.BIOREACTOR, ModNames.EVILCRAFT);
+
+            ModUtils.logIntegration(0, EnumIntegrations.TREEFLUID, ModNames.EVILCRAFT);
+            ExtractorHandlerEvilCraft.init();
+            ModUtils.logIntegration(1, EnumIntegrations.TREEFLUID, ModNames.EVILCRAFT);
         }
         if (ModConfig.integrations.actuallyAdditions && Loader.isModLoaded(ModNames.AA)) {
             ModUtils.logIntegration(0, EnumIntegrations.BIOREACTOR, ModNames.AA);
             BioReactorHandlerActuallyAdditions.init();
             ModUtils.logIntegration(1, EnumIntegrations.BIOREACTOR, ModNames.AA);
+        }
+        if (ModConfig.integrations.forestry && Loader.isModLoaded(ModNames.FORESTRY)) {
+            ModUtils.logIntegration(0, EnumIntegrations.TREEFLUID, ModNames.FORESTRY);
+            ExtractorHandlerForestry.init();
+            ModUtils.logIntegration(1, EnumIntegrations.TREEFLUID, ModNames.FORESTRY);
+        }
+        if (ModConfig.integrations.extraUtils2 && Loader.isModLoaded(ModNames.XU2)) {
+            ModUtils.logIntegration(0, EnumIntegrations.TREEFLUID, ModNames.XU2);
+            ExtractorHandlerExtraUtilities2.init();
+            ModUtils.logIntegration(1, EnumIntegrations.TREEFLUID, ModNames.XU2);
         }
         if (ModConfig.integrations.harvestCraft && Loader.isModLoaded(ModNames.HARVESTCRAFT)) {
             ModUtils.logIntegration(0, EnumIntegrations.BIOREACTOR, ModNames.HARVESTCRAFT);
@@ -265,6 +295,10 @@ public class Integrations {
             ModUtils.logIntegration(0, EnumIntegrations.PROTEIN, ModNames.HARVESTCRAFT);
             ProteinReactorHandlerHarvestCraft.init();
             ModUtils.logIntegration(1, EnumIntegrations.PROTEIN, ModNames.HARVESTCRAFT);
+
+            ModUtils.logIntegration(0, EnumIntegrations.TREEFLUID, ModNames.HARVESTCRAFT);
+            ExtractorHandlerHarvestCraft.init();
+            ModUtils.logIntegration(1, EnumIntegrations.TREEFLUID, ModNames.HARVESTCRAFT);
         }
         if (ModConfig.integrations.exNihiloCreatio && Loader.isModLoaded(ModNames.EXNIHILOCREATIO)) {
             ModUtils.logIntegration(0, EnumIntegrations.BIOREACTOR, ModNames.EXNIHILOCREATIO);
@@ -288,11 +322,19 @@ public class Integrations {
             ModUtils.logIntegration(0, EnumIntegrations.PROTEIN, ModNames.NATURA);
             ProteinReactorHandlerNatura.init();
             ModUtils.logIntegration(1, EnumIntegrations.PROTEIN, ModNames.NATURA);
+
+            ModUtils.logIntegration(0, EnumIntegrations.TREEFLUID, ModNames.NATURA);
+            ExtractorHandlerNatura.init();
+            ModUtils.logIntegration(1, EnumIntegrations.TREEFLUID, ModNames.NATURA);
         }
         if (ModConfig.integrations.rustic && Loader.isModLoaded(ModNames.RUSTIC)) {
             ModUtils.logIntegration(0, EnumIntegrations.BIOREACTOR, ModNames.RUSTIC);
             BioReactorHandlerRustic.init();
             ModUtils.logIntegration(1, EnumIntegrations.BIOREACTOR, ModNames.RUSTIC);
+
+            ModUtils.logIntegration(0, EnumIntegrations.TREEFLUID, ModNames.RUSTIC);
+            ExtractorHandlerRustic.init();
+            ModUtils.logIntegration(1, EnumIntegrations.TREEFLUID, ModNames.RUSTIC);
         }
         if (ModConfig.integrations.agriCraft && Loader.isModLoaded(ModNames.AGRICRAFT)) {
             ModUtils.logIntegration(0, EnumIntegrations.BIOREACTOR, ModNames.AGRICRAFT);
@@ -308,6 +350,10 @@ public class Integrations {
             ModUtils.logIntegration(0, EnumIntegrations.BIOREACTOR, ModNames.BIOMESOP);
             BioReactorHandlerBiomesOPlenty.init();
             ModUtils.logIntegration(1, EnumIntegrations.BIOREACTOR, ModNames.BIOMESOP);
+
+            ModUtils.logIntegration(0, EnumIntegrations.TREEFLUID, ModNames.BIOMESOP);
+            ExtractorHandlerBiomesOPlenty.init();
+            ModUtils.logIntegration(1, EnumIntegrations.TREEFLUID, ModNames.BIOMESOP);
         }
         if (ModConfig.integrations.botania && Loader.isModLoaded(ModNames.BOTANIA)) {
             ModUtils.logIntegration(0, EnumIntegrations.BIOREACTOR, ModNames.BOTANIA);
@@ -318,16 +364,58 @@ public class Integrations {
             ModUtils.logIntegration(0, EnumIntegrations.BIOREACTOR, ModNames.RANDOMTHINGS);
             BioReactorHandlerRandomThings.init();
             ModUtils.logIntegration(1, EnumIntegrations.BIOREACTOR, ModNames.RANDOMTHINGS);
+
+            ModUtils.logIntegration(0, EnumIntegrations.TREEFLUID, ModNames.RANDOMTHINGS);
+            ExtractorHandlerRandomThings.init();
+            ModUtils.logIntegration(1, EnumIntegrations.TREEFLUID, ModNames.RANDOMTHINGS);
         }
         if (ModConfig.integrations.thaumcraft && Loader.isModLoaded(ModNames.THAUMCRAFT)) {
             ModUtils.logIntegration(0, EnumIntegrations.BIOREACTOR, ModNames.THAUMCRAFT);
             BioReactorHandlerThaumcraft.init();
             ModUtils.logIntegration(1, EnumIntegrations.BIOREACTOR, ModNames.THAUMCRAFT);
+
+            ModUtils.logIntegration(0, EnumIntegrations.TREEFLUID, ModNames.THAUMCRAFT);
+            ExtractorHandlerThaumcraft.init();
+            ModUtils.logIntegration(1, EnumIntegrations.TREEFLUID, ModNames.THAUMCRAFT);
         }
         if (ModConfig.integrations.bewitchment && Loader.isModLoaded(ModNames.BEWITCHMENT)) {
             ModUtils.logIntegration(0, EnumIntegrations.BIOREACTOR, ModNames.BEWITCHMENT);
             BioReactorHandlerBewitchment.init();
             ModUtils.logIntegration(1, EnumIntegrations.BIOREACTOR, ModNames.BEWITCHMENT);
+
+            ModUtils.logIntegration(0, EnumIntegrations.TREEFLUID, ModNames.BEWITCHMENT);
+            ExtractorHandlerBewitchment.init();
+            ModUtils.logIntegration(1, EnumIntegrations.TREEFLUID, ModNames.BEWITCHMENT);
+        }
+        if (ModConfig.integrations.adventOfAscension && Loader.isModLoaded(ModNames.AOA)) {
+            ModUtils.logIntegration(0, EnumIntegrations.BIOREACTOR, ModNames.AOA);
+            BioReactorHandlerAOA.init();
+            ModUtils.logIntegration(1, EnumIntegrations.BIOREACTOR, ModNames.AOA);
+
+            ModUtils.logIntegration(0, EnumIntegrations.PROTEIN, ModNames.AOA);
+            ProteinReactorHandlerAOA.init();
+            ModUtils.logIntegration(1, EnumIntegrations.PROTEIN, ModNames.AOA);
+
+            ModUtils.logIntegration(0, EnumIntegrations.TREEFLUID, ModNames.AOA);
+            ExtractorHandlerAOA.init();
+            ModUtils.logIntegration(1, EnumIntegrations.TREEFLUID, ModNames.AOA);
+        }
+        if (ModConfig.integrations.climaticBiomes && Loader.isModLoaded(ModNames.CLIMATICBIOMES)) {
+            ModUtils.logIntegration(0, EnumIntegrations.BIOREACTOR, ModNames.CLIMATICBIOMES);
+            BioReactorHandlerClimaticBiomes.init();
+            ModUtils.logIntegration(1, EnumIntegrations.BIOREACTOR, ModNames.CLIMATICBIOMES);
+
+            ModUtils.logIntegration(0, EnumIntegrations.TREEFLUID, ModNames.CLIMATICBIOMES);
+            ExtractorHandlerClimaticBiomes.init();
+            ModUtils.logIntegration(1, EnumIntegrations.TREEFLUID, ModNames.CLIMATICBIOMES);
+        }
+    }
+
+    public static void postInit() {
+        if (ModConfig.integrations.craftTweaker && Loader.isModLoaded(ModNames.CT)) {
+            Reference.LOGGER.info("Parsing CraftTweaker action entries...");
+            CraftTweakerCompat.parseActionEntries();
+            Reference.LOGGER.info("Parsed CraftTweaker action entries");
         }
     }
 
@@ -336,6 +424,13 @@ public class Integrations {
         if (ModConfig.integrations.tconstruct && Loader.isModLoaded(ModNames.TCON)) {
             TConstructCompat.initClient();
         }
+    }
+
+    @SideOnly(Side.CLIENT)
+    public static void postInitClient() {
+        Reference.LOGGER.info("Registering Industrial Foregoing's Manual entries...");
+        IFBookCompat.init();
+        Reference.LOGGER.info("Registered Industrial Foregoing's Manual entries");
     }
 
 }

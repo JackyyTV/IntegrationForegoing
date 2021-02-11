@@ -9,11 +9,12 @@ public final class Reference {
 
     public static final String MODID = "integrationforegoing";
     public static final String MODNAME = "Integration Foregoing";
-    public static final String VERSION = "1.12.2-1.10";
+    public static final String VERSION = "1.12.2-1.11";
     public static final String MCVERSION = "[1.12,1.13)";
     public static final String DEPENDS
             = "required-after:" + IF + "@[1.12.0,);"
-            + "required-after:" + LIB + "@[1.12.2-1.0,);"
+            + "required-after:" + LIB + "@[1.12.2-1.1,);"
+            + "after:" + CT + ";"
             + "after:" + TF + ";"
             + "after:" + IE + ";"
             + "after:" + TCON + ";"
@@ -44,7 +45,9 @@ public final class Reference {
             + "after:" + CYCLIC + ";"
             + "after:" + RANDOMTHINGS + ";"
             + "after:" + THAUMCRAFT + ";"
-            + "after:" + BEWITCHMENT + ";";
+            + "after:" + BEWITCHMENT + ";"
+            + "after:" + AOA + ";"
+            + "after:" + CLIMATICBIOMES + ";";
 
     public static final Logger LOGGER = LogManager.getLogger(MODNAME);
 
@@ -52,5 +55,6 @@ public final class Reference {
     public static final String CLIENT_PROXY = "jackyy.integrationforegoing.proxy.ClientProxy";
 
     public static final String PLANT_TEXT = "text.integrationforegoing.plant.";
+    public static final String BOOK_TEXT = "text.integrationforegoing.book.";
 
 }

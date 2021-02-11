@@ -13,6 +13,7 @@ public class ModConfig {
     public static Misc misc = new Misc();
 
     public static class Integrations {
+        public boolean craftTweaker = true;
         public boolean thermalFoundation = true;
         public boolean immersiveEngineering = true;
         public boolean mysticalAgriculture = true;
@@ -44,6 +45,8 @@ public class ModConfig {
         public boolean randomThings = true;
         public boolean thaumcraft = true;
         public boolean bewitchment = true;
+        public boolean adventOfAscension = true;
+        public boolean climaticBiomes = true;
     }
 
     public static class Misc {

@@ -96,9 +96,6 @@ public class PlantRecollectableRustic {
                         || (blockState.getBlock().getMetaFromState(blockState) == 3
                         && blockState.getBlock().getRegistryName().getNamespace().equals(ModNames.RUSTIC)
                         && blockState.getBlock().getRegistryName().getPath().equals("chili_crop"))
-                        || (world.getBlockState(pos.up()).getBlock().getMetaFromState(world.getBlockState(pos.up())) == 10
-                        && world.getBlockState(pos.up()).getBlock().getRegistryName().getNamespace().equals(ModNames.RUSTIC)
-                        && world.getBlockState(pos.up()).getBlock().getRegistryName().getPath().equals("grape_leaves"))
                         || (world.getBlockState(pos.up()).getBlock().getMetaFromState(world.getBlockState(pos.up())) == 3
                         && world.getBlockState(pos.up()).getBlock().getRegistryName().getNamespace().equals(ModNames.RUSTIC)
                         && world.getBlockState(pos.up()).getBlock().getRegistryName().getPath().equals("tomato_crop"))
@@ -125,13 +122,8 @@ public class PlantRecollectableRustic {
                             break;
                     }
                 }
-                if (world.getBlockState(pos.up()).getBlock().getMetaFromState(world.getBlockState(pos.up())) == 3
-                        || world.getBlockState(pos.up()).getBlock().getMetaFromState(world.getBlockState(pos.up())) == 10) {
+                if (world.getBlockState(pos.up()).getBlock().getMetaFromState(world.getBlockState(pos.up())) == 3) {
                     switch (world.getBlockState(pos.up()).getBlock().getRegistryName().getPath()) {
-                        case "grape_leaves":
-                            stacks.add(0, ObjectHelper.getItemStackByName(ModNames.RUSTIC, "grapes", 1, 0));
-                            world.setBlockState(pos.up(), world.getBlockState(pos.up()).withProperty(ModProps.RUSTIC_GRAPES, false));
-                            break;
                         case "tomato_crop":
                             stacks.add(0, ObjectHelper.getItemStackByName(ModNames.RUSTIC, "tomato", 1, 0));
                             world.setBlockState(pos.up(), world.getBlockState(pos.up()).withProperty(ModUtils.getGenericGrowthAge(3), 2));
@@ -143,11 +135,9 @@ public class PlantRecollectableRustic {
                     }
                 }
                 if (world.getBlockState(pos.up(2)).getBlock().getMetaFromState(world.getBlockState(pos.up(2))) == 3) {
-                    switch (world.getBlockState(pos.up(2)).getBlock().getRegistryName().getPath()) {
-                        case "tomato_crop":
-                            stacks.add(0, ObjectHelper.getItemStackByName(ModNames.RUSTIC, "tomato", 1, 0));
-                            world.setBlockState(pos.up(2), world.getBlockState(pos.up(2)).withProperty(ModUtils.getGenericGrowthAge(3), 2));
-                            break;
+                    if (world.getBlockState(pos.up(2)).getBlock().getRegistryName().getPath().equals("tomato_crop")) {
+                        stacks.add(0, ObjectHelper.getItemStackByName(ModNames.RUSTIC, "tomato", 1, 0));
+                        world.setBlockState(pos.up(2), world.getBlockState(pos.up(2)).withProperty(ModUtils.getGenericGrowthAge(3), 2));
                     }
                 }
                 return stacks;

@@ -4,6 +4,7 @@ public final class ModNames {
 
     public static final String IF = "industrialforegoing";
     public static final String LIB = "gunpowderlib";
+    public static final String CT = "crafttweaker";
     public static final String TF = "thermalfoundation";
     public static final String IE = "immersiveengineering";
     public static final String TCON = "tconstruct";
@@ -35,5 +36,7 @@ public final class ModNames {
     public static final String RANDOMTHINGS = "randomthings";
     public static final String THAUMCRAFT = "thaumcraft";
     public static final String BEWITCHMENT = "bewitchment";
+    public static final String AOA = "aoa3";
+    public static final String CLIMATICBIOMES = "climaticbiomesjbg";
 
 }

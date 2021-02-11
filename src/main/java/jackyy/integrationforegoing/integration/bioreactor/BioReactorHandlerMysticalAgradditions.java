@@ -5,11 +5,15 @@ import jackyy.integrationforegoing.util.ModUtils;
 
 public class BioReactorHandlerMysticalAgradditions {
 
+    private static final String[] SEEDS = new String[] {
+            "tier6_inferium", "nether_star", "dragon_egg", "awakened_draconium", "neutronium"
+    };
+
     public static void init() {
         ModUtils.registerBioReactorEntry(ModNames.MAD, "insanium", 1, 1);
-        ModUtils.registerBioReactorEntry(ModNames.MAD, "tier6_inferium_seeds", 1, 0);
-        ModUtils.registerBioReactorEntry(ModNames.MAD, "nether_star_seeds", 1, 0);
-        ModUtils.registerBioReactorEntry(ModNames.MAD, "awakened_draconium_seeds", 1, 0);
+        for (String seed : SEEDS) {
+            ModUtils.registerBioReactorEntry(ModNames.MAD, seed + "_seeds", 1, 0);
+        }
     }
 
 }

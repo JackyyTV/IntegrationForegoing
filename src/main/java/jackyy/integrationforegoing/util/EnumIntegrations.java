@@ -5,5 +5,6 @@ public enum EnumIntegrations {
     PLANT,
     LASERDRILL,
     BIOREACTOR,
-    PROTEIN
+    PROTEIN,
+    TREEFLUID
 }

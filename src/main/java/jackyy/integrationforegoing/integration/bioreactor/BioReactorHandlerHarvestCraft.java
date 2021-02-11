@@ -5,103 +5,38 @@ import jackyy.integrationforegoing.util.ModUtils;
 
 public class BioReactorHandlerHarvestCraft {
 
-    public static void init() {
-        ModUtils.registerBioReactorEntry(ModNames.HARVESTCRAFT, "blackberryseeditem", 1, 0);
-        ModUtils.registerBioReactorEntry(ModNames.HARVESTCRAFT, "blueberryseeditem", 1, 0);
-        ModUtils.registerBioReactorEntry(ModNames.HARVESTCRAFT, "candleberryseeditem", 1, 0);
-        ModUtils.registerBioReactorEntry(ModNames.HARVESTCRAFT, "raspberryseeditem", 1, 0);
-        ModUtils.registerBioReactorEntry(ModNames.HARVESTCRAFT, "strawberryseeditem", 1, 0);
-        ModUtils.registerBioReactorEntry(ModNames.HARVESTCRAFT, "cactusfruitseeditem", 1, 0);
-        ModUtils.registerBioReactorEntry(ModNames.HARVESTCRAFT, "asparagusseeditem", 1, 0);
-        ModUtils.registerBioReactorEntry(ModNames.HARVESTCRAFT, "barleyseeditem", 1, 0);
-        ModUtils.registerBioReactorEntry(ModNames.HARVESTCRAFT, "oatsseeditem", 1, 0);
-        ModUtils.registerBioReactorEntry(ModNames.HARVESTCRAFT, "ryeseeditem", 1, 0);
-        ModUtils.registerBioReactorEntry(ModNames.HARVESTCRAFT, "cornseeditem", 1, 0);
-        ModUtils.registerBioReactorEntry(ModNames.HARVESTCRAFT, "bambooshootseeditem", 1, 0);
-        ModUtils.registerBioReactorEntry(ModNames.HARVESTCRAFT, "cantaloupeseeditem", 1, 0);
-        ModUtils.registerBioReactorEntry(ModNames.HARVESTCRAFT, "cucumberseeditem", 1, 0);
-        ModUtils.registerBioReactorEntry(ModNames.HARVESTCRAFT, "wintersquashseeditem", 1, 0);
-        ModUtils.registerBioReactorEntry(ModNames.HARVESTCRAFT, "zucchiniseeditem", 1, 0);
-        ModUtils.registerBioReactorEntry(ModNames.HARVESTCRAFT, "beetseeditem", 1, 0);
-        ModUtils.registerBioReactorEntry(ModNames.HARVESTCRAFT, "onionseeditem", 1, 0);
-        ModUtils.registerBioReactorEntry(ModNames.HARVESTCRAFT, "parsnipseeditem", 1, 0);
-        ModUtils.registerBioReactorEntry(ModNames.HARVESTCRAFT, "peanutseeditem", 1, 0);
-        ModUtils.registerBioReactorEntry(ModNames.HARVESTCRAFT, "radishseeditem", 1, 0);
-        ModUtils.registerBioReactorEntry(ModNames.HARVESTCRAFT, "rutabagaseeditem", 1, 0);
-        ModUtils.registerBioReactorEntry(ModNames.HARVESTCRAFT, "sweetpotatoseeditem", 1, 0);
-        ModUtils.registerBioReactorEntry(ModNames.HARVESTCRAFT, "turnipseeditem", 1, 0);
-        ModUtils.registerBioReactorEntry(ModNames.HARVESTCRAFT, "rhubarbseeditem", 1, 0);
-        ModUtils.registerBioReactorEntry(ModNames.HARVESTCRAFT, "celeryseeditem", 1, 0);
-        ModUtils.registerBioReactorEntry(ModNames.HARVESTCRAFT, "garlicseeditem", 1, 0);
-        ModUtils.registerBioReactorEntry(ModNames.HARVESTCRAFT, "gingerseeditem", 1, 0);
-        ModUtils.registerBioReactorEntry(ModNames.HARVESTCRAFT, "spiceleafseeditem", 1, 0);
-        ModUtils.registerBioReactorEntry(ModNames.HARVESTCRAFT, "teaseeditem", 1, 0);
-        ModUtils.registerBioReactorEntry(ModNames.HARVESTCRAFT, "coffeeseeditem", 1, 0);
-        ModUtils.registerBioReactorEntry(ModNames.HARVESTCRAFT, "mustardseeditem", 1, 0);
-        ModUtils.registerBioReactorEntry(ModNames.HARVESTCRAFT, "broccoliseeditem", 1, 0);
-        ModUtils.registerBioReactorEntry(ModNames.HARVESTCRAFT, "cauliflowerseeditem", 1, 0);
-        ModUtils.registerBioReactorEntry(ModNames.HARVESTCRAFT, "leekseeditem", 1, 0);
-        ModUtils.registerBioReactorEntry(ModNames.HARVESTCRAFT, "lettuceseeditem", 1, 0);
-        ModUtils.registerBioReactorEntry(ModNames.HARVESTCRAFT, "scallionseeditem", 1, 0);
-        ModUtils.registerBioReactorEntry(ModNames.HARVESTCRAFT, "artichokeseeditem", 1, 0);
-        ModUtils.registerBioReactorEntry(ModNames.HARVESTCRAFT, "brusselsproutseeditem", 1, 0);
-        ModUtils.registerBioReactorEntry(ModNames.HARVESTCRAFT, "cabbageseeditem", 1, 0);
-        ModUtils.registerBioReactorEntry(ModNames.HARVESTCRAFT, "spinachseeditem", 1, 0);
-        ModUtils.registerBioReactorEntry(ModNames.HARVESTCRAFT, "beanseeditem", 1, 0);
-        ModUtils.registerBioReactorEntry(ModNames.HARVESTCRAFT, "soybeanseeditem", 1, 0);
-        ModUtils.registerBioReactorEntry(ModNames.HARVESTCRAFT, "bellpeperseeditem", 1, 0);
-        ModUtils.registerBioReactorEntry(ModNames.HARVESTCRAFT, "chilipepperseeditem", 1, 0);
-        ModUtils.registerBioReactorEntry(ModNames.HARVESTCRAFT, "eggplantseeditem", 1, 0);
-        ModUtils.registerBioReactorEntry(ModNames.HARVESTCRAFT, "okraseeditem", 1, 0);
-        ModUtils.registerBioReactorEntry(ModNames.HARVESTCRAFT, "peasseeditem", 1, 0);
-        ModUtils.registerBioReactorEntry(ModNames.HARVESTCRAFT, "tomatoseeditem", 1, 0);
-        ModUtils.registerBioReactorEntry(ModNames.HARVESTCRAFT, "cottonseeditem", 1, 0);
-        ModUtils.registerBioReactorEntry(ModNames.HARVESTCRAFT, "pineappleseeditem", 1, 0);
-        ModUtils.registerBioReactorEntry(ModNames.HARVESTCRAFT, "grapeseeditem", 1, 0);
-        ModUtils.registerBioReactorEntry(ModNames.HARVESTCRAFT, "kiwiseeditem", 1, 0);
-        ModUtils.registerBioReactorEntry(ModNames.HARVESTCRAFT, "cranberryseeditem", 1, 0);
-        ModUtils.registerBioReactorEntry(ModNames.HARVESTCRAFT, "riceseeditem", 1, 0);
-        ModUtils.registerBioReactorEntry(ModNames.HARVESTCRAFT, "seaweedseeditem", 1, 0);
-        ModUtils.registerBioReactorEntry(ModNames.HARVESTCRAFT, "curryleafseeditem", 1, 0);
-        ModUtils.registerBioReactorEntry(ModNames.HARVESTCRAFT, "sesameseedsseeditem", 1, 0);
-        ModUtils.registerBioReactorEntry(ModNames.HARVESTCRAFT, "waterchestnutseeditem", 1, 0);
+    private static final String[] SEEDS = new String[] {
+            "blackberry", "blueberry", "candleberry", "raspberry", "strawberry",
+            "cactusfruit", "asparagus", "barley", "oats", "rye",
+            "corn", "bambooshoot", "cantaloupe", "cucumber", "wintersquash",
+            "zucchini", "beet", "onion", "parsnip", "peanut",
+            "radish", "rutabaga", "sweetpotato", "turnip", "rhubarb",
+            "celery", "garlic", "ginger", "spiceleaf", "tea",
+            "coffee", "mustard", "broccoli", "cauliflower", "leek",
+            "lettuce", "scallion", "artichoke", "brusselsprout", "cabbage",
+            "spinach", "bean", "soybean", "bellpeper", "chilipepper",
+            "eggplant", "okra", "peas", "tomato", "cotton",
+            "pineapple", "grape", "kiwi", "cranberry", "rice",
+            "seaweed", "curryleaf", "sesameseeds", "waterchestnut"
+    };
+    private static final String[] SAPLINGS = new String[] {
+            "date", "papaya", "cherry", "fig", "dragonfruit",
+            "apple", "lemon", "pear", "olive", "grapefruit",
+            "pomegranate", "cashew", "vanillabean", "starfruit", "banana",
+            "plum", "avocado", "pecan", "pistachio", "lime",
+            "peppercorn", "almond", "gooseberry", "peach", "chestnut",
+            "coconut", "mango", "apricot", "orange", "walnut",
+            "persimmon", "nutmeg", "durian", "cinnamon", "maple",
+            "paperbark"
+    };
 
-        ModUtils.registerBioReactorEntry(ModNames.HARVESTCRAFT, "date_sapling", 1, 0);
-        ModUtils.registerBioReactorEntry(ModNames.HARVESTCRAFT, "papaya_sapling", 1, 0);
-        ModUtils.registerBioReactorEntry(ModNames.HARVESTCRAFT, "cherry_sapling", 1, 0);
-        ModUtils.registerBioReactorEntry(ModNames.HARVESTCRAFT, "fig_sapling", 1, 0);
-        ModUtils.registerBioReactorEntry(ModNames.HARVESTCRAFT, "dragonfruit_sapling", 1, 0);
-        ModUtils.registerBioReactorEntry(ModNames.HARVESTCRAFT, "apple_sapling", 1, 0);
-        ModUtils.registerBioReactorEntry(ModNames.HARVESTCRAFT, "lemon_sapling", 1, 0);
-        ModUtils.registerBioReactorEntry(ModNames.HARVESTCRAFT, "pear_sapling", 1, 0);
-        ModUtils.registerBioReactorEntry(ModNames.HARVESTCRAFT, "olive_sapling", 1, 0);
-        ModUtils.registerBioReactorEntry(ModNames.HARVESTCRAFT, "grapefruit_sapling", 1, 0);
-        ModUtils.registerBioReactorEntry(ModNames.HARVESTCRAFT, "pomegranate_sapling", 1, 0);
-        ModUtils.registerBioReactorEntry(ModNames.HARVESTCRAFT, "cashew_sapling", 1, 0);
-        ModUtils.registerBioReactorEntry(ModNames.HARVESTCRAFT, "vanillabean_sapling", 1, 0);
-        ModUtils.registerBioReactorEntry(ModNames.HARVESTCRAFT, "starfruit_sapling", 1, 0);
-        ModUtils.registerBioReactorEntry(ModNames.HARVESTCRAFT, "banana_sapling", 1, 0);
-        ModUtils.registerBioReactorEntry(ModNames.HARVESTCRAFT, "plum_sapling", 1, 0);
-        ModUtils.registerBioReactorEntry(ModNames.HARVESTCRAFT, "avocado_sapling", 1, 0);
-        ModUtils.registerBioReactorEntry(ModNames.HARVESTCRAFT, "pecan_sapling", 1, 0);
-        ModUtils.registerBioReactorEntry(ModNames.HARVESTCRAFT, "pistachio_sapling", 1, 0);
-        ModUtils.registerBioReactorEntry(ModNames.HARVESTCRAFT, "lime_sapling", 1, 0);
-        ModUtils.registerBioReactorEntry(ModNames.HARVESTCRAFT, "peppercorn_sapling", 1, 0);
-        ModUtils.registerBioReactorEntry(ModNames.HARVESTCRAFT, "almond_sapling", 1, 0);
-        ModUtils.registerBioReactorEntry(ModNames.HARVESTCRAFT, "gooseberry_sapling", 1, 0);
-        ModUtils.registerBioReactorEntry(ModNames.HARVESTCRAFT, "peach_sapling", 1, 0);
-        ModUtils.registerBioReactorEntry(ModNames.HARVESTCRAFT, "chestnut_sapling", 1, 0);
-        ModUtils.registerBioReactorEntry(ModNames.HARVESTCRAFT, "coconut_sapling", 1, 0);
-        ModUtils.registerBioReactorEntry(ModNames.HARVESTCRAFT, "mango_sapling", 1, 0);
-        ModUtils.registerBioReactorEntry(ModNames.HARVESTCRAFT, "apricot_sapling", 1, 0);
-        ModUtils.registerBioReactorEntry(ModNames.HARVESTCRAFT, "orange_sapling", 1, 0);
-        ModUtils.registerBioReactorEntry(ModNames.HARVESTCRAFT, "walnut_sapling", 1, 0);
-        ModUtils.registerBioReactorEntry(ModNames.HARVESTCRAFT, "persimmon_sapling", 1, 0);
-        ModUtils.registerBioReactorEntry(ModNames.HARVESTCRAFT, "nutmeg_sapling", 1, 0);
-        ModUtils.registerBioReactorEntry(ModNames.HARVESTCRAFT, "durian_sapling", 1, 0);
-        ModUtils.registerBioReactorEntry(ModNames.HARVESTCRAFT, "cinnamon_sapling", 1, 0);
-        ModUtils.registerBioReactorEntry(ModNames.HARVESTCRAFT, "maple_sapling", 1, 0);
-        ModUtils.registerBioReactorEntry(ModNames.HARVESTCRAFT, "paperbark_sapling", 1, 0);
+    public static void init() {
+        for (String seed : SEEDS) {
+            ModUtils.registerBioReactorEntry(ModNames.HARVESTCRAFT, seed + "seeditem", 1, 0);
+        }
+        for (String sapling : SAPLINGS) {
+            ModUtils.registerBioReactorEntry(ModNames.HARVESTCRAFT, sapling + "_sapling", 1, 0);
+        }
     }
 
 }

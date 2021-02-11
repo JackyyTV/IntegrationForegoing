@@ -38,7 +38,11 @@ repositories {
   }
   maven {
     name = "TOP Maven"
-    url = "https://maven.tterrag.com/"
+    url = "https://maven.tterrag.com"
+  }
+  maven {
+    name = "CraftTweaker Maven"
+    url = "https://maven.blamejared.com"
   }
   maven {
     name = "Curse Maven"
@@ -52,15 +56,19 @@ dependencies {
   deobfCompile("mcjty.theoneprobe:TheOneProbe-1.12:+") {
       transitive = false
   }
-  deobfCompile "curse.maven:gunpowderlib:2852431"
-  deobfCompile "curse.maven:industrialforegoing:2745321"
+  deobfCompile "curse.maven:gunpowderlib-356646:3168863" //1.12.2-1.1
+  deobfCompile "curse.maven:industrialforegoing-266515:2745321" //1.12.2-1.12.13-237
   deobfCompile("slimeknights:TConstruct:1.12.2-2.+") {
       transitive = false
   }
   deobfCompile "slimeknights.mantle:Mantle:1.12-1.+"
-  deobfCompile "curse.maven:immersiveengineering:2799143"
-  deobfCompile "curse.maven:infinitylib:2537265"
-  deobfCompile "curse.maven:agricraft:2609648"
+  deobfCompile "curse.maven:immersiveengineering-231951:2974106" //0.12-98
+  deobfCompile "curse.maven:infinitylib-251396:2537265" //1.12.0
+  deobfCompile "curse.maven:agricraft-225635:2609648" //2.12.0-1.12.0-a6
+  deobfCompile "CraftTweaker2:CraftTweaker2-MC1120-Main:1.12-4.+"
+  
+  //Remove ID limits when working with all of the supported mods installed
+  deobfCompile "curse.maven:justenoughids-296289:2919737" //1.0.3-55
 }
 
 processResources {

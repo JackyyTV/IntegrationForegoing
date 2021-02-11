@@ -5,11 +5,14 @@ import jackyy.integrationforegoing.util.ModUtils;
 
 public class BioReactorHandlerActuallyAdditions {
 
+    private static final String[] SEEDS = new String[] {
+            "rice", "canola", "flax", "coffee"
+    };
+
     public static void init() {
-        ModUtils.registerBioReactorEntry(ModNames.AA, "item_rice_seed", 1, 0);
-        ModUtils.registerBioReactorEntry(ModNames.AA, "item_canola_seed", 1, 0);
-        ModUtils.registerBioReactorEntry(ModNames.AA, "item_flax_seed", 1, 0);
-        ModUtils.registerBioReactorEntry(ModNames.AA, "item_coffee_seed", 1, 0);
+        for (String seed : SEEDS) {
+            ModUtils.registerBioReactorEntry(ModNames.AA, "item_" + seed + "_seed", 1, 0);
+        }
     }
 
 }
