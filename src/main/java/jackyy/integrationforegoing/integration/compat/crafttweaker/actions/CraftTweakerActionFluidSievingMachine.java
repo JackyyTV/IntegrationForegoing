@@ -23,8 +23,8 @@ public class CraftTweakerActionFluidSievingMachine {
     }
 
     @ZenMethod
-    public static void remove(IItemStack input) {
-        CraftTweakerAPI.apply(new RemoveEntry((ItemStack) input.getInternal()));
+    public static void remove(IItemStack output) {
+        CraftTweakerAPI.apply(new RemoveEntry((ItemStack) output.getInternal()));
     }
 
     private static class AddEntry implements IAction {
