@@ -1,28 +1,29 @@
 package jackyy.integrationforegoing.integration.compat.crafttweaker.actions;
 
+import com.blamejared.crafttweaker.api.CraftTweakerAPI;
+import com.blamejared.crafttweaker.api.actions.IAction;
+import com.blamejared.crafttweaker.api.annotations.ZenRegister;
+import com.blamejared.crafttweaker.api.fluid.IFluidStack;
 import com.buuz135.industrial.api.recipe.ore.OreFluidEntryFermenter;
-import com.buuz135.industrial.utils.apihandlers.crafttweaker.CTAction;
-import crafttweaker.CraftTweakerAPI;
-import crafttweaker.IAction;
-import crafttweaker.api.liquid.ILiquidStack;
+import jackyy.integrationforegoing.util.EnumAction;
 import jackyy.integrationforegoing.integration.compat.crafttweaker.CraftTweakerCompat;
 import jackyy.integrationforegoing.util.ModUtils;
 import net.minecraftforge.fluids.FluidStack;
-import stanhebben.zenscript.annotations.ZenClass;
-import stanhebben.zenscript.annotations.ZenMethod;
+import org.openzen.zencode.java.ZenCodeType;
 
-@ZenClass("mods.industrialforegoing.FermentationStation")
+@ZenRegister
+@ZenCodeType.Name("mods.industrialforegoing.FermentationStation")
 public class CraftTweakerActionFermentationStation {
 
-    @ZenMethod
-    public static void add(ILiquidStack input, ILiquidStack output) {
-        OreFluidEntryFermenter entry = new OreFluidEntryFermenter((FluidStack) input.getInternal(), (FluidStack) output.getInternal());
+    @ZenCodeType.Method
+    public static void add(IFluidStack input, IFluidStack output) {
+        OreFluidEntryFermenter entry = new OreFluidEntryFermenter(input.getInternal(), output.getInternal());
         CraftTweakerAPI.apply(new AddEntry(entry));
     }
 
-    @ZenMethod
-    public static void remove(ILiquidStack input) {
-        CraftTweakerAPI.apply(new RemoveEntry((FluidStack) input.getInternal()));
+    @ZenCodeType.Method
+    public static void remove(IFluidStack input) {
+        CraftTweakerAPI.apply(new RemoveEntry(input.getInternal()));
     }
 
     private static class AddEntry implements IAction {
@@ -34,12 +35,12 @@ public class CraftTweakerActionFermentationStation {
 
         @Override
         public void apply() {
-            CraftTweakerCompat.FERMENTATION_STATION_ENTRIES.put(CTAction.ADD, entry);
+            CraftTweakerCompat.FERMENTATION_STATION_ENTRIES.put(EnumAction.ADD, entry);
         }
 
         @Override
         public String describe() {
-            return "Adding Fermentation Station Entry " + entry.getInput();
+            return "Adding Fermentation Station Entry " + entry.getInput().getDisplayName();
         }
     }
 
@@ -52,12 +53,12 @@ public class CraftTweakerActionFermentationStation {
 
         @Override
         public void apply() {
-            CraftTweakerCompat.FERMENTATION_STATION_ENTRIES.put(CTAction.REMOVE, new OreFluidEntryFermenter(input, ModUtils.getFakeFluid()));
+            CraftTweakerCompat.FERMENTATION_STATION_ENTRIES.put(EnumAction.REMOVE, new OreFluidEntryFermenter(input, ModUtils.getFakeFluid()));
         }
 
         @Override
         public String describe() {
-            return "Removing Fermentation Station Entry " + input;
+            return "Removing Fermentation Station Entry " + input.getDisplayName();
         }
     }
 

@@ -1,0 +1,12 @@
+{
+    "_comment": "Tinkers' Construct Compat",
+    "material.integrationforegoing.plastic.name": "Plastic",
+    "material.integrationforegoing.pink_slime.name": "Pink Slime",
+    "material.integrationforegoing.reinforced_pink_slime.name": "Reinforced Pink Slime",
+    "fluid.integrationforegoing.molten_reinforced_pink_slime": "Molten Reinforced Pink Slime",
+
+    "_comment": "Plant Gatherer Tooltips",
+    "text.integrationforegoing.plant.hemp_replant": " - Industrial Hemp from Immersive Engineering §o(Harvest both blocks)",
+    "text.integrationforegoing.plant.hemp_no_replant": " - Industrial Hemp from Immersive Engineering §o(Harvest top block only)",
+    "text.integrationforegoing.plant.botania_tall_mystical_flowers": " - Any Tall Mystical Flowers from Botania"
+}

@@ -1,4 +1,6 @@
-#### Here's a list of mods that are supported by Integration Foregoing on Minecraft 1.12.2:
+#### Here's a list of mods that are supported by Integration Foregoing on Minecraft 1.16.5:
+
+#### TBD Not updated yet
 
 - [CraftTweaker](https://www.curseforge.com/minecraft/mc-mods/crafttweaker): Support for adding / removing Washing Factory, Fermentation Station and Fluid Sieving Machine recipes
 - [Thermal Foundation](https://www.curseforge.com/minecraft/mc-mods/thermal-foundation): Straw drinking and Laser Drill entries

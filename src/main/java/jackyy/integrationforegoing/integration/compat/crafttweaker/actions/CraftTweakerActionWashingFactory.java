@@ -1,28 +1,30 @@
 package jackyy.integrationforegoing.integration.compat.crafttweaker.actions;
 
+import com.blamejared.crafttweaker.api.CraftTweakerAPI;
+import com.blamejared.crafttweaker.api.actions.IAction;
+import com.blamejared.crafttweaker.api.annotations.ZenRegister;
+import com.blamejared.crafttweaker.api.fluid.IFluidStack;
 import com.buuz135.industrial.api.recipe.ore.OreFluidEntryRaw;
-import com.buuz135.industrial.utils.apihandlers.crafttweaker.CTAction;
-import crafttweaker.CraftTweakerAPI;
-import crafttweaker.IAction;
-import crafttweaker.api.liquid.ILiquidStack;
 import jackyy.integrationforegoing.integration.compat.crafttweaker.CraftTweakerCompat;
+import jackyy.integrationforegoing.util.EnumAction;
 import jackyy.integrationforegoing.util.ModUtils;
-import net.minecraftforge.fluids.FluidStack;
-import stanhebben.zenscript.annotations.ZenClass;
-import stanhebben.zenscript.annotations.ZenMethod;
+import net.minecraft.item.Item;
+import net.minecraft.tags.Tag;
+import org.openzen.zencode.java.ZenCodeType;
 
-@ZenClass("mods.industrialforegoing.WashingFactory")
+@ZenRegister
+@ZenCodeType.Name("mods.industrialforegoing.WashingFactory")
 public class CraftTweakerActionWashingFactory {
 
-    @ZenMethod
-    public static void add(String ore, ILiquidStack input, ILiquidStack output) {
-        OreFluidEntryRaw entry = new OreFluidEntryRaw(ore, (FluidStack) input.getInternal(), (FluidStack) output.getInternal());
+    @ZenCodeType.Method
+    public static void add(Tag<Item> itemTag, IFluidStack input, IFluidStack output) {
+        OreFluidEntryRaw entry = new OreFluidEntryRaw(itemTag, input.getInternal(), output.getInternal());
         CraftTweakerAPI.apply(new AddEntry(entry));
     }
 
-    @ZenMethod
-    public static void remove(String ore) {
-        CraftTweakerAPI.apply(new RemoveEntry(ore));
+    @ZenCodeType.Method
+    public static void remove(Tag<Item> itemTag) {
+        CraftTweakerAPI.apply(new RemoveEntry(itemTag));
     }
 
     private static class AddEntry implements IAction {
@@ -34,7 +36,7 @@ public class CraftTweakerActionWashingFactory {
 
         @Override
         public void apply() {
-            CraftTweakerCompat.WASHING_FACTORY_ENTRIES.put(CTAction.ADD, entry);
+            CraftTweakerCompat.WASHING_FACTORY_ENTRIES.put(EnumAction.ADD, entry);
         }
 
         @Override
@@ -44,20 +46,20 @@ public class CraftTweakerActionWashingFactory {
     }
 
     private static class RemoveEntry implements IAction {
-        private final String ore;
+        private final Tag<Item> itemTag;
 
-        private RemoveEntry(String ore) {
-            this.ore = ore;
+        private RemoveEntry(Tag<Item> itemTag) {
+            this.itemTag = itemTag;
         }
 
         @Override
         public void apply() {
-            CraftTweakerCompat.WASHING_FACTORY_ENTRIES.put(CTAction.REMOVE, new OreFluidEntryRaw(ore, ModUtils.getFakeFluid(), ModUtils.getFakeFluid()));
+            CraftTweakerCompat.WASHING_FACTORY_ENTRIES.put(EnumAction.REMOVE, new OreFluidEntryRaw(itemTag, ModUtils.getFakeFluid(), ModUtils.getFakeFluid()));
         }
 
         @Override
         public String describe() {
-            return "Removing Washing Factory Entry " + ore;
+            return "Removing Washing Factory Entry " + itemTag;
         }
     }
 

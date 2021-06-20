@@ -1,0 +1,13 @@
+{
+  "name": "Integration Foregoing",
+  "icon": "industrialforegoing:straw",
+  "category": "basics",
+  "sortnum": 7,
+  "read_by_default": true,
+  "pages": [
+    {
+      "type": "text",
+      "text": "Seems like you've installed Integration Foregoing... $(br2)Integration Foregoing is the official addon for Industrial Foregoing, making use of its API and added some missing mod integrations. $(br2)Added contents includes: Additional straw drinking handler for fluids from other mods, Bioreactor entries, Plant Gatherer handlers, Tinkers' Construct tool materials and more!"
+    }
+  ]
+}

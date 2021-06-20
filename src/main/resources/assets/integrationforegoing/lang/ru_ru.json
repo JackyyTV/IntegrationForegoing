@@ -1,0 +1,12 @@
+{
+    "_comment": "Tinkers' Construct Compat",
+    "material.integrationforegoing.plastic.name": "Пластик",
+    "material.integrationforegoing.pink_slime.name": "Розовый слизень",
+    "material.integrationforegoing.reinforced_pink_slime.name": "Усиленная розовая слизень",
+    "fluid.integrationforegoing.molten_reinforced_pink_slime": "Раплавленная усиленная розовая слизень",
+
+    "_comment": "Plant Gatherer Tooltips",
+    "text.integrationforegoing.plant.hemp_replant": " - Промышленная конопля из Immersive Engineering §o(собирает оба блока)",
+    "text.integrationforegoing.plant.hemp_no_replant": " - Промышленная конопля из Immersive Engineering §o(собирает только верхний блок)",
+    "text.integrationforegoing.plant.botania_tall_mystical_flowers": " - Любые высокие мистические цветы из Botania"
+}

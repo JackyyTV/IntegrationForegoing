@@ -1,0 +1,12 @@
+{
+    "_comment": "Tinkers' Construct Compat",
+    "material.integrationforegoing.plastic.name": "塑料",
+    "material.integrationforegoing.pink_slime.name": "粉红史莱姆",
+    "material.integrationforegoing.reinforced_pink_slime.name": "强化粉红史莱姆",
+    "fluid.integrationforegoing.molten_reinforced_pink_slime": "熔融强化粉红史莱姆",
+
+    "_comment": "Plant Gatherer Tooltips",
+    "text.integrationforegoing.plant.hemp_replant": "- 来自Immersive Engineering（沉浸工程）的工业大麻§o（收获全部）",
+    "text.integrationforegoing.plant.hemp_no_replant": "- 来自Immersive Engineering（沉浸工程）的工业大麻§o（仅收获顶部）",
+    "text.integrationforegoing.plant.botania_tall_mystical_flowers": "- 来自Botania（植物魔法）的任意高神秘花"
+}

@@ -1,0 +1,112 @@
+modLoader="javafml"
+loaderVersion="[35,)"
+license="Jacky's Minecraft Mods License"
+issueTrackerURL="https://github.com/JackyyTV/IntegrationForegoing/issues"
+
+[[mods]]
+modId="integrationforegoing"
+version="1.16.5-2.0"
+displayName="Integration Foregoing"
+displayURL="https://github.com/JackyyTV/IntegrationForegoing"
+logoFile="logo.png"
+authors="Jackyy, Buuz135"
+description='''
+The official addon mod for Industrial Foregoing that adds additional mods compatibility!
+'''
+
+[[dependencies.integrationforegoing]]
+    modId="forge"
+    mandatory=true
+    versionRange="[35,)"
+    ordering="NONE"
+    side="BOTH"
+[[dependencies.integrationforegoing]]
+    modId="minecraft"
+    mandatory=true
+    versionRange="[1.16,1.17)"
+    ordering="NONE"
+    side="BOTH"
+[[dependencies.integrationforegoing]]
+    modId="gunpowderlib"
+    mandatory=true
+    versionRange="[1.16.4-1.2.2,)"
+    ordering="AFTER"
+    side="BOTH"
+[[dependencies.integrationforegoing]]
+    modId="industrialforegoing"
+    mandatory=true
+    versionRange="[3.2.9,)"
+    ordering="AFTER"
+    side="BOTH"
+[[dependencies.integrationforegoing]]
+    modId="crafttweaker"
+    mandatory=false
+    versionRange="[7.0.0,)"
+    ordering="AFTER"
+    side="BOTH"
+[[dependencies.integrationforegoing]]
+    modId="thermal"
+    mandatory=false
+    versionRange="[1.0,)"
+    ordering="AFTER"
+    side="BOTH"
+[[dependencies.integrationforegoing]]
+    modId="immersiveengineering"
+    mandatory=false
+    versionRange="[1.0,)"
+    ordering="AFTER"
+    side="BOTH"
+[[dependencies.integrationforegoing]]
+    modId="mysticalagriculture"
+    mandatory=false
+    versionRange="[1.0,)"
+    ordering="AFTER"
+    side="BOTH"
+[[dependencies.integrationforegoing]]
+    modId="mysticalagradditions"
+    mandatory=false
+    versionRange="[1.0,)"
+    ordering="AFTER"
+    side="BOTH"
+[[dependencies.integrationforegoing]]
+    modId="pamhc2trees"
+    mandatory=false
+    versionRange="[1.0,)"
+    ordering="AFTER"
+    side="BOTH"
+[[dependencies.integrationforegoing]]
+    modId="exnihilosequentia"
+    mandatory=false
+    versionRange="[1.0,)"
+    ordering="AFTER"
+    side="BOTH"
+[[dependencies.integrationforegoing]]
+    modId="immersivepetroleum"
+    mandatory=false
+    versionRange="[1.0,)"
+    ordering="AFTER"
+    side="BOTH"
+[[dependencies.integrationforegoing]]
+    modId="biomesoplenty"
+    mandatory=false
+    versionRange="[1.0,)"
+    ordering="AFTER"
+    side="BOTH"
+[[dependencies.integrationforegoing]]
+    modId="astralsorcery"
+    mandatory=false
+    versionRange="[1.0,)"
+    ordering="AFTER"
+    side="BOTH"
+[[dependencies.integrationforegoing]]
+    modId="botania"
+    mandatory=false
+    versionRange="[1.0,)"
+    ordering="AFTER"
+    side="BOTH"
+[[dependencies.integrationforegoing]]
+    modId="cyclic"
+    mandatory=false
+    versionRange="[1.0,)"
+    ordering="AFTER"
+    side="BOTH"
